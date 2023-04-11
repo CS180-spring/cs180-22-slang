@@ -37,17 +37,17 @@ class Song{
         int getCluster(){
             return cluster; 
         }
-        string getName(){
-            return name;
-        }
-        vector<double> getCoords(){
-            return coordinates;
-        }
         void setCluster(int val){
             cluster = val; 
         }
-        double getCoord(int index){ 
+        vector<double> getCoords(){ //returns entire coordinate
+            return coordinates;
+        }
+        double getCoord(int index){ //gets specific term in coordinate
             return coordinates.at(index); 
+        }
+        string getName(){
+            return name;
         }
 };
 
@@ -101,11 +101,141 @@ class Cluster{
 
 class kMeans{
     private:
+        int k, dimensions, totalSongs, iterations;
+        vector<Cluster> clusters;
+        string outputFile;
+
+        void clearClusters(){
+            for(int i = 0; i < k; i++){
+                clusters.at(i).removeAllPoints();
+            }
+        }
+
+        int getNearestCluster(Song inputSong){
+            double sum, shortestPath;
+            int nearest;
+            sum = 0.00;
+
+            if(dimensions == 1){ //if we only have one song feature to analyze
+                shortestPath = abs(clusters.at(0).getCenterCoord(0) - inputSong.getCoord(0));
+            }
+            else{ //calculating euclidean distance
+                for(int i = 0; i < dimensions; i++){
+                    sum += pow(clusters.at(0).getCenterCoord(i) - inputSong.getCoord(i), 2);
+                }
+                shortestPath = sqrt(sum);
+            }
+            nearest = clusters.at(0).getClusterNum();
+
+            //above we got the distance for the first cluster so we have something to compare to
+            //now we'll go through the rest of the clusters and see if we can find one closer
+            //to our current song
+
+            for(int i = 1; i < k; i++){
+                double distance;
+                sum = 0.00; //clear from last use
+
+                if(dimensions == 1){
+                    distance = abs(clusters.at(i).getCenterCoord(0) - inputSong.getCoord(0));
+                }
+                else{
+                    for(int j = 0; j < dimensions; j++){
+                        sum += pow(clusters.at(i).getCenterCoord(j) - inputSong.getCoord(j), 2);
+                    }
+                    distance = sqrt(sum);
+                }
+
+                if(distance < shortestPath){
+                    shortestPath = distance;
+                    nearest = clusters.at(i).getClusterNum();
+                }
+            }
+
+            return nearest;
+        }
 
     public:
+        kMeans(int K, int numOfIterations, string outputLoc){
+            k = K;
+            iterations = numOfIterations;
+            outputFile = outputLoc;
+        }
+        void classify(vector<Song> &allSongs){
+            totalSongs = allSongs.size();
+            dimensions = allSongs.at(0).getDimensions();
+
+            vector<string> usedSongs;
+
+            //make k clusters and pick a random song to put in each. These random songs
+            //will act as the cluster centers for now
+            for(int i = 1; i < k; i++){
+                while(1){
+                    int index = rand() % totalSongs;
+                    if(find(usedSongs.begin(), usedSongs.end(), index) == usedSongs.end()){
+                        usedSongs.push_back(allSongs.at(index).getName());
+                        allSongs.at(index).setCluster(i);
+                        Cluster newCluster(i, allSongs.at(index));
+                        clusters.push_back(newCluster);
+                        break;
+                    }
+                }
+            }
+
+            int itNum = 1;
+            while(1){
+                bool done = true;
+                //we learned this command in 160. Speeds up clustering process since
+                //we'll have many songs
+                #pragma omp parallel for reduction(&&: done) num_threads(16)
+
+                for(int i = 0; i < totalSongs; i ++){
+                    int currCluster = allSongs.at(i).getCluster();
+                    int nearestCluster = getNearestCluster(allSongs.at(i));
+                    if(currCluster != nearestCluster){
+                        allSongs.at(i).setCluster(nearestCluster);
+                        done = false;
+                    }
+                }
+
+                //clear the clusters and reassign based on what we found above
+                clearClusters();
+                for(int i = 0; i < totalSongs; i++){
+                    clusters.at(allSongs.at(i).getCluster() - 1).addSong(allSongs.at(i));
+                }
+
+                //recalculate the cluster centers
+                for(int i = 0; i < k; i++){
+                    int size = clusters.at(i).getSize();
+                    for(int j = 0; j < dimensions; j++){
+                        double sum = 0;
+                        if(size > 0){
+                            #pragma omp parallel for reduction(+: sum) num_threads(16)
+                            for(int l = 0; l < size; l++){
+                                sum += clusters.at(i).getSong(l).getCoord(j);
+                            }
+                            clusters.at(i).setCenter(j, sum/size);
+                        }
+                    }
+                }
+
+                if(done || itNum >= iterations){
+                    break;
+                }
+                itNum ++;
+            }
+
+            ofstream outFile;
+            outFile.open(outputFile, ios::out);
+            
+            for(int i = 0; i < totalSongs; i++){
+                outFile << allSongs.at(i).getName() << ": " << allSongs.at(i).getCluster() << endl;
+            }
+        }
 };
 
 int main(int argc, char **argv){
+
+    
 
     return 0;
 }
