@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "readCSV.h"
 
 using namespace std;
 
@@ -17,18 +18,10 @@ class Song{
         vector<double> coordinates; //coordinates on graph 
 
     public:
-        Song(string songName, string coords){
+        Song(string songName, vector<double> coords){
             name = songName;
             cluster = 0; //initially doesn't belong to any closter
-
-            //turns string of coordinates into a vector
-            //unsure if this works with negative numbers as of rn
-            stringstream iss(coords);
-            double number;
-            while(iss >> number){
-                coordinates.push_back(number);
-            }
-
+            coordinates = coords;
             dimensions = coordinates.size();
         }
         int getDimensions(){ 
@@ -171,7 +164,8 @@ class kMeans{
             for(int i = 1; i < k; i++){
                 while(1){
                     int index = rand() % totalSongs;
-                    if(find(usedSongs.begin(), usedSongs.end(), index) == usedSongs.end()){
+                    string tempSong = allSongs.at(index).getName();
+                    if(find(usedSongs.begin(), usedSongs.end(), tempSong) == usedSongs.end()){
                         usedSongs.push_back(allSongs.at(index).getName());
                         allSongs.at(index).setCluster(i);
                         Cluster newCluster(i, allSongs.at(index));
@@ -233,9 +227,47 @@ class kMeans{
         }
 };
 
-int main(int argc, char **argv){
+int main(){
+    string output = "";
+    int clusterNumber;
+    int iterationNumber = 100; //we can make this user specified
+    csv songList;
 
+    vector<Song> allSongs;
     
+    vector<vector<string>*> returnData = songList.read();
+    for(int i = 0; i < returnData.size(); i++){
+       vector<string> *temp = returnData.at(i);
+    //    string tempName = (*temp).at(0);
+    //    cout << "before alter" << endl;
+    //    vector<double> allDoubles = songList.alter(temp);
+    //    cout << "finished alter" << endl;
+    //    Song newSong(tempName, allDoubles);
+    //    allSongs.push_back(newSong);
+
+        for(int j = 0; j < (*temp).size(); j++){
+            cout << i << ":" << (*temp).at(j) << endl;
+        }
+    }
+
+    // cout << "Please enter the name of the output file: ";
+    // cin >> output;
+    // cout << endl;
+
+    // cout << "Specify the number of clusters you want: ";
+    // cin >> clusterNumber;
+    // cout << endl;
+
+    // ofstream outFile;
+    // outFile.open("outputFile.txt", ios::out);
+
+    // for(int i = 0; i < allSongs.size(); i++){
+    //     outFile << allSongs.at(i).getName() << ": ";
+    //     vector<double>coords = allSongs.at(i).getCoords();
+    //     for(int j = 0; j < coords.size(); j++){
+    //         outFile << coords.at(i) << ", " << endl;
+    //     }
+    // }
 
     return 0;
 }

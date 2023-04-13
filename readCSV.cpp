@@ -4,50 +4,49 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "readCSV.h"
 
 using namespace std;
 
-void split(const string& s, char c, vector<string>& v) {
+void csv::split(const string&s, char c, vector<string>&v){
    int i = 0;
    int j = s.find(c);
+   string sCopy = s;
 
-   while (j >= 0) {
-      v.push_back(s.substr(i, j-i));
-      i = ++j;
-      j = s.find(c, j);
+   while(j >= 0){
+      v.push_back(sCopy.substr(0, j-i));
+      sCopy = sCopy.substr(j+1, sCopy.length());
+      j = sCopy.find(c);
 
-      if (j < 0) {
-         v.push_back(s.substr(i, s.length()));
+      if(j < 0){
+         v.push_back(sCopy.substr(i, sCopy.length()));
       }
    }
 }
 
-void loadCSV(istream& in, vector<vector<string>*>& data) {
-
+void csv::loadCSV(istream& in, vector<vector<string>*>& data){
    vector<string>* p = NULL;
-   string tmp;
+   string temp;
 
-   while (!in.eof()) {
-      getline(in, tmp, '\n');
+   while(!in.eof()){
+      getline(in, temp, '\n');
 
       p = new vector<string>();
-      split(tmp, ',', *p); 
+      split(temp, ',', *p);
       data.push_back(p);
 
-      cout << tmp << '\n';
-      tmp.clear();
+      temp.clear();
    }
 }
 
-vector<vector<string>*> read(){
-    string doc;
+vector<vector<string>*> csv::read(){
+   string doc;
 
-    cout << "Please enter csv to read: ";
-    cin >> doc;
-    cout << endl;
+   cout << "Please enter the csv to read: ";
+   cin >> doc;
+   cout << endl;
 
    ifstream in(doc);
-
    vector<vector<string>*> data;
 
    loadCSV(in, data);
@@ -55,7 +54,18 @@ vector<vector<string>*> read(){
    return data;
 }
 
-void clear(vector<vector<string>*> data){
+vector<double> csv::alter(vector<string>* data){
+   cout << "inside alter" << endl;
+   vector<double> doubles((*data).size());
+   for(int i = 1; i < (*data).size(); i++){
+      cout << (*data).at(i) << endl;
+      doubles.push_back(std::stod((*data).at(i)));
+   }
+
+   return doubles;
+}
+
+void csv::clear(vector<vector<string>*> data){
     for(vector<vector<string>*>::iterator p = data.begin();p != data.end(); ++p) {
       delete *p;
    }   
