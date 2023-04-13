@@ -238,36 +238,31 @@ int main(){
     vector<vector<string>*> returnData = songList.read();
     for(int i = 0; i < returnData.size(); i++){
        vector<string> *temp = returnData.at(i);
-    //    string tempName = (*temp).at(0);
-    //    cout << "before alter" << endl;
-    //    vector<double> allDoubles = songList.alter(temp);
-    //    cout << "finished alter" << endl;
-    //    Song newSong(tempName, allDoubles);
-    //    allSongs.push_back(newSong);
-
-        for(int j = 0; j < (*temp).size(); j++){
-            cout << i << ":" << (*temp).at(j) << endl;
-        }
+       string tempName = (*temp).at(0);
+       vector<double> allDoubles = songList.alter(temp);
+       Song newSong(tempName, allDoubles);
+       allSongs.push_back(newSong);
     }
 
-    // cout << "Please enter the name of the output file: ";
-    // cin >> output;
-    // cout << endl;
+    cout << "Please enter the name of the output file: ";
+    cin >> output;
+    cout << endl;
 
     // cout << "Specify the number of clusters you want: ";
     // cin >> clusterNumber;
     // cout << endl;
 
-    // ofstream outFile;
-    // outFile.open("outputFile.txt", ios::out);
+    ofstream outFile;
+    outFile.open(output, ios::out);
 
-    // for(int i = 0; i < allSongs.size(); i++){
-    //     outFile << allSongs.at(i).getName() << ": ";
-    //     vector<double>coords = allSongs.at(i).getCoords();
-    //     for(int j = 0; j < coords.size(); j++){
-    //         outFile << coords.at(i) << ", " << endl;
-    //     }
-    // }
+    for(int i = 0; i < allSongs.size(); i++){
+        outFile << allSongs.at(i).getName() << ": ";
+        vector<double>coords = allSongs.at(i).getCoords(); 
+        for(int j = 0; j < coords.size(); j++){
+            outFile << coords.at(j) << ", ";
+        }
+        outFile << endl;
+    }
 
     return 0;
 }

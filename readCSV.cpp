@@ -55,10 +55,8 @@ vector<vector<string>*> csv::read(){
 }
 
 vector<double> csv::alter(vector<string>* data){
-   cout << "inside alter" << endl;
-   vector<double> doubles((*data).size());
+   vector<double> doubles;
    for(int i = 1; i < (*data).size(); i++){
-      cout << (*data).at(i) << endl;
       doubles.push_back(std::stod((*data).at(i)));
    }
 
