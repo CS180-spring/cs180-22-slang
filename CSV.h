@@ -17,6 +17,8 @@ class csv{
     vector<double> alter(vector<string>*);
     void clear(vector<vector<string>*>);
     void makeCSV();
+    void makeCSV2();
+    vector<vector<string>*> makeCombined();
 };
 
 #endif
