@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 
 root = tk.Tk()
-root.title("Spotify Playlist Merger")
+root.title("SpotiDB")
 root.resizable(width=False, height=False)
 
 
@@ -34,9 +34,15 @@ loadButton = ttk.Button(widgets_frame, text="Load Playlists", style="Accent.TBut
 loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 
+mergeButton = ttk.Button(frame, text="Merge", style="Accent.TButton")
+mergeButton.place(x=215, y=16)
+
+recommendButton = ttk.Button(frame, text="Add Recommended", style="Accent.TButton")
+recommendButton.place(x=320, y=16)
+
 
 NotebookPlaylist = ttk.Notebook(frame)
-NotebookPlaylist.grid(row=0, column=1, padx=5, pady=5, sticky="nsew")
+NotebookPlaylist.grid(row=0, column=1, padx=(0,20), pady=(60,20), sticky="nsew")
 
 playlistFrame1 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
 playlistFrame2 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
@@ -68,7 +74,7 @@ treeview3.pack(fill="both", expand=True)
 
 NotebookPlaylist.add(treeview1, text="Playlist 1")
 NotebookPlaylist.add(treeview2, text="Playlist 2")
-NotebookPlaylist.add(treeview3, text="Playlist 3")
+NotebookPlaylist.add(treeview3, text="New Playlist")
 
 root.mainloop()
 

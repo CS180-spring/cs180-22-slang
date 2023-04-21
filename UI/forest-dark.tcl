@@ -496,7 +496,7 @@ namespace eval ttk::theme::forest-dark {
         # Notebook
         ttk::style configure TNotebook -padding 2
 
-        ttk::style element create Notebook.border image $I(card) -border 5
+        ttk::style element create Notebook.border image $I(cardTransparent) -border 5
 
         ttk::style element create Notebook.client image $I(notebook) -border 5
 
