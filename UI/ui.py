@@ -3,6 +3,9 @@ import tkinter as tk
 from tkinter import ttk
 
 root = tk.Tk()
+root.title("Spotify Playlist Merger")
+root.resizable(width=False, height=False)
+
 
 style = ttk.Style(root)
 root.tk.call("source", "./forest-light.tcl")
@@ -12,7 +15,7 @@ style.theme_use("forest-dark")
 frame = ttk.Frame(root)
 frame.pack()
 
-root.title("Spotify Playlist Merger")
+
 widgets_frame = ttk.LabelFrame(frame, text="Paste Playlists")
 widgets_frame.grid(row=0, column=0, padx=20, pady=10)
 

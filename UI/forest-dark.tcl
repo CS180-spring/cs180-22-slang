@@ -507,7 +507,7 @@ namespace eval ttk::theme::forest-dark {
             ] -border 5 -padding {14 4}
 
         # Treeview
-        ttk::style element create Treeview.field image $I(card) \
+        ttk::style element create Treeview.field image $I(cardTransparent) \
             -border 5
 
         ttk::style element create Treeheading.cell image \
