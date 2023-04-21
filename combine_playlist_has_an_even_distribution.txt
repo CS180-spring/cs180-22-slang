@@ -1,0 +1,19 @@
+
+Objective:
+To verify that the combined playlist has an even distribution of songs from each individual playlist.
+
+Preconditions:
+Two or more playlists are available to be combined.
+The user has selected the playlists to be combined.
+
+Expected Outcomes:
+
+The combined playlist should be properly constructed.
+The estimated amount of songs should be present on each separate playlist.
+In the combined playlist, the music distribution should be balanced.
+The percentage variation must be below or equal to the designated threshold value.
+Different playlist combinations should pass the test.
+
+Test Results
+Two or more playlists with different numbers of songs.
+
