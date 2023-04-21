@@ -5,18 +5,28 @@ import csv
 import os
 
 def load_playlist():
-    file_path = os.path.join(os.pardir, 'Playlist1.csv')
+    file_path1 = '/Users/ailan/Desktop/Labs/CS180/cs180-22-slang/Playlist.csv'
+    file_path2 = '/Users/ailan/Desktop/Labs/CS180/cs180-22-slang/Playlist2.csv'
 
-    with open(file_path, 'r') as f:
-        reader = csv.reader(f)
-        playlist = list(reader)
-        print(playlist)
+    with open(file_path1, 'r') as f1:
+        reader1 = csv.reader(f1)
+        playlist1 = list(reader1)
+        print(playlist1)
 
         treeview1.delete(*treeview1.get_children())
 
-        for row in playlist:
+        for row in playlist1:
             treeview1.insert("", "end", values=row)
 
+    with open(file_path2, 'r') as f2:
+        reader2 = csv.reader(f2)
+        playlist2 = list(reader2)
+        print(playlist2)
+
+        treeview2.delete(*treeview2.get_children())
+
+        for row in playlist2:
+            treeview2.insert("", "end", values=row)
 
 root = tk.Tk()
 root.title("SpotiDB")
@@ -24,8 +34,12 @@ root.resizable(width=False, height=False)
 
 
 style = ttk.Style(root)
-root.tk.call("source", "./forest-light.tcl")
-root.tk.call("source", "./forest-dark.tcl")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+forest_light_tcl = os.path.join(script_dir, "forest-light.tcl")
+forest_dark_tcl = os.path.join(script_dir, "forest-dark.tcl")
+
+root.tk.call("source", forest_light_tcl)
+root.tk.call("source", forest_dark_tcl)
 style.theme_use("forest-dark")
 
 frame = ttk.Frame(root)
@@ -98,31 +112,54 @@ playlistFrame2 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
 playlistFrame3 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
 
 
-cols = ("Name", "Age", "Subscription", "Employment")
+cols = ("Artist", "Album", "Title", "SongID")
 treeview1 = ttk.Treeview(NotebookPlaylist, show="headings", columns=cols, height=13)
-treeview1.column("Name", width=100)
-treeview1.column("Age", width=50)
-treeview1.column("Subscription", width=100)
-treeview1.column("Employment", width=100)
+treeview1.column("Artist", width=100)
+treeview1.column("Album", width=100)
+treeview1.column("Title", width=100)
+treeview1.column("SongID", width=100)
 treeview1.pack(fill="both", expand=True, side="left")
+for col in cols:
+    treeview1.heading(col, text=col)
 
 treeview2 = ttk.Treeview(NotebookPlaylist, show="headings", columns=cols, height=13)
-treeview2.column("Name", width=100)
-treeview2.column("Age", width=50)
-treeview2.column("Subscription", width=100)
-treeview2.column("Employment", width=100)
+treeview2.column("Artist", width=100)
+treeview2.column("Album", width=100)
+treeview2.column("Title", width=100)
+treeview2.column("SongID", width=100)
 treeview2.pack(fill="both", expand=True, side="left")
+for col in cols:
+    treeview2.heading(col, text=col)
 
 treeview3 = ttk.Treeview(NotebookPlaylist, show="headings", columns=cols, height=13)
-treeview3.column("Name", width=100)
-treeview3.column("Age", width=50)
-treeview3.column("Subscription", width=100)
-treeview3.column("Employment", width=100)
-treeview2.pack(fill="both", expand=True, side="left")
+treeview3.column("Artist", width=100)
+treeview3.column("Album", width=100)
+treeview3.column("Title", width=100)
+treeview3.column("SongID", width=100)
+treeview3.pack(fill="both", expand=True, side="left")
+for col in cols:
+    treeview3.heading(col, text=col)
+
 
 scrollbar1 = ttk.Scrollbar(treeview1, orient="vertical", command=treeview1.yview)
 scrollbar1.pack(side="right", fill="y")
 treeview1.configure(yscrollcommand=scrollbar1.set)
+
+scrollbar2 = ttk.Scrollbar(treeview2, orient="vertical", command=treeview2.yview)
+scrollbar2.pack(side="right", fill="y")
+treeview2.configure(yscrollcommand=scrollbar2.set)
+
+scrollbar1_h = ttk.Scrollbar(treeview1, orient="horizontal", command=treeview1.xview)
+scrollbar1_h.pack(side="bottom", fill="x")
+treeview1.configure(xscrollcommand=scrollbar1_h.set)
+
+scrollbar2_h = ttk.Scrollbar(treeview2, orient="horizontal", command=treeview2.xview)
+scrollbar2_h.pack(side="bottom", fill="x")
+treeview2.configure(xscrollcommand=scrollbar2_h.set)
+
+NotebookPlaylist.add(treeview1, text="Playlist 1")
+NotebookPlaylist.add(treeview2, text="Playlist 2")
+NotebookPlaylist.add(treeview3, text="New Playlist")
 
 NotebookPlaylist.add(treeview1, text="Playlist 1")
 NotebookPlaylist.add(treeview2, text="Playlist 2")
