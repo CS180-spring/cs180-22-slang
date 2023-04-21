@@ -1,3 +1,4 @@
+##just run this file to start the UI
 import tkinter as tk
 from tkinter import ttk
 
