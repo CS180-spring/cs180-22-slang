@@ -79,13 +79,13 @@ vector<vector<string>*> csv::read(){
 //vector of vectors to return as the list of songs
 vector<vector<string>*> csv::makeCombined(){
 
-   string doc = "Playlist.csv";
+   string doc = "output/Playlist.csv";
    ifstream in(doc);
    vector<vector<string>*> data;
 
    loadCSV(in, data);
 
-   doc = "Playlist2.csv";
+   doc = "output/Playlist2.csv";
    ifstream in2(doc);
    loadCSV(in2, data);
 
