@@ -12,7 +12,7 @@ int main(){
     cout << "Would you like to merge your playlist with another user's? Y/N: ";
     cin >> answer;
 
-    if(answer == "Y"){
+    if(answer == "Y" || answer == "y"){
         Combine merge;
         merge.run();
     }

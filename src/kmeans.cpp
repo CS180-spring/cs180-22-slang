@@ -120,7 +120,7 @@ void kMeans::classify(vector<Song> &allSongs){
 }
 
 int Combine::run(){
-    string output = "outputFile.txt";
+    string output = "output/outputFile.txt";
     int clusterNumber;
     int iterationNumber = 100; //we can make this user specified
     csv songList;

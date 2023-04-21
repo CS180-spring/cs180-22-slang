@@ -38,8 +38,8 @@ def make_playlist_df(creator, playlist_id):
         
     return playlist_df
 
-inp = input("Please enter link to playlist: ")
+inp = input("Please enter link to second playlist: ")
 id = extract_playlist_id_from_url(inp)
 
-df = make_playlist_df("spotify", id)
-df.to_csv('Playlist.csv', index = False, header = False)
+df2 = make_playlist_df("spotify", id)
+df2.to_csv('../output/Playlist2.csv', index = False, header = False)
