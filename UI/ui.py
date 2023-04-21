@@ -178,5 +178,21 @@ NotebookPlaylist.add(treeview3, text="New Playlist")
 
 #############################
 
+###create frame under right frame for buttons
+
+#############################
+
+### create button 1 
+
+#############################
+
+### create button 2 
+
+#############################
+
+### create button 3
+
+#############################
+
 root.mainloop()
 load_playlist()
