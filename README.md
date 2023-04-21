@@ -10,7 +10,7 @@ SpotiDB allows users to access a database that stores songs. Users will be able 
 * Riya Patel (quality assurance/testing lead/software architect)
 
 ## Technologies
-* Languages: Python and C++
+* Languages: Python and SQL
 * Interface: Library/programming API
 
 ## Features
