@@ -68,8 +68,13 @@ loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 #############################
 
+separator = ttk.Separator(leftFrame)
+separator.grid(row=1, column=0, padx=(20, 10), pady=10, sticky="ew")
+
+#############################
+
 widgets2_frame = ttk.LabelFrame(leftFrame, text="Paste Playlists",padding=(20, 10))
-widgets2_frame.grid(row=1, column=0, padx=20,sticky="new")
+widgets2_frame.grid(row=2, column=0, padx=20, pady=20, sticky="new")
 
 playlist1_entry = ttk.Entry(widgets2_frame)
 playlist1_entry.insert(0, "Playlist 1")
@@ -84,6 +89,7 @@ playlist2_entry.grid(row=1, column=0, padx=5, pady=(0, 5), sticky="ew")
 
 loadButton = ttk.Button(widgets2_frame, text="Load Playlists", style="Accent.TButton", command=load_playlist)
 loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="ew")
+
 
 #############################
 rightFrame = ttk.Frame(frame)
@@ -104,8 +110,13 @@ combobox.grid(row=0, column=2, padx=20,pady=(20,0), sticky="ew")
 
 #############################
 
+separator1 = ttk.Separator(rightFrame)
+separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
+
+#############################
+
 NotebookPlaylist = ttk.Notebook(rightFrame)
-NotebookPlaylist.grid(row=1, column=0, padx=(0,20), pady=20, sticky="nsew")
+NotebookPlaylist.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
 playlistFrame1 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
 playlistFrame2 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
