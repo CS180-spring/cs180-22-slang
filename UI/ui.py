@@ -192,6 +192,9 @@ button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 #############################
 
+rButton = ttk.Button(MiniFrame, text="Button2", style="Accent.TButton")
+rButton.grid(row=0, column=1, padx = (40,0),pady=(0,0))
+
 ### create button 2 
 
 #############################
