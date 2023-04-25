@@ -113,7 +113,7 @@ combobox.grid(row=0, column=2, padx=20,pady=(20,0), sticky="ew")
 separator1 = ttk.Separator(rightFrame)
 separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 
-#############################
+############################# 
 
 NotebookPlaylist = ttk.Notebook(rightFrame)
 NotebookPlaylist.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
@@ -177,6 +177,9 @@ NotebookPlaylist.add(treeview2, text="Playlist 2")
 NotebookPlaylist.add(treeview3, text="New Playlist")
 
 #############################
+
+MiniFrame = ttk.Frame(rightFrame)
+MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
 ###create frame under right frame for buttons
 
