@@ -185,6 +185,9 @@ MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
 #############################
 
+button1 = ttk.Button(MiniFrame, text="Button1", style="Accent.TButton")
+button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
+
 ### create button 1 
 
 #############################
