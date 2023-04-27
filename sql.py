@@ -9,11 +9,11 @@ try:
     print('SpotiDB')
     
     cursor.execute('''DROP TABLE IF EXISTS test''')
-    cursor.execute('''CREATE TABLE test (artist TEXT, album TEXT, song TEXT, songID TEXT)''')
+    cursor.execute('''CREATE TABLE test (artist TEXT, album TEXT, song TEXT, songID TEXT, num1 DECIMAL, num2 DECIMAL, num3 DECIMAL, num4 DECIMAL, num5 DECIMAL, num6 DECIMAL)''')
 
-    file = open('smalltest.csv')
+    file = open('test.csv')
     contents = csv.reader(file)
-    insert_records = "INSERT INTO test (artist, album, song, songID) VALUES (?, ?, ?, ?)"
+    insert_records = "INSERT INTO test (artist, album, song, songID, num1, num2, num3, num4, num5, num6) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     cursor.executemany(insert_records, contents)
 
 # only search one field at a time: 
