@@ -16,28 +16,28 @@ try:
     insert_records = "INSERT INTO test (artist, album, song, songID) VALUES (?, ?, ?, ?)"
     cursor.executemany(insert_records, contents)
 
-    # cursor.execute('''SELECT * FROM test''')
-    # for row in cursor: 
-    #     print(row)
+    # print('Select what you would like to search by')
+    # print('\t1. artist name')
+    # print('\t2. album name')
+    # print('\t3. song name')
+    # search_type = input('Enter choice: ')
 
-    print('Select what you would like to search by')
-    print('\t1. artist name')
-    print('\t2. album name')
-    print('\t3. song name')
-    search_type = input('Enter choice: ')
+    # if search_type == '1': 
+    #     search_artist_name = input('Enter artist name: ')
+    #     cursor.execute('''SELECT * FROM test WHERE artist = ?''', (search_artist_name,))
+    # elif search_type == '2': 
+    #     search_album_name = input('Enter album name: ')
+    #     cursor.execute('''SELECT * FROM test WHERE album = ?''', (search_album_name,))
+    # elif search_type == '3': 
+    #     search_song_name = input('Enter song name: ')
+    #     cursor.execute('''SELECT * FROM test WHERE song = ?''', (search_song_name,))
+    # else: 
+    #     print('invalid search type')
+    #     sys.exit()
 
-    if search_type == '1': 
-        search_artist_name = input('Enter artist name: ')
-        cursor.execute('''SELECT * FROM test WHERE artist = ?''', (search_artist_name,))
-    elif search_type == '2': 
-        search_album_name = input('Enter album name: ')
-        cursor.execute('''SELECT * FROM test WHERE album = ?''', (search_album_name,))
-    elif search_type == '3': 
-        search_song_name = input('Enter song name: ')
-        cursor.execute('''SELECT * FROM test WHERE song = ?''', (search_song_name,))
-    else: 
-        print('invalid search type')
-        sys.exit()
+    search_val = input('Enter search keywords: ')
+    query = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%' OR album LIKE '%{search_val}%' OR song LIKE '%{search_val}%'"
+    cursor.execute(query)
 
     
     for row in cursor: 
