@@ -16,6 +16,7 @@ try:
     insert_records = "INSERT INTO test (artist, album, song, songID) VALUES (?, ?, ?, ?)"
     cursor.executemany(insert_records, contents)
 
+# only search one field at a time: 
     # print('Select what you would like to search by')
     # print('\t1. artist name')
     # print('\t2. album name')
@@ -35,14 +36,41 @@ try:
     #     print('invalid search type')
     #     sys.exit()
 
-    search_val = input('Enter search keywords: ')
-    query = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%' OR album LIKE '%{search_val}%' OR song LIKE '%{search_val}%'"
-    cursor.execute(query)
 
+# search any field with keyword
+    # search_val = input('Enter search keywords: ')
+    # query = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%' OR album LIKE '%{search_val}%' OR song LIKE '%{search_val}%'"
+    # cursor.execute(query)
+
+    # for row in cursor: 
+    #     print(row)
+
+
+#search any field for keyword with separations between artist, album, song
+    search_val = input('Enter search keywords: ')
+    queryArtist = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%'"
+    queryAlbum = f"SELECT * FROM test WHERE album LIKE '%{search_val}%'"
+    querySong = f"SELECT * FROM test WHERE song LIKE '%{search_val}%'"
     
-    for row in cursor: 
-        print(row)
-    
+    results = cursor.execute(queryArtist).fetchall()
+    if len(results) != 0: 
+        print('Related Artists:')
+        for row in results: 
+            print(row)
+            
+    results = cursor.execute(queryAlbum).fetchall()
+    if len(results) != 0: 
+        print('Related Albums:')
+        for row in results: 
+            print(row)
+
+
+    results = cursor.execute(querySong).fetchall()
+    if len(results) != 0: 
+        print('Related Songs:')
+        for row in results: 
+            print(row)
+
 
 except sqlite3.Error as error:
     print('Error occurred - ', error)
