@@ -72,6 +72,7 @@ try:
             print(row)
 
 
+
 except sqlite3.Error as error:
     print('Error occurred - ', error)
 
