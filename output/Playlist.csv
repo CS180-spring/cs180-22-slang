@@ -1,3 +1,4 @@
+artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
 Taylor Swift,Lover,Miss Americana & The Heartbreak Prince,214nt20w5wOxJnY462klLw,0.662,0.747,-6.926,0.0736,0.00615,0.138
 Taylor Swift,Lover,Cruel Summer,1BxfuPKGuaTgP7aM0Bbdwr,0.552,0.702,-5.707,0.157,2.06e-05,0.105
 Taylor Swift,Lover,The Man,3RauEVgRgj1IuWdJ9fDs70,0.777,0.658,-5.191,0.054,0.0,0.0901
@@ -21,7 +22,6 @@ Taylor Swift,Red (Taylor's Version),22 (Taylor's Version),3yII7UwgLF6K5zW3xad3MP
 Taylor Swift,Red (Taylor's Version),We Are Never Ever Getting Back Together (Taylor's Version),5YqltLsjdqFtvqE7Nrysvs,0.567,0.686,-6.139,0.175,1.86e-06,0.0732
 Taylor Swift,Red (Taylor's Version),I Knew You Were Trouble (Taylor's Version),6AtZLIzUINvExIUy4QhdjP,0.584,0.557,-6.371,0.0342,0.0,0.0576
 Taylor Swift,Red (Taylor's Version),All Too Well (10 Minute Version) (Taylor's Version) (From The Vault),5enxwA8aAbwZbf5qCHORXi,0.631,0.518,-8.771,0.0303,0.0,0.088
-Taylor Swift,folklore (deluxe version),invisible string,2ehRU518I0hYqMGQnk4lDY,0.651,0.459,-11.128,0.0507,6.63e-05,0.105
 Taylor Swift,folklore,the 1,0Jlcvv8IykzHaSmj49uNW8,0.777,0.357,-6.942,0.0522,7.28e-06,0.108
 Taylor Swift,folklore,betty,5kI4eCXXzyuIUXjQra0Cxi,0.593,0.377,-8.761,0.0253,0.0,0.0976
 Taylor Swift,folklore,the last great american dynasty,2Eeur20xVqfUoM3Q7EFPFt,0.686,0.662,-8.505,0.0413,0.0023,0.109
