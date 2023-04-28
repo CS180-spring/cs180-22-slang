@@ -45,7 +45,20 @@ style.theme_use("forest-dark")
 frame = ttk.Frame(root)
 frame.pack()
 
-leftFrame = ttk.Frame(frame)
+windowFrameNotebook = ttk.Notebook(frame)
+windowFrameNotebook.grid(row=0, column=0)
+
+tab1 = ttk.Frame(windowFrameNotebook)
+windowFrameNotebook.add(tab1, text="Tab 1")
+
+tab2 = ttk.Frame(windowFrameNotebook)
+windowFrameNotebook.add(tab2, text="Tab 2")
+
+tab3 = ttk.Frame(windowFrameNotebook)
+windowFrameNotebook.add(tab3, text="Tab 3")
+
+
+leftFrame = ttk.Frame(tab1)
 leftFrame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
 #############################
@@ -87,7 +100,7 @@ loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="ew")
 
 
 #############################
-rightFrame = ttk.Frame(frame)
+rightFrame = ttk.Frame(tab1)
 rightFrame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
 buttonsFrame = ttk.Frame(rightFrame)
 buttonsFrame.grid(row=0, column=0, sticky="nsew")
@@ -180,36 +193,25 @@ MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
 #############################
 
-button1 = ttk.Button(MiniFrame, text="Button1", style="Accent.TButton")
+button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 ### create button 1 
 
 #############################
 
-button2 = ttk.Button(MiniFrame, text="Button2", style="Accent.TButton")
+button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
 ### create button 2 
 
 #############################
-button3 = ttk.Button(MiniFrame, text="Button3", style="Accent.TButton")
+button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
 button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
 ### create button 3
 
 #############################
-widget_frame = ttk.Notebook(leftFrame)
-widget_frame.grid(row=0, column=0, padx = (40,0),pady=(0,0))
-
-tab1 = ttk.Frame(widget_frame)
-widget_frame.add(tab1, text="Tab 1")
-
-tab2 = ttk.Frame(widget_frame)
-widget_frame.add(tab2, text="Tab 2")
-
-tab3 = ttk.Frame(widget_frame)
-widget_frame.add(tab3, text="Tab 3")
 
 root.mainloop()
 load_playlist()
