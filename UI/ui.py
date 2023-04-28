@@ -193,20 +193,20 @@ MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
 #############################
 
-button1 = ttk.Button(MiniFrame, text="Button1", style="Accent.TButton")
+button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 ### create button 1 
 
 #############################
 
-button2 = ttk.Button(MiniFrame, text="Button2", style="Accent.TButton")
+button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
 ### create button 2 
 
 #############################
-button3 = ttk.Button(MiniFrame, text="Button3", style="Accent.TButton")
+button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
 button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
 ### create button 3
