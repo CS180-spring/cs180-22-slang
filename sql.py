@@ -51,6 +51,7 @@ try:
     queryArtist = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%'"
     queryAlbum = f"SELECT * FROM test WHERE album LIKE '%{search_val}%'"
     querySong = f"SELECT * FROM test WHERE song LIKE '%{search_val}%'"
+    querySongID = f"SELECT * FROM test WHERE song LIKE '%{search_val}%'"
     
     results = cursor.execute(queryArtist).fetchall()
     if len(results) != 0: 
@@ -71,6 +72,11 @@ try:
         for row in results: 
             print(row)
 
+    results = cursor.execute(querySongID).fetchall()
+    if len(results) != 0:
+        print('Related SongIDs:')
+        for row in results:
+            print(row)
 
 
 except sqlite3.Error as error:
