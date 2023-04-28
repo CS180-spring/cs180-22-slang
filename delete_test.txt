@@ -1,0 +1,15 @@
+Objective:
+To delete songs to the database to remove songs from a created playlist. 
+
+Preconditions:
+- A database needs to be set to store songs.
+- A song must be displayed/stored in the playlist
+
+Expected Outcomes:
+- The selected song/songs should be removed from playlist
+- The deleted song/songs should still exist in the database
+
+Test Results:
+- Song/songs that are wanted to be removed should be able to be selected
+- Verify the song deleted is only deleted from the playlist not the database
+- Should be able to add the delete song back into the playlist if wanted

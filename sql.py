@@ -43,33 +43,42 @@ try:
     # cursor.execute(query)
 
     # for row in cursor: 
-    #     print(row)
+    #     print(row)z
 
 
-#search any field for keyword with separations between artist, album, song
-    search_val = input('Enter search keywords: ')
-    queryArtist = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%'"
-    queryAlbum = f"SELECT * FROM test WHERE album LIKE '%{search_val}%'"
-    querySong = f"SELECT * FROM test WHERE song LIKE '%{search_val}%'"
-    
-    results = cursor.execute(queryArtist).fetchall()
-    if len(results) != 0: 
-        print('Related Artists:')
-        for row in results: 
-            print(row)
+#search any field for keyword with separations between artist, album, song, songID
+    while True:
+        search_val = input('Enter search keywords: ')
+
+        queryArtist = f"SELECT * FROM test WHERE artist LIKE '%{search_val}%'"
+        queryAlbum = f"SELECT * FROM test WHERE album LIKE '%{search_val}%'"
+        querySong = f"SELECT * FROM test WHERE song LIKE '%{search_val}%'"
+        querySongID = f"SELECT * FROM test WHERE songID LIKE '%{search_val}%'"
+
+        results = cursor.execute(queryArtist).fetchall()
+        if len(results) != 0: 
+            print('Related Artists:')
+            for row in results: 
+                print(row)
             
-    results = cursor.execute(queryAlbum).fetchall()
-    if len(results) != 0: 
-        print('Related Albums:')
-        for row in results: 
-            print(row)
+        results = cursor.execute(queryAlbum).fetchall()
+        if len(results) != 0: 
+            print('Related Albums:')
+            for row in results: 
+                print(row)
 
 
-    results = cursor.execute(querySong).fetchall()
-    if len(results) != 0: 
-        print('Related Songs:')
-        for row in results: 
-            print(row)
+        results = cursor.execute(querySong).fetchall()
+        if len(results) != 0: 
+            print('Related Songs:')
+            for row in results: 
+                print(row)
+
+        results = cursor.execute(querySongID).fetchall()
+        if len(results) != 0:
+            print('Related SongIDs:')
+            for row in results:
+                print(row)
 
 
 except sqlite3.Error as error:
