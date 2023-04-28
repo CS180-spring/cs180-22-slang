@@ -50,8 +50,7 @@ leftFrame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
 #############################
 widgets_frame = ttk.LabelFrame(leftFrame, text="Search Database",padding=(20, 10))
-widgets_frame.grid(row=0, column=0, padx=20, pady=20, sticky="new")
-
+widgets_frame.grid(row=1, column=0, padx=20, pady=20, sticky="new")
 searchTitle_entry = ttk.Entry(widgets_frame)
 searchTitle_entry.insert(0, "Song Title")
 searchTitle_entry.bind("<FocusIn>", lambda e: searchTitle_entry.delete('0', 'end'))
@@ -61,21 +60,17 @@ searchTitle_entry.grid(row=0, column=0, padx=5, pady=(0, 5), sticky="nsew")
 searchArtist_entry = ttk.Entry(widgets_frame)
 searchArtist_entry.insert(0, "Artist")
 searchArtist_entry.bind("<FocusIn>", lambda e: searchArtist_entry.delete('0', 'end'))
-searchArtist_entry.grid(row=1, column=0, padx=5, pady=(0, 5), sticky="nsew")
-
+searchArtist_entry.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
-loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
-
+loadButton.grid(row=3, column=0, padx=5, pady=(0, 5), sticky="nsew")
 #############################
 
 separator = ttk.Separator(leftFrame)
-separator.grid(row=1, column=0, padx=(20, 10), pady=10, sticky="ew")
-
+separator.grid(row=2, column=0, padx=(20, 10), pady=10, sticky="ew")
 #############################
 
 widgets2_frame = ttk.LabelFrame(leftFrame, text="Paste Playlists",padding=(20, 10))
-widgets2_frame.grid(row=2, column=0, padx=20, pady=20, sticky="new")
-
+widgets2_frame.grid(row=3, column=0, padx=20, pady=20, sticky="new")
 playlist1_entry = ttk.Entry(widgets2_frame)
 playlist1_entry.insert(0, "Playlist 1")
 playlist1_entry.bind("<FocusIn>", lambda e: playlist1_entry.delete('0', 'end'))
