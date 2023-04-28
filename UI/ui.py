@@ -50,8 +50,7 @@ leftFrame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
 #############################
 widgets_frame = ttk.LabelFrame(leftFrame, text="Search Database",padding=(20, 10))
-widgets_frame.grid(row=0, column=0, padx=20, pady=20, sticky="new")
-
+widgets_frame.grid(row=1, column=0, padx=20, pady=20, sticky="new")
 searchTitle_entry = ttk.Entry(widgets_frame)
 searchTitle_entry.insert(0, "Song Title")
 searchTitle_entry.bind("<FocusIn>", lambda e: searchTitle_entry.delete('0', 'end'))
@@ -61,21 +60,17 @@ searchTitle_entry.grid(row=0, column=0, padx=5, pady=(0, 5), sticky="nsew")
 searchArtist_entry = ttk.Entry(widgets_frame)
 searchArtist_entry.insert(0, "Artist")
 searchArtist_entry.bind("<FocusIn>", lambda e: searchArtist_entry.delete('0', 'end'))
-searchArtist_entry.grid(row=1, column=0, padx=5, pady=(0, 5), sticky="nsew")
-
+searchArtist_entry.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
-loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
-
+loadButton.grid(row=3, column=0, padx=5, pady=(0, 5), sticky="nsew")
 #############################
 
 separator = ttk.Separator(leftFrame)
-separator.grid(row=1, column=0, padx=(20, 10), pady=10, sticky="ew")
-
+separator.grid(row=2, column=0, padx=(20, 10), pady=10, sticky="ew")
 #############################
 
 widgets2_frame = ttk.LabelFrame(leftFrame, text="Paste Playlists",padding=(20, 10))
-widgets2_frame.grid(row=2, column=0, padx=20, pady=20, sticky="new")
-
+widgets2_frame.grid(row=3, column=0, padx=20, pady=20, sticky="new")
 playlist1_entry = ttk.Entry(widgets2_frame)
 playlist1_entry.insert(0, "Playlist 1")
 playlist1_entry.bind("<FocusIn>", lambda e: playlist1_entry.delete('0', 'end'))
@@ -113,7 +108,7 @@ combobox.grid(row=0, column=2, padx=20,pady=(20,0), sticky="ew")
 separator1 = ttk.Separator(rightFrame)
 separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 
-#############################
+############################# 
 
 NotebookPlaylist = ttk.Notebook(rightFrame)
 NotebookPlaylist.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
@@ -177,6 +172,44 @@ NotebookPlaylist.add(treeview2, text="Playlist 2")
 NotebookPlaylist.add(treeview3, text="New Playlist")
 
 #############################
+
+MiniFrame = ttk.Frame(rightFrame)
+MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
+
+###create frame under right frame for buttons
+
+#############################
+
+button1 = ttk.Button(MiniFrame, text="Button1", style="Accent.TButton")
+button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
+
+### create button 1 
+
+#############################
+
+button2 = ttk.Button(MiniFrame, text="Button2", style="Accent.TButton")
+button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
+
+### create button 2 
+
+#############################
+button3 = ttk.Button(MiniFrame, text="Button3", style="Accent.TButton")
+button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
+
+### create button 3
+
+#############################
+widget_frame = ttk.Notebook(leftFrame)
+widget_frame.grid(row=0, column=0, padx = (40,0),pady=(0,0))
+
+tab1 = ttk.Frame(widget_frame)
+widget_frame.add(tab1, text="Tab 1")
+
+tab2 = ttk.Frame(widget_frame)
+widget_frame.add(tab2, text="Tab 2")
+
+tab3 = ttk.Frame(widget_frame)
+widget_frame.add(tab3, text="Tab 3")
 
 root.mainloop()
 load_playlist()
