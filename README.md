@@ -5,7 +5,7 @@ SpotiDB allows users to access a database that stores songs. Users will be able 
 ## Team Members
 * Lucyann Lacdan (quality assurance/testing lead/software architect)
 * Melissa Hidalgo (data structure engineer/development lead/software architect)
-* Alice Thai (algorithm and performaance specialist/development lead/software architect)
+* Alice Thai (algorithm and performance specialist/development lead/software architect)
 * Ailan Hernandez (user/programming interface engineer/software architect)
 * Riya Patel (quality assurance/testing lead/software architect)
 
