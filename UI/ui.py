@@ -204,6 +204,17 @@ button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 ### create button 3
 
 #############################
+widget_frame = ttk.Notebook(leftFrame)
+widget_frame.grid(row=0, column=0, padx = (40,0),pady=(0,0))
+
+tab1 = ttk.Frame(widget_frame)
+widget_frame.add(tab1, text="Tab 1")
+
+tab2 = ttk.Frame(widget_frame)
+widget_frame.add(tab2, text="Tab 2")
+
+tab3 = ttk.Frame(widget_frame)
+widget_frame.add(tab3, text="Tab 3")
 
 root.mainloop()
 load_playlist()
