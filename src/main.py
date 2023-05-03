@@ -67,13 +67,8 @@ def make_playlist_df2(creator, playlist_id):
         
     return playlist_df
 
-def runKmeans(input_df):
-    inp3 = input("Please enter link to second playlist: ")
-    id2 = extract_playlist_id_from_url(inp3)
-    df2 = make_playlist_df2("spotify", id2)
-    df2.to_csv('../output/Playlist2.csv', index = False)
-
-    combined_df = pd.concat([input_df, df2], ignore_index= True)
+def runKmeans(input_df, input_df2):
+    combined_df = pd.concat([input_df, input_df2], ignore_index= True)
 
     #removing duplicates
     combined_df = combined_df.drop_duplicates(subset = ['track_id'], keep = 'first')
@@ -87,17 +82,63 @@ def runKmeans(input_df):
     scaled_df['cluster number'] = kmeans.labels_
     scaled_df.columns = ['danceability', 'energy', 'loudness', 'speechiness', 'instrumentalness', 'liveness', 'cluster number']
     cluster_df = scaled_df.iloc[:, -1:]
-    return_df = pd.concat([combined_df, scaled_df], axis=1, join='inner')
+    return_df = pd.concat([combined_df, cluster_df], axis=1, join='inner')
     return return_df
 
-inp = input("Please enter link to playlist: ")
-id = extract_playlist_id_from_url(inp)
 
-df = make_playlist_df1("spotify", id)
-df.to_csv('../output/Playlist.csv', index = False)
+library_df = pd.read_csv("../library/library.csv")
 
-inp2 = input("Would you like to merge your playlist with another? Y?N: ")
+print("1. Make a new playlist")
+print("2. Edit an existing playlist")
+print("3. Import a playlist")
+print("4. Merge two playlists")
+print("5. Get recommendations for a playlist")
+print("6. Quit")
+inp1 = input("Which would you like to do? ")
 
-if inp2 == 'Y':
-    combined_df = runKmeans(df)
-    combined_df.to_csv('../output/output.csv')
+while inp1 != "6":
+
+    if inp1 == "1":
+        newPlaylistName = input("Please name your playlist: ")
+        newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
+
+    elif inp1 == "2":
+        inp2 = input("Please enter the name of the playlist you want to edit: ")
+        playlist_loc = "../output/" + inp2
+
+    elif inp1 == "3":
+        playlistLink = input("Please enter link to playlist: ")
+        id = extract_playlist_id_from_url(playlistLink)
+        playlistName = input("Please name your imported playlist: ")
+
+        df = make_playlist_df1("spotify", id)
+        csvName = "../output/" + playlistName + ".csv"
+        df.to_csv(csvName, index = False)
+
+    elif inp1 == "4":
+        playlist1 = input("Please enter the first playlist's name: ")
+        playlist2 = input("Please enter the second playlist's name: ")
+        mergedName = input("Please name your new merged playlist: ")
+
+        playlist1_loc = "../output/" + playlist1 + ".csv"
+        playlist2_loc = "../output/" + playlist2 + ".csv"
+        merged_loc = "../output/" + mergedName + ".csv"
+        playlist_df1 = pd.read_csv(playlist1_loc)
+        playlist_df2 = pd.read_csv(playlist2_loc)
+
+        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
+        combinedPlaylist_df.to_csv(merged_loc)
+
+    elif inp1 == "5":
+       rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+
+    elif inp1 != "6": 
+        print("Not a valid selection")
+
+    print("1. Make a new playlist")
+    print("2. Edit an existing playlist")
+    print("3. Import a playlist")
+    print("4. Merge two playlists")
+    print("5. Get recommendations for a playlist")
+    print("6. Quit")
+    inp1 = input("Which would you like to do? ")
