@@ -107,6 +107,13 @@ searchInstrumentalness_entry.insert(0, "Instrumentalness")
 searchInstrumentalness_entry.bind("<FocusIn>", lambda e: searchInstrumentalness_entry.delete('0', 'end'))
 searchInstrumentalness_entry.grid(row=9, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
+searchLiveness_entry = ttk.Entry(widgets_frame)
+searchLiveness_entry.insert(0, "Liveness")
+searchLiveness_entry.bind("<FocusIn>", lambda e: searchLiveness_entry.delete('0', 'end'))
+searchLiveness_entry.grid(row=10, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+
+
 
 loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
 loadButton.grid(row=11, column=0, padx=5, pady=(0, 5), sticky="nsew")
@@ -381,9 +388,6 @@ button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
 root.mainloop()
 load_playlist()
-
-
-
 
 
 
