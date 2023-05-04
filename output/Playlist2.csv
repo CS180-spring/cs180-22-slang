@@ -1,0 +1,13 @@
+artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
+Olivia Rodrigo,SOUR,brutal,6SRsiMl7w1USE4mFqrOhHC,0.672,0.526,-6.446,0.0599,1.37e-06,0.28
+Olivia Rodrigo,SOUR,traitor,5CZ40GBx1sQ9agT82CLQCT,0.38,0.339,-7.885,0.0338,0.0,0.12
+Olivia Rodrigo,SOUR,drivers license,5wANPM4fQCJwkGd4rN57mH,0.561,0.431,-8.81,0.0578,1.42e-05,0.106
+Olivia Rodrigo,SOUR,"1 step forward, 3 steps back",4wcBRRpIfesgcyUtis7PEg,0.473,0.203,-12.627,0.102,0.0,0.126
+Olivia Rodrigo,SOUR,deja vu,6HU7h9RYOaPRFeh0R3UeAr,0.442,0.612,-7.222,0.112,5.7e-06,0.37
+Olivia Rodrigo,SOUR,good 4 u,4ZtFanR9U6ndgddUvNcjcG,0.563,0.664,-5.044,0.154,0.0,0.0849
+Olivia Rodrigo,SOUR,enough for you,2TOzTqQXNmR2zDJXihjZ2e,0.638,0.259,-10.706,0.0898,0.0,0.219
+Olivia Rodrigo,SOUR,happier,2tGvwE8GcFKwNdAXMnlbfl,0.395,0.443,-9.72,0.133,9.67e-06,0.0839
+Olivia Rodrigo,SOUR,"jealousy, jealousy",0MMyJUC3WNnFS1lit5pTjk,0.695,0.575,-6.334,0.116,0.0,0.0614
+Olivia Rodrigo,SOUR,favorite crime,5JCoSi02qi3jJeHdZXMmR8,0.369,0.272,-10.497,0.0364,0.0,0.147
+Olivia Rodrigo,"All I Want (From ""High School Musical: The Musical: The Series"")","All I Want - From ""High School Musical: The Musical: The Series""",4Yxc55NX3tAXC2mHRAhtcW,0.376,0.43,-6.585,0.0328,0.0,0.0912
+Olivia Rodrigo,SOUR,hope ur ok,1zejeOnykpCoyVSit6Bwp3,0.443,0.298,-12.181,0.0644,1e-05,0.103
