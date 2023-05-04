@@ -3,11 +3,14 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from sklearn.cluster import KMeans
 from sklearn import preprocessing
 import pandas as pd
+from numba import njit,jit,prange
+
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
 secret = 'e0d800c29a704893b6ce87886e3b02b8'
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
 sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
+@jit(nopython=True)
 
 def extract_playlist_id_from_url(url):
     playlist_id = url.split('/')[-1]
@@ -101,6 +104,17 @@ while inp1 != "6":
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
         newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
+        print("Add a song to your playlist")
+        inp4 = input("Enter the name of the song you want to add: ")
+        temp_song = library_df.loc[library_df["track_name"] == inp4]
+        playlist = temp_song
+        inp3 = input("Keep adding songs? Y/N: ")
+        while inp3 == "Y":
+            inp4 = input("Enter the name of the song you want to add: ")
+            new_temp_song = library_df.loc[library_df["track_name"] == inp4]
+            playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
+            inp3 = input("Keep adding songs? Y/N: ")
+        playlist.to_csv(newPlaylist_loc, index = False)
 
     elif inp1 == "2":
         inp2 = input("Please enter the name of the playlist you want to edit: ")
