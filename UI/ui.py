@@ -82,6 +82,15 @@ searchtitle_id_entry.insert(0, "Title ID")
 searchtitle_id_entry.bind("<FocusIn>", lambda e: searchtitle_id_entry.delete('0', 'end'))
 searchtitle_id_entry.grid(row=4, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
+searchDancebility_entry = ttk.Entry(widgets_frame)
+searchDancebility_entry.insert(0, "Dancebility")
+searchDancebility_entry.bind("<FocusIn>", lambda e: searchDancebility_entry.delete('0', 'end'))
+searchDancebility_entry.grid(row=5, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+searchEnergy_entry = ttk.Entry(widgets_frame)
+searchEnergy_entry.insert(0, "Energy")
+searchEnergy_entry.bind("<FocusIn>", lambda e: searchEnergy_entry.delete('0', 'end'))
+searchEnergy_entry.grid(row=6, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 
 
