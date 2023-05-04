@@ -1,5 +1,4 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-Olivia Rodrigo,SOUR,brutal,6SRsiMl7w1USE4mFqrOhHC,0.672,0.526,-6.446,0.0599,1.37e-06,0.28
 Olivia Rodrigo,SOUR,traitor,5CZ40GBx1sQ9agT82CLQCT,0.38,0.339,-7.885,0.0338,0.0,0.12
 Olivia Rodrigo,SOUR,drivers license,5wANPM4fQCJwkGd4rN57mH,0.561,0.431,-8.81,0.0578,1.42e-05,0.106
 Olivia Rodrigo,SOUR,"1 step forward, 3 steps back",4wcBRRpIfesgcyUtis7PEg,0.473,0.203,-12.627,0.102,0.0,0.126
