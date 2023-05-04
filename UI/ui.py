@@ -72,6 +72,22 @@ searchArtist_entry.insert(0, "Artist")
 searchArtist_entry.bind("<FocusIn>", lambda e: searchArtist_entry.delete('0', 'end'))
 searchArtist_entry.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
+searchAlbumn_entry = ttk.Entry(widgets_frame)
+searchAlbumn_entry.insert(0, "Albumn")
+searchAlbumn_entry.bind("<FocusIn>", lambda e: searchAlbumn_entry.delete('0', 'end'))
+searchAlbumn_entry.grid(row=3, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+searchtitle_id_entry = ttk.Entry(widgets_frame)
+searchtitle_id_entry.insert(0, "Title ID")
+searchtitle_id_entry.bind("<FocusIn>", lambda e: searchtitle_id_entry.delete('0', 'end'))
+searchtitle_id_entry.grid(row=4, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+
+
+
+loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
+loadButton.grid(row=11, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
 #############################
 rightFrame = ttk.Frame(tab2)
 rightFrame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
@@ -342,6 +358,8 @@ button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
 root.mainloop()
 load_playlist()
+
+
 
 
 
