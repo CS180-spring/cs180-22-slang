@@ -104,10 +104,29 @@ while inp1 != "6":
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
         newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
+        inp2 = input("Do you want to add songs to this playlist? Y/N:" )
+        if inp2 == "Y":
+            inp4 = input("Enter the name of the song you want to add: ")
+            temp_song = library_df.loc[library_df["track_name"] == inp4]
 
     elif inp1 == "2":
         inp2 = input("Please enter the name of the playlist you want to edit: ")
-        playlist_loc = "../output/" + inp2
+        playlist_loc = "../output/" + inp2 + ".csv"
+        playlist_df = pd.read_csv(playlist_loc)
+        print("1. Add song")
+        print("2. Remove song")
+        inp3 = input("What do you wanna do? ")
+        if inp3 == "1":
+            inp4 = input("Enter the name of the song you want to add: ")
+            temp_song = library_df.loc[library_df["track_name"] == inp4]
+            playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+            playlist_df.to_csv(playlist_loc, index = False)
+        elif inp3 == "2":
+            inp4 = input("Enter the name of the song you want to remove: ")
+            temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
+            drop_index = playlist_df[temp_song].index
+            playlist_df = playlist_df.drop(playlist_df.index[drop_index])
+            playlist_df.to_csv(playlist_loc, index = False)
 
     elif inp1 == "3":
         playlistLink = input("Please enter link to playlist: ")
