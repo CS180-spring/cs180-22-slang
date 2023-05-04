@@ -112,13 +112,13 @@ while inp1 != "6":
         if inp3 == "1":
             inp4 = input("Enter the name of the song you want to add: ")
             temp_song = library_df.loc[library_df["track_name"] == inp4]
-            playlist_df.loc[len(playlist_df.index)] = temp_song
+            playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
             playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
             inp4 = input("Enter the name of the song you want to remove: ")
             temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
-            drop_index = playlist_df[temp_song].index
-            playlist_df = playlist_df.drop(playlist_df.index[drop_index])
+            drop_index = temp_song.index
+            playlist_df = playlist_df.drop(drop_index)
             playlist_df.to_csv(playlist_loc, index = False)
 
     elif inp1 == "3":
