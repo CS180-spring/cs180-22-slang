@@ -92,6 +92,20 @@ searchEnergy_entry.insert(0, "Energy")
 searchEnergy_entry.bind("<FocusIn>", lambda e: searchEnergy_entry.delete('0', 'end'))
 searchEnergy_entry.grid(row=6, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
+searchLoudness_entry = ttk.Entry(widgets_frame)
+searchLoudness_entry.insert(0, "Loudness")
+searchLoudness_entry.bind("<FocusIn>", lambda e: searchLoudness_entry.delete('0', 'end'))
+searchLoudness_entry.grid(row=7, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+searchSpeechiness_entry = ttk.Entry(widgets_frame)
+searchSpeechiness_entry.insert(0, "Speechiness")
+searchSpeechiness_entry.bind("<FocusIn>", lambda e: searchSpeechiness_entry.delete('0', 'end'))
+searchSpeechiness_entry.grid(row=8, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+searchInstrumentalness_entry = ttk.Entry(widgets_frame)
+searchInstrumentalness_entry.insert(0, "Instrumentalness")
+searchInstrumentalness_entry.bind("<FocusIn>", lambda e: searchInstrumentalness_entry.delete('0', 'end'))
+searchInstrumentalness_entry.grid(row=9, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 
 loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
