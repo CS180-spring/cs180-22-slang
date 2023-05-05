@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 import csv
 import os
-import main
+from mainUI import *
 
 def load_playlist():
     file_path1 = '../output/Playlist.csv'
