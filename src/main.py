@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn import preprocessing
 import pandas as pd
 from numba import njit,jit,prange
+import search
 import os
 
 
@@ -105,14 +106,11 @@ while inp1 != "6":
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
         newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
-        print("Add a song to your playlist")
-        inp4 = input("Enter the name of the song you want to add: ")
-        temp_song = library_df.loc[library_df["track_name"] == inp4]
+        temp_song = search.search(library_df)
         playlist = temp_song
         inp3 = input("Keep adding songs? Y/N: ")
         while inp3 == "Y":
-            inp4 = input("Enter the name of the song you want to add: ")
-            new_temp_song = library_df.loc[library_df["track_name"] == inp4]
+            new_temp_song = search.search(library_df)
             playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
             inp3 = input("Keep adding songs? Y/N: ")
         playlist.to_csv(newPlaylist_loc, index = False)
@@ -125,9 +123,13 @@ while inp1 != "6":
         print("2. Remove song")
         inp3 = input("What do you wanna do? ")
         if inp3 == "1":
-            inp4 = input("Enter the name of the song you want to add: ")
-            temp_song = library_df.loc[library_df["track_name"] == inp4]
+            temp_song = search.search(library_df)
             playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
+            inp4 = input("Keep adding songs? Y/N: ")
+            while inp4 == "Y":
+                new_temp_song = search.search(library_df)
+                playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
+                inp4 = input("Keep adding songs? Y/N: ")
             playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
             inp4 = input("Enter the name of the song you want to remove: ")
