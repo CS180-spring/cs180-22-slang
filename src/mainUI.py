@@ -139,15 +139,17 @@ def mergePlaylists():
     playlist1 = "Playlist"
     playlist2 = "Playlist2"
     mergedName = "MergedPlaylist"
-    
+
     playlist1_loc = "../output/" + playlist1 + ".csv"
     playlist2_loc = "../output/" + playlist2 + ".csv"
     merged_loc = "../output/" + mergedName + ".csv"
     playlist_df1 = pd.read_csv(playlist1_loc)
     playlist_df2 = pd.read_csv(playlist2_loc)
-
     combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-    combinedPlaylist_df.to_csv(merged_loc)
+    
+    cluster_1 = combinedPlaylist_df.loc[combinedPlaylist_df["cluster number"] == 1]
+    cluster_1 = cluster_1.drop(["cluster number"], axis = 1)
+    cluster_1.to_csv(merged_loc, index = False)
 
 def getRecommendations():
     rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
