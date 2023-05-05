@@ -1,5 +1,4 @@
 import numpy
-import pandas as pd
 
 def search(library_df): 
     print("Search by:")
@@ -94,9 +93,3 @@ def search(library_df):
         print("3. Album name")
         print("4. Quit")
         searchBy = input("Please enter what you would like to search by: ")
-
-if __name__ == "__main__":
-    library_df = pd.read_csv("library.csv")
-    song = search(library_df)
-    print("\n\nAdded song:")
-    print(song)
