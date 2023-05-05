@@ -5,7 +5,14 @@ import csv
 import os
 from mainUI import *
 
-def load_playlist():
+def loadPlaylistUI():
+
+    playlist1Link = playlist1_entry.get()
+    playlist2Link = playlist2_entry.get()
+
+    importSpotifyPlaylist(playlist1Link, "Playlist")
+    importSpotifyPlaylist(playlist2Link, "Playlist2")
+
     file_path1 = '../output/Playlist.csv'
     file_path2 = '../output/Playlist2.csv'
 
@@ -29,6 +36,22 @@ def load_playlist():
         for row in playlist2:
             treeview2.insert("", "end", values=row)
 
+def mergePlaylistsUI():
+    file_path3 = '../output/MergedPlaylist.csv'
+    mergePlaylists()
+
+    with open(file_path3, 'r') as f3:
+        reader3 = csv.reader(f3)
+        MergedPlaylist = list(reader3)
+        print(MergedPlaylist)
+
+        treeview3.delete(*treeview3.get_children())
+
+        for row in MergedPlaylist:
+            treeview3.insert("", "end", values=row)
+
+
+
 root = tk.Tk()
 root.title("SpotiDB")
 root.resizable(width=False, height=False)
@@ -50,11 +73,11 @@ windowFrameNotebook = ttk.Notebook(frame)
 windowFrameNotebook.grid(row=0, column=0)
 
 tab1 = ttk.Frame(windowFrameNotebook)
-windowFrameNotebook.add(tab1, text="Tab 1")
+windowFrameNotebook.add(tab1, text="Simple View")
 
 tab2 = ttk.Frame(windowFrameNotebook)
 
-windowFrameNotebook.add(tab2, text="Tab 2")
+windowFrameNotebook.add(tab2, text="Search")
 leftFrame = ttk.Frame(tab2)
 leftFrame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
@@ -229,7 +252,7 @@ button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 #############################
 
 tab3 = ttk.Frame(windowFrameNotebook)
-windowFrameNotebook.add(tab3, text="Tab 3")
+windowFrameNotebook.add(tab3, text="View Playlists")
 
 
 leftFrame = ttk.Frame(tab1)
@@ -269,7 +292,7 @@ playlist2_entry.insert(0, "Playlist 2")
 playlist2_entry.bind("<FocusIn>", lambda e: playlist2_entry.delete('0', 'end'))
 playlist2_entry.grid(row=1, column=0, padx=5, pady=(0, 5), sticky="ew")
 
-loadButton = ttk.Button(widgets2_frame, text="Load Playlists", style="Accent.TButton", command=load_playlist)
+loadButton = ttk.Button(widgets2_frame, text="Load Playlists", style="Accent.TButton", command=loadPlaylistUI)
 loadButton.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="ew")
 
 
@@ -279,7 +302,7 @@ rightFrame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
 buttonsFrame = ttk.Frame(rightFrame)
 buttonsFrame.grid(row=0, column=0, sticky="nsew")
 
-mergeButton = ttk.Button(buttonsFrame, text="Merge", style="Accent.TButton")
+mergeButton = ttk.Button(buttonsFrame, text="Merge", style="Accent.TButton", command=mergePlaylistsUI)
 mergeButton.grid(row=0, column=0, padx = (0,20),pady=(20,0))
 
 recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton")

@@ -4,8 +4,9 @@ from sklearn.cluster import KMeans
 from sklearn import preprocessing
 import pandas as pd
 from numba import njit,jit,prange
-import search
 import os
+import search
+
 
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
@@ -101,7 +102,7 @@ print("5. Get recommendations for a playlist")
 print("6. Quit")
 inp1 = input("Which would you like to do? ")
 
-while inp1 != "6":
+while True and inp1 != "6":
 
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
@@ -166,11 +167,3 @@ while inp1 != "6":
 
     elif inp1 not in ["1", "2", "3", "4", "5", "6"]: 
         print("Not a valid selection")
-
-    print("1. Make a new playlist")
-    print("2. Edit an existing playlist")
-    print("3. Import a playlist")
-    print("4. Merge two playlists")
-    print("5. Get recommendations for a playlist")
-    print("6. Quit")
-    inp1 = input("Which would you like to do? ")
