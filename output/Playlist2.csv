@@ -1,72 +1,13 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-WILLIS,Locals 2,I Think I Like When It Rains,5S5u0EWtlblH00iTNExZ6X,0.622,0.471,-7.105,0.0277,0,0.0957
-Eyedress,Mulholland Drive,Something About You,6RiiSy9GzSwiyDEJDiMuKe,0.648,0.781,-8.736,0.0271,0.013,0.305
-Vansire,After Fillmore County,Every Time Around,22iZ9lazlmjPO9sp0uzUex,0.742,0.556,-8.252,0.0262,0.73,0.108
-Faye Webster,Atlanta Millionaires Club,Kingston,5WbfFTuIldjL9x7W6y5l7R,0.73,0.355,-9.13,0.0359,0.00155,0.117
-The Marías,"Superclean, Vol. II",Over the Moon,02wNtFxlr9dLmZXKT5TIF5,0.684,0.232,-13.249,0.0297,0.404,0.135
-Men I Trust,Numb,Numb,6Ijmj8Z0L31hCp5pLZnT5U,0.783,0.303,-14.393,0.0527,0.945,0.109
-Vansire,Just the Right Song,Just the Right Song,0KOwuwc2XlPU1GFwnG1Gq0,0.688,0.515,-11.148,0.0344,0.0259,0.111
-Vansire,"The Rolling, Driftless North",Eleven Weeks,6eFV4CnBrdsYlF4s1wdqG0,0.302,0.411,-13.016,0.0361,0.835,0.135
-Peter Cat Recording Co.,Bismillah,Floated By,556jf0hyPQuLNHuNWo12I5,0.729,0.286,-13.654,0.0355,0.0245,0.105
-Men I Trust,Show Me How,Show Me How,01TyFEZu6mHbffsVfxgrFn,0.791,0.267,-11.997,0.0415,0.534,0.102
-Makoto Matsushita,FIRST LIGHT (2018 Remaster),September Rain - 2018 Remaster,25z4QmWYR2stp1xbVcG51J,0.649,0.339,-11.357,0.0276,0.0152,0.137
-KIRINJI,cherish,killer tune kills me,2JCdUwmGDO3SBkhwkfRaLr,0.787,0.414,-8.745,0.0379,0.587,0.14
-Bread And Butter,Late Late Summer,SUMMER BLUE,4Ad4HmvkDvFZ5eYaxQcTKh,0.636,0.517,-8.998,0.0348,1.84e-05,0.0753
-Kingo Hamada,midnight cruisin',抱かれに来た女,5ZwDNdZHE1HC4nJPWG321K,0.7,0.521,-9.611,0.0372,0.00199,0.332
-Naoko Gushima,miss. G,Candy,6TdE2qJLF6WVjmSI9tejG2,0.652,0.45,-10.599,0.0254,1.01e-05,0.0932
-Vansire,Angel Youth,Halcyon Age,1jQ19CIEPxKkixOhBh7KNf,0.626,0.482,-9.641,0.029,0.148,0.183
-Dayglow,Fuzzybrain,Fuzzybrain,57HJa4ktE7iHGrbFhwzEr2,0.488,0.51,-8.367,0.026,0.15,0.143
-Blood Orange,Cupid Deluxe,You're Not Good Enough,7vcNp4cj4uF4AyX5aKY4Ps,0.74,0.798,-6.55,0.146,0.00128,0.305
-Men I Trust,Untourable Album,Sorbitol,4VCYhzxyxsmf41R3Hvab0h,0.797,0.238,-14.984,0.0459,0.783,0.109
-Men I Trust,Lucky Sue,Lucky Sue,4lAfXpZKFDEudiEzLB9uHm,0.818,0.272,-15.304,0.0733,0.152,0.0892
-Cigarettes After Sex,I.,Nothing's Gonna Hurt You Baby,3GhsBdS9ulPK3KCdwHRPhG,0.509,0.331,-14.083,0.0267,0.136,0.114
-Vansire,Metamodernity,Metamodernity,61GiMDN1kUiEQK6zHGMdnx,0.822,0.544,-10.077,0.0358,0.165,0.108
-Men I Trust,Untourable Album,Before Dawn,74qn7Z1icF6rB9kUiVFUFm,0.824,0.386,-10.247,0.254,0.949,0.0563
-Men I Trust,Untourable Album,Tree Among Shrubs,4JYJU761kWJEK91hyug33F,0.713,0.443,-11.704,0.0531,0.804,0.111
-Men I Trust,Oncle Jazz,Alright,5cW8mZYs5mKGZP5n2azBW3,0.824,0.318,-16.416,0.0773,0.894,0.0926
-Cigarettes After Sex,Cigarettes After Sex,K.,7LX4aXtvImhdgUHQBlo8Kp,0.454,0.404,-10.26,0.027,0.819,0.141
-Cigarettes After Sex,Cigarettes After Sex,Apocalypse,3AVrVz5rK8Hrqo9YGiVGN5,0.369,0.467,-9.018,0.0274,0.46,0.109
-Cigarettes After Sex,Cigarettes After Sex,Sunsetz,69UqtTHfUKAJweQwEStRzC,0.412,0.477,-9.381,0.029,0.798,0.0975
-Peter Cat Recording Co.,Bismillah,Memory Box,024nqC9O76nvAuIWtQGdQy,0.609,0.415,-11.986,0.0435,0.0672,0.136
-Loving,If I Am Only My Thoughts,Visions,1rcxltU3Mzn8gN6Z8ly9Zh,0.658,0.67,-7.093,0.0255,0.0071,0.256
-Men I Trust,Seven,Seven,2dwvxOHnQjndZLowIR6PiS,0.692,0.421,-10.948,0.0295,0.147,0.104
-Strawberry Guy,Mrs Magic,Mrs Magic,0TZejo18HlJ86OrWNsXKnw,0.471,0.634,-7.406,0.031,0.365,0.374
-Ralph Castelli,Morning Sex,Morning Sex,2fGRJzoiYJYAzlQAyBONMb,0.81,0.353,-9.536,0.0437,0.000104,0.082
-Benny Sings,Art,Big Brown Eyes,19ovZMFSIQvehxLmvrRbBS,0.918,0.497,-8.206,0.0441,0.0626,0.134
-Benny Sings,Music,Sunny Afternoon,3Acg5sKJcCjUQBHA8KjX5F,0.838,0.408,-11.721,0.0727,0.000593,0.0793
-LUCKY TAPES,The SHOW,All Because Of You,70dgOIHPxYe4ookbTXp8vp,0.735,0.727,-6.404,0.0306,0.0008,0.0743
-Vansire,After Fillmore County,The Latter Teens,2zNWXaGuC0E9uxGJGauyLP,0.658,0.441,-10.008,0.0436,0.241,0.109
-Vansire,The Modern Western World,The Modern Western World,30bLh2OQSfIvDpdu8ckzRg,0.564,0.472,-10.59,0.03,0.207,0.101
-Vansire,The Modern Western World,Vivienne,7sPJFcAr6I8VPjXgNrXgh1,0.718,0.334,-12.226,0.0328,0.00228,0.103
-Vansire,The Modern Western World,Nosebleed Seats,3zREOGri6ic2vk6Dt2NJWk,0.55,0.71,-8.909,0.0432,0.0816,0.109
-Vansire,The Modern Western World,A Long Drive Back,5ek40zpnWzHxjcV9qUxXTe,0.699,0.629,-8.965,0.0315,0.0352,0.161
-Vansire,That I Miss You,That I Miss You,7cneuh5BMBbqbbGrpqTDHQ,0.779,0.572,-9.259,0.0396,0.739,0.106
-CASTLEBEAT,VHS,Research,3GJ6jnDrapgXAmxEXO6fWw,0.524,0.891,-9.074,0.0292,0.793,0.169
-NEIL FRANCES,Tell Me,Tell Me,1FJYX0a18UBzFOWzec43Ih,0.83,0.532,-10.855,0.0409,0.00114,0.112
 Joey Bada$$,2000,Show Me,2uuJs2nltcYFh9pkKP7bW4,0.599,0.646,-6.326,0.337,4.36e-06,0.128
-Mickey Darling,Pink Socks,Pink Socks,57zTjhDSxOPfbACC0vPL8I,0.638,0.898,-3.029,0.157,0,0.0703
-Men I Trust,Break for Lovers (feat. Helena),Break for Lovers (feat. Helena),5VU9zOQmK4dbHs0J8PRlPe,0.858,0.326,-11.496,0.0784,0.0614,0.0798
-TV Girl,Who Really Cares,Not Allowed,3IznIgmXtrUaoPWpQTy5jB,0.67,0.905,-6.855,0.129,0.000227,0.349
-IV Of Spades,CLAPCLAPCLAP!,Come Inside Of My Heart,3Eb5sztvEMa0Mqnb8DUAlU,0.676,0.565,-9.411,0.03,0.000579,0.241
-Matt Maltese,Good Morning It's Now Tomorrow,Everyone Adores You (at least I do),6klFWv2xDGeTDoiKTtx4hg,0.599,0.427,-9.037,0.0242,0.105,0.0984
-Matt Maltese,Krystal,Krystal,5JJPfHpByZ66XsEyCNVi2p,0.521,0.509,-8.059,0.0276,0.784,0.119
-Surf Curse,Freaks,Freaks,7EkWXAI1wn8Ii883ecd9xr,0.345,0.941,-9.918,0.0466,0.633,0.0511
-Fujii Kaze,HELP EVER HURT NEVER,Shinunoga E-Wa,0o9zmvc5f3EFApU52PPIyW,0.6,0.76,-6.124,0.0452,4.09e-05,0.189
-Cannons,Covers by Cannons,Golden - Originally Performed By Harry Styles,4CtdGc3EBrLfrcqKrrUIKm,0.581,0.789,-5.654,0.0328,0.061,0.241
-Vaundy,踊り子,踊り子,4xk70Qur2QeRmWIzWPC63V,0.718,0.475,-11.469,0.0611,0.801,0.105
-Ginger Root,Loretta (日本語 version),Loretta - 日本語 version,62YmOiT1RxAffnCSMqo4Kw,0.727,0.815,-5.424,0.0431,0.612,0.185
-Matt Maltese,Krystal,Intolewd,79rfskJwK9NLN3p5cdccth,0.759,0.203,-16.991,0.039,0.194,0.104
-PREP,As It Was,As It Was,1i92UFFkxtKv4tYNzt1X1b,0.798,0.628,-6.835,0.0699,0.0759,0.123
-Ichiko Aoba,マホロボシヤ,鬼ヶ島,4kp526fUmPUCdru1PAeNUV,0.45,0.0232,-23.239,0.0499,0.133,0.0898
-Delaney Bailey,For You,For You,2d6GD9DG14pRlsDqkMW1Ef,0.335,0.17,-15.843,0.0453,0,0.309
-缺省,Can You Hear the Whistle Blow,Can You Hear the Whistle Blow,2bJjScKqL6XqhwL30X2SaZ,0.633,0.585,-10.048,0.0302,0.201,0.0671
-Eoxinum,What Falling In Love Feels Like,What Falling In Love Feels Like,0456CLvPsaF7qwEWHQLCMK,0.443,0.0825,-22.991,0.0509,0.928,0.141
-Sports,Naked All the Time,You Are the Right One,2qpacEyFxmbxCpIEqZkqvC,0.659,0.594,-8.494,0.0261,0.846,0.632
-Ark Patrol,Let Go,Let Go,3kdlVcMVsSkbsUy8eQcBjI,0.47,0.436,-10.228,0.0351,0.263,0.294
-Okay Kaya,Watch This Liquid Pour Itself,Mother Nature's Bitch,3vy3ld7my2hDUTv4u7KIJR,0.729,0.588,-10.167,0.0339,0.582,0.216
-Men I Trust,Ring of Past,Ring of Past,11sfRkHdvsop5DdHVmGpt1,0.699,0.372,-13.396,0.0476,0.915,0.1
-Men I Trust,Oncle Jazz,Oncle Jazz,204t5SErksNRHRhU52g5JF,0.712,0.308,-16.776,0.0519,0.816,0.0813
-Justin Hurwitz,La La Land (Original Motion Picture Soundtrack),A Lovely Night,4r9hiElqKWMPT4Z3vN2exq,0.364,0.478,-8.645,0.0473,0.0015,0.124
-Sweet After Tears,Au Revoir,Au Revoir,0ke6DgZ3ZFGYoyiO2gsssD,0.662,0.807,-7.226,0.0291,0.000246,0.0968
-Walter The Producer,Since September,Since September,1bB04geBJPO5dLx51CWj5V,0.731,0.728,-2.788,0.0381,4.9e-06,0.243
-Keane,Hopes And Fears,Somewhere Only We Know,0ll8uFnc0nANY35E0Lfxvg,0.453,0.655,-4.22,0.0259,7.61e-06,0.0849
+MF DOOM,Operation: Doomsday (Complete),Doomsday,7lT1dCz96jANsLAAADlfIg,0.856,0.841,-7.737,0.335,0.0,0.0773
+MF DOOM,MM...FOOD,Rapp Snitch Knishes feat. Mr. Fantastik,5KUNwkaNf8l5A9sXZhiCgI,0.728,0.832,-6.827,0.267,0.0,0.504
+Kanye West,The College Dropout,Through The Wire,4mmkhcEm1Ljy1U9nwtsxUo,0.571,0.739,-6.11,0.247,5.21e-06,0.158
+Jack Harlow,First Class,First Class,1rDQ4oMwGJI7B4tovsBOxc,0.905,0.563,-6.135,0.102,9.71e-06,0.113
+Yung Gravy,Betty (Get Money),Betty (Get Money),4cacyP5c3PMlfnyjpg13xW,0.723,0.772,-6.784,0.0792,1.15e-05,0.367
+Yung Gravy,Thanksgiving's Eve,Ms. Gravystone (feat. Mia Gladstone),0LbnnN004xylojHTZtvsTy,0.661,0.843,-5.288,0.343,0.0,0.231
+Yung Gravy,Yung Gravity - EP,Forget Me Thots,2P1tkiGLZ5hoxrXfs073iU,0.887,0.737,-6.489,0.16,4.11e-05,0.109
+The Weeknd,Dawn FM,Out of Time,2SLwbpExuoBDZBpjfefCtV,0.65,0.76,-4.422,0.0446,0.0,0.339
+Yung Gravy,Cheryl,Cheryl,18gNzobZV5YD8BhL8o3BTi,0.801,0.698,-8.998,0.33,1.46e-06,0.184
+Wiz Khalifa,The Thrill,The Thrill,4wqzOaLxiCRy2Et8tRyNSX,0.817,0.775,-4.767,0.108,0.0,0.108
+Metro Boomin,HEROES & VILLAINS (Heroes Version),Creepin' (with The Weeknd & 21 Savage),4SI5jkfBClYmMWhWWH8f9p,0.715,0.62,-6.005,0.0484,0.0,0.0822

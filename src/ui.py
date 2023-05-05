@@ -73,11 +73,11 @@ windowFrameNotebook = ttk.Notebook(frame)
 windowFrameNotebook.grid(row=0, column=0)
 
 tab1 = ttk.Frame(windowFrameNotebook)
-windowFrameNotebook.add(tab1, text="Tab 1")
+windowFrameNotebook.add(tab1, text="Simple View")
 
 tab2 = ttk.Frame(windowFrameNotebook)
 
-windowFrameNotebook.add(tab2, text="Tab 2")
+windowFrameNotebook.add(tab2, text="Search")
 leftFrame = ttk.Frame(tab2)
 leftFrame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
@@ -252,7 +252,7 @@ button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 #############################
 
 tab3 = ttk.Frame(windowFrameNotebook)
-windowFrameNotebook.add(tab3, text="Tab 3")
+windowFrameNotebook.add(tab3, text="View Playlists")
 
 
 leftFrame = ttk.Frame(tab1)
