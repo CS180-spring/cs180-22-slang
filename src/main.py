@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn import preprocessing
 import pandas as pd
 from numba import njit,jit,prange
+import os
 
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'

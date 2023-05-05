@@ -3,10 +3,11 @@ import tkinter as tk
 from tkinter import ttk
 import csv
 import os
+import main
 
 def load_playlist():
-    file_path1 = '/Users/ailan/Desktop/Labs/CS180/cs180-22-slang/Playlist.csv'
-    file_path2 = '/Users/ailan/Desktop/Labs/CS180/cs180-22-slang/Playlist2.csv'
+    file_path1 = '../output/Playlist.csv'
+    file_path2 = '../output/Playlist2.csv'
 
     with open(file_path1, 'r') as f1:
         reader1 = csv.reader(f1)
@@ -35,8 +36,8 @@ root.resizable(width=False, height=False)
 
 style = ttk.Style(root)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-forest_light_tcl = os.path.join(script_dir, "forest-light.tcl")
-forest_dark_tcl = os.path.join(script_dir, "forest-dark.tcl")
+forest_light_tcl = os.path.join(script_dir, "../UI/forest-light.tcl")
+forest_dark_tcl = os.path.join(script_dir, "../UI/forest-dark.tcl")
 
 root.tk.call("source", forest_light_tcl)
 root.tk.call("source", forest_dark_tcl)
