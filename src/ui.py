@@ -36,6 +36,8 @@ def load_playlist():
         for row in playlist2:
             treeview2.insert("", "end", values=row)
 
+
+
 root = tk.Tk()
 root.title("SpotiDB")
 root.resizable(width=False, height=False)
@@ -286,7 +288,7 @@ rightFrame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
 buttonsFrame = ttk.Frame(rightFrame)
 buttonsFrame.grid(row=0, column=0, sticky="nsew")
 
-mergeButton = ttk.Button(buttonsFrame, text="Merge", style="Accent.TButton")
+mergeButton = ttk.Button(buttonsFrame, text="Merge", style="Accent.TButton", command=)
 mergeButton.grid(row=0, column=0, padx = (0,20),pady=(20,0))
 
 recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton")

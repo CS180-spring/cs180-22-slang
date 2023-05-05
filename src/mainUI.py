@@ -136,10 +136,10 @@ def importSpotifyPlaylist(playlistLink, playlistName):
     df.to_csv(csvName, index = False)
 
 def mergePlaylists():
-    playlist1 = input("Please enter the first playlist's name: ")
-    playlist2 = input("Please enter the second playlist's name: ")
-    mergedName = input("Please name your new merged playlist: ")
-
+    playlist1 = "Playlist"
+    playlist2 = "Playlist2"
+    mergedName = "MergedPlaylist"
+    
     playlist1_loc = "../output/" + playlist1 + ".csv"
     playlist2_loc = "../output/" + playlist2 + ".csv"
     merged_loc = "../output/" + mergedName + ".csv"
