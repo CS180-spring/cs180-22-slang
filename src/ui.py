@@ -6,6 +6,13 @@ import os
 from mainUI import *
 
 def load_playlist():
+
+    playlist1Link = playlist1_entry.get()
+    playlist2Link = playlist2_entry.get()
+
+    importSpotifyPlaylist(playlist1Link, "Playlist")
+    importSpotifyPlaylist(playlist2Link, "Playlist2")
+
     file_path1 = '../output/Playlist.csv'
     file_path2 = '../output/Playlist2.csv'
 

@@ -1,101 +1,72 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-Glass Animals,Dreamland (+ Bonus Levels),Heat Waves,02MWAaffLxlfxAUY7c5dvx,0.761,0.525,-6.9,0.0944,6.7e-06,0.0921
-Harry Styles,As It Was,As It Was,4LRPiXqCikLlN15c3yImP7,0.52,0.731,-5.338,0.0557,0.00101,0.311
-The Kid LAROI,STAY (with Justin Bieber),STAY (with Justin Bieber),5HCyWlXZPP0y6Gqq8TgA20,0.591,0.764,-5.484,0.0483,0.0,0.103
-Adele,Easy On Me,Easy On Me,0gplL1WMoJ6iYaPgMCL0gX,0.604,0.366,-7.519,0.0282,0.0,0.133
-Ed Sheeran,=,Shivers,50nfwKoDiSYg8zOCREWAm5,0.788,0.859,-2.724,0.0856,0.0,0.0424
-Jack Harlow,Come Home The Kids Miss You,First Class,0wHFktze2PHC5jDt3B17DC,0.902,0.582,-5.902,0.109,3.18e-06,0.111
-Latto,Big Energy,Big Energy,6Zu3aw7FfjAF9WA0fA81Oq,0.935,0.807,-3.838,0.114,0.0,0.349
-Justin Bieber,Justice,Ghost,6I3mqTwhRpn34SLVafSH7G,0.601,0.741,-5.569,0.0478,2.91e-05,0.415
-Sniper Gang,Sniper Gang Presents Syko Bob & Snapkatt: Nightmare Babies,Super Gremlin,4A8cWXxKfIL3lAyUDzXbCF,0.825,0.414,-6.634,0.144,0.0,0.357
-Elton John,Cold Heart (PNAU Remix),Cold Heart - PNAU Remix,6zSpb8dQRaw0M1dK8PBwQz,0.796,0.798,-6.312,0.0317,4.19e-05,0.0952
-Future,I NEVER LIKED YOU,WAIT FOR U (feat. Drake & Tems),59nOXPmaKlBfGMDeOVGrIK,0.463,0.642,-4.474,0.34,0.0,0.0686
-Lizzo,About Damn Time,About Damn Time,1PckUlxKqWQs3RlWXVBLw3,0.836,0.743,-6.305,0.0656,0.0,0.335
-Ed Sheeran,=,Bad Habits,3rmo8F54jFF8OgYsqTxm5d,0.807,0.893,-3.745,0.0347,2.79e-05,0.366
-Lil Nas X,MONTERO,THATS WHAT I WANT,0e8nrvls4Qqv5Rfa2UhqmO,0.737,0.846,-4.51,0.22,0.0,0.0486
-Imagine Dragons,Enemy (with JID) [from the series Arcane League of Legends],Enemy (with JID) - from the series Arcane League of Legends,1r9xUipOqoNwggBpENDsvJ,0.728,0.783,-4.424,0.266,0.0,0.434
-Lil Nas X,INDUSTRY BABY (feat. Jack Harlow),INDUSTRY BABY (feat. Jack Harlow),27NovPIUIRrOZoCHxABJwK,0.736,0.704,-7.409,0.0615,0.0,0.0501
-GAYLE,abcdefu,abcdefu,4fouWK6XVHhzl78KzQ1UjL,0.695,0.54,-5.692,0.0493,0.0,0.367
-Doja Cat,Planet Her,Need to Know,3Vi5XqYrmQgOYBajMWSvCi,0.664,0.609,-6.509,0.0707,0.0,0.0926
-Morgan Wallen,Dangerous: The Double Album,Wasted On You,3cBsEDNhFI9E82vPj3kvi3,0.505,0.657,-5.24,0.0318,0.00107,0.126
-Bad Bunny,Un Verano Sin Ti,Me Porto Bonito,6Sq7ltF9Qa7SNFBsV5Cogx,0.911,0.712,-5.105,0.0817,2.68e-05,0.0933
-Doja Cat,Planet Her,Woman,6Uj1ctrBOjOas8xZXGqKk4,0.824,0.764,-4.175,0.0854,0.00294,0.117
-Bad Bunny,Un Verano Sin Ti,Tití Me Preguntó,1IHWl5LamUGEuP4ozKQSXZ,0.65,0.715,-5.198,0.253,0.000291,0.126
-Kate Bush,Hounds of Love (2018 Remaster),Running Up That Hill (A Deal With God) - 2018 Remaster,29d0nY7TzCoi22XBqDQkiP,0.625,0.533,-11.903,0.0596,0.00266,0.0546
-Lin-Manuel Miranda,Encanto (Original Motion Picture Soundtrack),We Don't Talk About Bruno,52xJxFP6TqMuO4Yt0eOkMz,0.577,0.45,-8.516,0.0834,0.0,0.111
-Harry Styles,Harry's House,Late Night Talking,1qEmFfgcLObUfQm0j1W2CK,0.714,0.728,-4.595,0.0468,0.0,0.106
-Post Malone,Twelve Carat Toothache,I Like You (A Happier Song) (with Doja Cat),0O6u0VJ46W86TxN9wgyqDj,0.733,0.67,-6.009,0.0751,0.0,0.121
-Morgan Wallen,You Proof,You Proof,5uU1uuyaUIBOiiUSQG7Wl3,0.731,0.85,-4.913,0.0336,0.0,0.605
-Steve Lacy,Bad Habit,Bad Habit,5CM4UuQ9Gnd6K2YyKGPMoK,0.686,0.507,-7.097,0.0357,7.51e-05,0.383
-Nicky Youre,Sunroof,Sunroof,4h4QlmocP3IuwYEj2j14p8,0.768,0.714,-5.11,0.0401,0.0,0.15
-Post Malone,One Right Now,One Right Now (with The Weeknd),00Blm7zeNqgYLPtW6zg8cj,0.687,0.781,-4.806,0.053,0.0,0.0755
-Olivia Rodrigo,SOUR,good 4 u,4ZtFanR9U6ndgddUvNcjcG,0.563,0.664,-5.044,0.154,0.0,0.0849
-Em Beihold,Numb Little Bug,Numb Little Bug,3o9kpgkIcffx0iSwxhuNI2,0.742,0.527,-6.892,0.0769,0.0,0.25
-Drake,"Honestly, Nevermind",Jimmy Cooks (feat. 21 Savage),3F5CgOj3wFlRv51JsHbxhe,0.529,0.673,-4.711,0.175,2.41e-06,0.093
-Cody Johnson,'Til You Can’t / Longer Than She Did,'Til You Can't,13rC4iKtfQocWIfzPOJxaT,0.505,0.814,-4.905,0.0439,0.0,0.106
-Walker Hayes,Country Stuff The Album,Fancy Like,58UKC45GPNTflCN6nwCUeF,0.647,0.765,-6.459,0.06,0.0,0.315
-Luke Combs,The Kind of Love We Make,The Kind of Love We Make,28n8z9IQKyjMPxmvYMBqZa,0.608,0.745,-4.13,0.0277,6.47e-06,0.0942
-OneRepublic,"I Ain’t Worried (Music From The Motion Picture ""Top Gun: Maverick"")",I Ain't Worried,4h9wh7iOZ0GGn8QVp4RAOB,0.704,0.797,-5.927,0.0475,0.000745,0.0546
-Beyoncé,BREAK MY SOUL,BREAK MY SOUL,2KukL7UlQ8TdvpaA7bY3ZJ,0.687,0.887,-5.04,0.0826,2.21e-06,0.27
-Zach Bryan,Something in the Orange,Something in the Orange,3WMj8moIAXJhHsyLaqIIHI,0.369,0.192,-12.151,0.04,8.35e-06,0.0954
-The Weeknd,Save Your Tears (Remix),Save Your Tears (with Ariana Grande) (Remix),37BZB0z9T8Xu7U3e65qxFy,0.65,0.825,-4.645,0.0325,2.44e-05,0.0936
-Bruno Mars,An Evening With Silk Sonic,Smokin Out The Window,1oERlssLrpssCAY6Yqqs6c,0.627,0.618,-8.529,0.0437,0.0,0.351
-Dua Lipa,Future Nostalgia,Levitating,39LLxExYz6ewLAcYrzQQyP,0.695,0.884,-2.278,0.0753,0.0,0.213
-Lil Baby,In A Minute,In A Minute,3ihIZrJreMJPjQdNLrEXnP,0.643,0.605,-5.968,0.297,0.0,0.112
-Bad Bunny,Un Verano Sin Ti,Moscow Mule,6Xom58OOXk2SoU711L2IXO,0.804,0.674,-5.453,0.0333,1.18e-06,0.115
-Doja Cat,Planet Her,You Right,0k4d5YPDr1r7FX77VdqWez,0.828,0.621,-6.414,0.0565,0.00233,0.0845
-Cole Swindell,Stereotype,She Had Me At Heads Carolina,200x8ONbPfFzByUr3fVz46,0.607,0.912,-3.449,0.0611,0.0,0.332
-Doja Cat,Vegas (From the Original Motion Picture Soundtrack ELVIS),Vegas (From the Original Motion Picture Soundtrack ELVIS),0hquQWY3xvYqN4qtiquniF,0.801,0.601,-7.574,0.255,3.23e-05,0.145
-Gunna,DS4EVER,pushin P (feat. Young Thug),3XOalgusokruzA5ZBA2Qcb,0.773,0.422,-4.572,0.187,0.00693,0.129
-Jordan Davis,Buy Dirt,Buy Dirt,69AIpwGNLxr4qS1X5ynx60,0.586,0.559,-6.725,0.05,0.0,0.0872
-SZA,I Hate U,I Hate U,5dXWFMwD7I7zXsInONVl0H,0.535,0.388,-9.805,0.155,0.0,0.11
-Dove Cameron,Boyfriend,Boyfriend,59CfNbkERJ3NoTXDvoURjj,0.345,0.612,-6.543,0.0608,0.0,0.194
-Joji,Glimpse of Us,Glimpse of Us,6xGruZOHLs39ZbVccQTuPZ,0.44,0.317,-9.258,0.0531,4.78e-06,0.141
-Lin-Manuel Miranda,Encanto (Original Motion Picture Soundtrack),Surface Pressure,760jhRscwGbIIe1m1IIQpU,0.65,0.584,-8.286,0.307,1.54e-06,0.042
-Bailey Zimmerman,Fall In Love,Fall In Love,5gVCfYmQRPy1QJifP8f5gg,0.524,0.643,-6.055,0.0297,0.0,0.221
-CKay,CKay The First,love nwantiti (ah ah ah),2Xr1dTzJee307rmrkt8c0g,0.727,0.739,-3.805,0.0411,0.00137,0.161
-Nicki Minaj,Super Freaky Girl,Super Freaky Girl,4C6Uex2ILwJi9sZXRdmqXp,0.95,0.891,-2.653,0.241,1.77e-05,0.309
-Muni Long,Public Displays Of Affection: The Album,Hrs & Hrs,3ncmoWTwJgx63LwMTyBCXf,0.52,0.546,-4.991,0.213,0.0,0.112
-Morgan Wallen,Dangerous: The Double Album,Sand In My Boots,0uRrG2jRR5tuifsYIJHEao,0.403,0.537,-6.628,0.031,0.0,0.112
-Becky G,MAMIII,MAMIII,1ri9ZUkBJVFUdgwzCnfcYs,0.843,0.7,-3.563,0.0803,0.0,0.14
-Drake,Certified Lover Boy,Knife Talk (with 21 Savage ft. Project Pat),2BcMwX1MPV6ZHP4tUT9uq6,0.849,0.424,-9.579,0.324,0.0,0.0834
-Walker Hayes,AA,AA,77oKig47u34qCCFWKMfu1e,0.635,0.747,-6.227,0.0293,0.0,0.346
-Megan Thee Stallion,Sweetest Pie,Sweetest Pie,7mFj0LlWtEJaEigguaWqYh,0.814,0.628,-7.178,0.221,0.0,0.101
-KAROL G,PROVENZA,PROVENZA,7dSZ6zGTQx66c2GF91xCrb,0.87,0.516,-8.006,0.0541,0.00823,0.11
-Wizkid,Made In Lagos,Essence (feat. Tems),5FG7Tl93LdH117jEKYl3Cm,0.849,0.707,-6.002,0.113,8.58e-06,0.618
-Mariah Carey,Merry Christmas,All I Want for Christmas Is You,0bYg9bo50gSsH3LtXe2SQn,0.336,0.627,-7.463,0.0384,0.0,0.0708
-Camila Cabello,Bam Bam (feat. Ed Sheeran),Bam Bam (feat. Ed Sheeran),0QBzMgT7NIeoCYy3sJCof1,0.756,0.697,-6.377,0.0401,0.0,0.333
-Tyler Hubbard,5 Foot 9,5 Foot 9,6AqwH2Y9FJwhUE2dCSkw1u,0.602,0.796,-5.609,0.0465,0.0,0.125
-Doja Cat,Planet Her,Get Into It (Yuh),0W6I02J9xcqK8MtSeosEXb,0.912,0.655,-6.029,0.162,3.39e-05,0.0894
-Bad Bunny,Un Verano Sin Ti,Efecto,5Eax0qFko2dh7Rl2lYs3bx,0.801,0.475,-8.797,0.0516,1.73e-05,0.0639
-Bailey Zimmerman,Rock and A Hard Place,Rock and A Hard Place,4686eQ81DEswHa90bcdlC9,0.582,0.568,-7.3,0.0275,0.0,0.105
-Luke Combs,Doin' This,Doin' This,4GyD3o5hWoyCuYpdlzZlRL,0.593,0.552,-5.838,0.028,1.71e-05,0.11
-Adele,30,Oh My God,3Kkjo3cT83cw09VJyrLNwX,0.534,0.725,-3.906,0.046,0.0,0.0264
-NEIKED,Better Days (NEIKED x Mae Muller x Polo G),Better Days (NEIKED x Mae Muller x Polo G),6f5ExP43esnvdKPddwKXJH,0.717,0.671,-5.077,0.0337,2.54e-06,0.0921
-THE ANXIETY,THE ANXIETY,Meet Me At Our Spot,07MDkzWARZaLEdKxo6yArG,0.773,0.47,-7.93,0.0299,0.000193,0.0851
-Lauren Spencer Smith,Fingers Crossed,Fingers Crossed,3yMC1KsTwh0ceXdIe4QQAQ,0.56,0.473,-7.23,0.0533,0.0,0.31
-Taylor Swift,Red (Taylor's Version),All Too Well (10 Minute Version) (Taylor's Version) (From The Vault),5enxwA8aAbwZbf5qCHORXi,0.631,0.518,-8.771,0.0303,0.0,0.088
-Bad Bunny,Un Verano Sin Ti,Party,4tYFy8ALRjIZvnvSLw5lxN,0.829,0.799,-5.389,0.0897,0.000543,0.242
-Bad Bunny,Un Verano Sin Ti,Después de la Playa,1dm6z1fWB0cErMszU25dy2,0.564,0.903,-3.221,0.307,0.0,0.175
-Chris Stapleton,Starting Over,You Should Probably Leave,2UikqkwBv7aIvlixeVXHWt,0.602,0.477,-8.425,0.032,3.1e-05,0.173
-Brenda Lee,Merry Christmas From Brenda Lee,Rockin' Around The Christmas Tree,2EjXfH91m7f8HiJN1yQg97,0.589,0.472,-8.749,0.0502,0.0,0.505
-Lil Durk,Broadway Girls (feat. Morgan Wallen),Broadway Girls (feat. Morgan Wallen),3DZ8dbKg4OTSSqGARvecYd,0.659,0.745,-3.599,0.0347,0.0,0.296
-Parmalee,For You,Take My Name,2afB4eV1KWBqLqFqME6PTh,0.559,0.66,-4.143,0.0512,0.0,0.193
-Lil Durk,7220,What Happened To Virgil (feat. Gunna),7ohROa13QK43JBRqfCmz4P,0.795,0.526,-9.086,0.204,2e-06,0.134
-Future,I NEVER LIKED YOU,PUFFIN ON ZOOTIEZ,1qMMYpVatbRITKCfq1gasi,0.883,0.657,-5.748,0.305,0.0,0.128
-Kane Brown,Like I Love Country Music,Like I Love Country Music,3j1xkzTW8owIphkWV51V9s,0.542,0.82,-6.073,0.0432,0.000136,0.0561
-Bobby Helms,Jingle Bell Rock/Captain Santa Claus (And His Reindeer Space Patrol),Jingle Bell Rock,7vQbuQcyTflfCIOu3Uzzya,0.754,0.424,-8.463,0.0363,0.0,0.0652
-Bad Bunny,Un Verano Sin Ti,Ojitos Lindos,3k3NWokhRRkEPhCzPmV8TW,0.647,0.686,-5.745,0.0413,1.34e-06,0.528
-Jason Aldean,GEORGIA,Trouble With A Heartbreak,3HO30hRbkOLU6ZWERayfQO,0.582,0.797,-4.926,0.0334,0.0,0.132
-Burl Ives,Have A Holly Jolly Christmas,A Holly Jolly Christmas,77khP2fIVhSW23NwxrRluh,0.683,0.375,-13.056,0.0303,0.0,0.076
-Doja Cat,Kiss Me More (feat. SZA),Kiss Me More (feat. SZA),748mdHapucXQri7IAO8yFK,0.762,0.701,-3.541,0.0286,0.000158,0.123
-Russell Dickerson,She Likes It (feat. Jake Scott),She Likes It (feat. Jake Scott),6VVqPBFZIbcmv14zNfOc13,0.79,0.325,-11.689,0.127,0.0,0.155
-Cole Swindell,Never Say Never (with Lainey Wilson),Never Say Never (with Lainey Wilson),03kCiUPjdAV9ur9ugm8PQT,0.472,0.937,-4.028,0.0567,0.0,0.11
-Scotty McCreery,Damn Strait,Damn Strait,4jp9FimhP2bQ93vR0A5r7b,0.523,0.64,-6.15,0.0295,5.52e-05,0.0675
-Tate McRae,she's all i wanna be,she's all i wanna be,0IuVhCflrQPMGRrOyoY5RW,0.614,0.644,-5.372,0.0426,7.07e-06,0.117
-Jon Pardi,Last Night Lonely,Last Night Lonely,3SeeaIXnrCfT88vHVCRWHl,0.646,0.816,-2.65,0.0269,0.0,0.179
-ERNEST,Flower Shops (feat. Morgan Wallen),Flower Shops (feat. Morgan Wallen),2ccuOtUjIyx3tPcsnpeBzJ,0.527,0.461,-5.908,0.0269,0.0,0.0831
-Jnr Choi,TO THE MOON,TO THE MOON,5vUnjhBzRJJIAOJPde6zDx,0.745,0.65,-11.814,0.346,0.00758,0.111
-Sam Smith,Unholy (feat. Kim Petras),Unholy (feat. Kim Petras),3nqQXoyQOWXiESFLlDF1hG,0.714,0.472,-7.375,0.0864,4.51e-06,0.266
-Kane Brown,One Mississippi,One Mississippi,4FdPnT2cFrpWCmWZd7GXc3,0.471,0.846,-5.269,0.0389,2.86e-06,0.145
-Maren Morris,Circles Around This Town,Circles Around This Town,13G5xv1wUKvJYbK0wYmioN,0.591,0.814,-4.986,0.0468,0.0,0.117
+WILLIS,Locals 2,I Think I Like When It Rains,5S5u0EWtlblH00iTNExZ6X,0.622,0.471,-7.105,0.0277,0,0.0957
+Eyedress,Mulholland Drive,Something About You,6RiiSy9GzSwiyDEJDiMuKe,0.648,0.781,-8.736,0.0271,0.013,0.305
+Vansire,After Fillmore County,Every Time Around,22iZ9lazlmjPO9sp0uzUex,0.742,0.556,-8.252,0.0262,0.73,0.108
+Faye Webster,Atlanta Millionaires Club,Kingston,5WbfFTuIldjL9x7W6y5l7R,0.73,0.355,-9.13,0.0359,0.00155,0.117
+The Marías,"Superclean, Vol. II",Over the Moon,02wNtFxlr9dLmZXKT5TIF5,0.684,0.232,-13.249,0.0297,0.404,0.135
+Men I Trust,Numb,Numb,6Ijmj8Z0L31hCp5pLZnT5U,0.783,0.303,-14.393,0.0527,0.945,0.109
+Vansire,Just the Right Song,Just the Right Song,0KOwuwc2XlPU1GFwnG1Gq0,0.688,0.515,-11.148,0.0344,0.0259,0.111
+Vansire,"The Rolling, Driftless North",Eleven Weeks,6eFV4CnBrdsYlF4s1wdqG0,0.302,0.411,-13.016,0.0361,0.835,0.135
+Peter Cat Recording Co.,Bismillah,Floated By,556jf0hyPQuLNHuNWo12I5,0.729,0.286,-13.654,0.0355,0.0245,0.105
+Men I Trust,Show Me How,Show Me How,01TyFEZu6mHbffsVfxgrFn,0.791,0.267,-11.997,0.0415,0.534,0.102
+Makoto Matsushita,FIRST LIGHT (2018 Remaster),September Rain - 2018 Remaster,25z4QmWYR2stp1xbVcG51J,0.649,0.339,-11.357,0.0276,0.0152,0.137
+KIRINJI,cherish,killer tune kills me,2JCdUwmGDO3SBkhwkfRaLr,0.787,0.414,-8.745,0.0379,0.587,0.14
+Bread And Butter,Late Late Summer,SUMMER BLUE,4Ad4HmvkDvFZ5eYaxQcTKh,0.636,0.517,-8.998,0.0348,1.84e-05,0.0753
+Kingo Hamada,midnight cruisin',抱かれに来た女,5ZwDNdZHE1HC4nJPWG321K,0.7,0.521,-9.611,0.0372,0.00199,0.332
+Naoko Gushima,miss. G,Candy,6TdE2qJLF6WVjmSI9tejG2,0.652,0.45,-10.599,0.0254,1.01e-05,0.0932
+Vansire,Angel Youth,Halcyon Age,1jQ19CIEPxKkixOhBh7KNf,0.626,0.482,-9.641,0.029,0.148,0.183
+Dayglow,Fuzzybrain,Fuzzybrain,57HJa4ktE7iHGrbFhwzEr2,0.488,0.51,-8.367,0.026,0.15,0.143
+Blood Orange,Cupid Deluxe,You're Not Good Enough,7vcNp4cj4uF4AyX5aKY4Ps,0.74,0.798,-6.55,0.146,0.00128,0.305
+Men I Trust,Untourable Album,Sorbitol,4VCYhzxyxsmf41R3Hvab0h,0.797,0.238,-14.984,0.0459,0.783,0.109
+Men I Trust,Lucky Sue,Lucky Sue,4lAfXpZKFDEudiEzLB9uHm,0.818,0.272,-15.304,0.0733,0.152,0.0892
+Cigarettes After Sex,I.,Nothing's Gonna Hurt You Baby,3GhsBdS9ulPK3KCdwHRPhG,0.509,0.331,-14.083,0.0267,0.136,0.114
+Vansire,Metamodernity,Metamodernity,61GiMDN1kUiEQK6zHGMdnx,0.822,0.544,-10.077,0.0358,0.165,0.108
+Men I Trust,Untourable Album,Before Dawn,74qn7Z1icF6rB9kUiVFUFm,0.824,0.386,-10.247,0.254,0.949,0.0563
+Men I Trust,Untourable Album,Tree Among Shrubs,4JYJU761kWJEK91hyug33F,0.713,0.443,-11.704,0.0531,0.804,0.111
+Men I Trust,Oncle Jazz,Alright,5cW8mZYs5mKGZP5n2azBW3,0.824,0.318,-16.416,0.0773,0.894,0.0926
+Cigarettes After Sex,Cigarettes After Sex,K.,7LX4aXtvImhdgUHQBlo8Kp,0.454,0.404,-10.26,0.027,0.819,0.141
+Cigarettes After Sex,Cigarettes After Sex,Apocalypse,3AVrVz5rK8Hrqo9YGiVGN5,0.369,0.467,-9.018,0.0274,0.46,0.109
+Cigarettes After Sex,Cigarettes After Sex,Sunsetz,69UqtTHfUKAJweQwEStRzC,0.412,0.477,-9.381,0.029,0.798,0.0975
+Peter Cat Recording Co.,Bismillah,Memory Box,024nqC9O76nvAuIWtQGdQy,0.609,0.415,-11.986,0.0435,0.0672,0.136
+Loving,If I Am Only My Thoughts,Visions,1rcxltU3Mzn8gN6Z8ly9Zh,0.658,0.67,-7.093,0.0255,0.0071,0.256
+Men I Trust,Seven,Seven,2dwvxOHnQjndZLowIR6PiS,0.692,0.421,-10.948,0.0295,0.147,0.104
+Strawberry Guy,Mrs Magic,Mrs Magic,0TZejo18HlJ86OrWNsXKnw,0.471,0.634,-7.406,0.031,0.365,0.374
+Ralph Castelli,Morning Sex,Morning Sex,2fGRJzoiYJYAzlQAyBONMb,0.81,0.353,-9.536,0.0437,0.000104,0.082
+Benny Sings,Art,Big Brown Eyes,19ovZMFSIQvehxLmvrRbBS,0.918,0.497,-8.206,0.0441,0.0626,0.134
+Benny Sings,Music,Sunny Afternoon,3Acg5sKJcCjUQBHA8KjX5F,0.838,0.408,-11.721,0.0727,0.000593,0.0793
+LUCKY TAPES,The SHOW,All Because Of You,70dgOIHPxYe4ookbTXp8vp,0.735,0.727,-6.404,0.0306,0.0008,0.0743
+Vansire,After Fillmore County,The Latter Teens,2zNWXaGuC0E9uxGJGauyLP,0.658,0.441,-10.008,0.0436,0.241,0.109
+Vansire,The Modern Western World,The Modern Western World,30bLh2OQSfIvDpdu8ckzRg,0.564,0.472,-10.59,0.03,0.207,0.101
+Vansire,The Modern Western World,Vivienne,7sPJFcAr6I8VPjXgNrXgh1,0.718,0.334,-12.226,0.0328,0.00228,0.103
+Vansire,The Modern Western World,Nosebleed Seats,3zREOGri6ic2vk6Dt2NJWk,0.55,0.71,-8.909,0.0432,0.0816,0.109
+Vansire,The Modern Western World,A Long Drive Back,5ek40zpnWzHxjcV9qUxXTe,0.699,0.629,-8.965,0.0315,0.0352,0.161
+Vansire,That I Miss You,That I Miss You,7cneuh5BMBbqbbGrpqTDHQ,0.779,0.572,-9.259,0.0396,0.739,0.106
+CASTLEBEAT,VHS,Research,3GJ6jnDrapgXAmxEXO6fWw,0.524,0.891,-9.074,0.0292,0.793,0.169
+NEIL FRANCES,Tell Me,Tell Me,1FJYX0a18UBzFOWzec43Ih,0.83,0.532,-10.855,0.0409,0.00114,0.112
+Joey Bada$$,2000,Show Me,2uuJs2nltcYFh9pkKP7bW4,0.599,0.646,-6.326,0.337,4.36e-06,0.128
+Mickey Darling,Pink Socks,Pink Socks,57zTjhDSxOPfbACC0vPL8I,0.638,0.898,-3.029,0.157,0,0.0703
+Men I Trust,Break for Lovers (feat. Helena),Break for Lovers (feat. Helena),5VU9zOQmK4dbHs0J8PRlPe,0.858,0.326,-11.496,0.0784,0.0614,0.0798
+TV Girl,Who Really Cares,Not Allowed,3IznIgmXtrUaoPWpQTy5jB,0.67,0.905,-6.855,0.129,0.000227,0.349
+IV Of Spades,CLAPCLAPCLAP!,Come Inside Of My Heart,3Eb5sztvEMa0Mqnb8DUAlU,0.676,0.565,-9.411,0.03,0.000579,0.241
+Matt Maltese,Good Morning It's Now Tomorrow,Everyone Adores You (at least I do),6klFWv2xDGeTDoiKTtx4hg,0.599,0.427,-9.037,0.0242,0.105,0.0984
+Matt Maltese,Krystal,Krystal,5JJPfHpByZ66XsEyCNVi2p,0.521,0.509,-8.059,0.0276,0.784,0.119
+Surf Curse,Freaks,Freaks,7EkWXAI1wn8Ii883ecd9xr,0.345,0.941,-9.918,0.0466,0.633,0.0511
+Fujii Kaze,HELP EVER HURT NEVER,Shinunoga E-Wa,0o9zmvc5f3EFApU52PPIyW,0.6,0.76,-6.124,0.0452,4.09e-05,0.189
+Cannons,Covers by Cannons,Golden - Originally Performed By Harry Styles,4CtdGc3EBrLfrcqKrrUIKm,0.581,0.789,-5.654,0.0328,0.061,0.241
+Vaundy,踊り子,踊り子,4xk70Qur2QeRmWIzWPC63V,0.718,0.475,-11.469,0.0611,0.801,0.105
+Ginger Root,Loretta (日本語 version),Loretta - 日本語 version,62YmOiT1RxAffnCSMqo4Kw,0.727,0.815,-5.424,0.0431,0.612,0.185
+Matt Maltese,Krystal,Intolewd,79rfskJwK9NLN3p5cdccth,0.759,0.203,-16.991,0.039,0.194,0.104
+PREP,As It Was,As It Was,1i92UFFkxtKv4tYNzt1X1b,0.798,0.628,-6.835,0.0699,0.0759,0.123
+Ichiko Aoba,マホロボシヤ,鬼ヶ島,4kp526fUmPUCdru1PAeNUV,0.45,0.0232,-23.239,0.0499,0.133,0.0898
+Delaney Bailey,For You,For You,2d6GD9DG14pRlsDqkMW1Ef,0.335,0.17,-15.843,0.0453,0,0.309
+缺省,Can You Hear the Whistle Blow,Can You Hear the Whistle Blow,2bJjScKqL6XqhwL30X2SaZ,0.633,0.585,-10.048,0.0302,0.201,0.0671
+Eoxinum,What Falling In Love Feels Like,What Falling In Love Feels Like,0456CLvPsaF7qwEWHQLCMK,0.443,0.0825,-22.991,0.0509,0.928,0.141
+Sports,Naked All the Time,You Are the Right One,2qpacEyFxmbxCpIEqZkqvC,0.659,0.594,-8.494,0.0261,0.846,0.632
+Ark Patrol,Let Go,Let Go,3kdlVcMVsSkbsUy8eQcBjI,0.47,0.436,-10.228,0.0351,0.263,0.294
+Okay Kaya,Watch This Liquid Pour Itself,Mother Nature's Bitch,3vy3ld7my2hDUTv4u7KIJR,0.729,0.588,-10.167,0.0339,0.582,0.216
+Men I Trust,Ring of Past,Ring of Past,11sfRkHdvsop5DdHVmGpt1,0.699,0.372,-13.396,0.0476,0.915,0.1
+Men I Trust,Oncle Jazz,Oncle Jazz,204t5SErksNRHRhU52g5JF,0.712,0.308,-16.776,0.0519,0.816,0.0813
+Justin Hurwitz,La La Land (Original Motion Picture Soundtrack),A Lovely Night,4r9hiElqKWMPT4Z3vN2exq,0.364,0.478,-8.645,0.0473,0.0015,0.124
+Sweet After Tears,Au Revoir,Au Revoir,0ke6DgZ3ZFGYoyiO2gsssD,0.662,0.807,-7.226,0.0291,0.000246,0.0968
+Walter The Producer,Since September,Since September,1bB04geBJPO5dLx51CWj5V,0.731,0.728,-2.788,0.0381,4.9e-06,0.243
+Keane,Hopes And Fears,Somewhere Only We Know,0ll8uFnc0nANY35E0Lfxvg,0.453,0.655,-4.22,0.0259,7.61e-06,0.0849
