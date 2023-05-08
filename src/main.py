@@ -5,6 +5,7 @@ from sklearn import preprocessing
 import pandas as pd
 from numba import njit,jit,prange
 import search
+import kmeans
 
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
@@ -44,50 +45,9 @@ def make_playlist_df1(creator, playlist_id):
         
     return playlist_df
 
-def make_playlist_df2(creator, playlist_id):
-    
-    #Making empy dataframe
-    attributes_list = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"]
-    playlist_df = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
-    
-    #Loop through playlist
-    playlist = sp.user_playlist_tracks(creator, playlist_id)["items"]
-    for song in playlist:
-        song_features = {}
-        #Get metadata
-        song_features["artist"] = song["track"]["album"]["artists"][0]["name"]
-        song_features["album"] = song["track"]["album"]["name"]
-        song_features["track_name"] = song["track"]["name"]
-        song_features["track_id"] = song["track"]["id"]
-        
-        #Get audio features
-        audio_features = sp.audio_features(song_features["track_id"])[0]
-        for feature in attributes_list[4:]:
-            song_features[feature] = audio_features[feature]
-        
-        #Combine all the dfs we made in each iteration
-        song_df = pd.DataFrame(song_features, index = [0])
-        playlist_df = pd.concat([playlist_df, song_df], ignore_index = True)
-        
-    return playlist_df
-
-def runKmeans(input_df, input_df2):
-    combined_df = pd.concat([input_df, input_df2], ignore_index= True)
-
-    #removing duplicates
-    combined_df = combined_df.drop_duplicates(subset = ['track_id'], keep = 'first')
-    #normalizing values
-    x = combined_df.iloc[:, 4:].values 
-    min_max_scaler = preprocessing.MinMaxScaler()
-    x_scaled = min_max_scaler.fit_transform(x)
-    scaled_df = pd.DataFrame(x_scaled)
-
-    kmeans = KMeans(init="k-means++", n_clusters=3, random_state=15, max_iter = 100).fit(x_scaled)
-    scaled_df['cluster number'] = kmeans.labels_
-    scaled_df.columns = ['danceability', 'energy', 'loudness', 'speechiness', 'instrumentalness', 'liveness', 'cluster number']
-    cluster_df = scaled_df.iloc[:, -1:]
-    return_df = pd.concat([combined_df, cluster_df], axis=1, join='inner')
-    return return_df
+def runKmeans(input_df, input_df2, location):
+    merged = kmeans.Classify()
+    merged.run_classification(input_df, input_df2, location)
 
 
 library_df = pd.read_csv("../library/library.csv")
@@ -157,8 +117,7 @@ while inp1 != "6":
         playlist_df1 = pd.read_csv(playlist1_loc)
         playlist_df2 = pd.read_csv(playlist2_loc)
 
-        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-        combinedPlaylist_df.to_csv(merged_loc)
+        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2, merged_loc)
 
     elif inp1 == "5":
        rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
