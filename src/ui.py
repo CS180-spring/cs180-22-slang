@@ -11,7 +11,10 @@ def loadPlaylistUI():
     playlist2Link = playlist2_entry.get()
 
     importSpotifyPlaylist(playlist1Link, "Playlist")
+    
+
     file_path1 = '../output/Playlist.csv'
+    file_path2 = '../output/Playlist2.csv'
 
     with open(file_path1, 'r') as f1:
         reader1 = csv.reader(f1)
@@ -23,9 +26,8 @@ def loadPlaylistUI():
         for row in playlist1:
             treeview1.insert("", "end", values=row)
 
-    importSpotifyPlaylist(playlist2Link, "Playlist2")
-    file_path2 = '../output/Playlist2.csv'
 
+    importSpotifyPlaylist(playlist2Link, "Playlist2")
     with open(file_path2, 'r') as f2:
         reader2 = csv.reader(f2)
         playlist2 = list(reader2)

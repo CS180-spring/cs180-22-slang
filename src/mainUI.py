@@ -15,7 +15,12 @@ sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
 @jit(nopython=True)
 
 def extract_playlist_id_from_url(url):
-    playlist_id = url.split('/')[-1]
+
+    url_parts = url.split('/')
+
+    last_part = url_parts[-1]
+
+    playlist_id = last_part.split('?')[0]
     return playlist_id
 
 def make_playlist_df1(creator, playlist_id):
