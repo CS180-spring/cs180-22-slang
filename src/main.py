@@ -92,6 +92,16 @@ def runKmeans(input_df, input_df2):
     return return_df
 
 
+def getPlaylistFromUser():
+    user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
+    playlists = sp.user_playlists(user_spotify_id, limit=50)
+
+    for i, playlist in enumerate(playlists['items']):
+        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
+    return playlists['items']
+    
+
+
 library_df = pd.read_csv("../library/library.csv")
 
 print("1. Make a new playlist")
@@ -102,68 +112,72 @@ print("5. Get recommendations for a playlist")
 print("6. Quit")
 inp1 = input("Which would you like to do? ")
 
-while True and inp1 != "6":
 
-    if inp1 == "1":
-        newPlaylistName = input("Please name your playlist: ")
-        newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
-        temp_song = search.search(library_df)
-        playlist = temp_song
+if inp1 == "1":
+    newPlaylistName = input("Please name your playlist: ")
+    newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
+    temp_song = search.search(library_df)
+    playlist = temp_song
+    inp3 = input("Keep adding songs? Y/N: ")
+    while inp3 == "Y":
+        new_temp_song = search.search(library_df)
+        playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
         inp3 = input("Keep adding songs? Y/N: ")
-        while inp3 == "Y":
+    playlist.to_csv(newPlaylist_loc, index = False)
+
+elif inp1 == "2":
+    inp2 = input("Please enter the name of the playlist you want to edit: ")
+    playlist_loc = "../output/" + inp2 + ".csv"
+    playlist_df = pd.read_csv(playlist_loc)
+    print("1. Add song")
+    print("2. Remove song")
+    inp3 = input("What do you wanna do? ")
+    if inp3 == "1":
+        temp_song = search.search(library_df)
+        playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
+        inp4 = input("Keep adding songs? Y/N: ")
+        while inp4 == "Y":
             new_temp_song = search.search(library_df)
-            playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
-            inp3 = input("Keep adding songs? Y/N: ")
-        playlist.to_csv(newPlaylist_loc, index = False)
-
-    elif inp1 == "2":
-        inp2 = input("Please enter the name of the playlist you want to edit: ")
-        playlist_loc = "../output/" + inp2 + ".csv"
-        playlist_df = pd.read_csv(playlist_loc)
-        print("1. Add song")
-        print("2. Remove song")
-        inp3 = input("What do you wanna do? ")
-        if inp3 == "1":
-            temp_song = search.search(library_df)
-            playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
+            playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
             inp4 = input("Keep adding songs? Y/N: ")
-            while inp4 == "Y":
-                new_temp_song = search.search(library_df)
-                playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
-                inp4 = input("Keep adding songs? Y/N: ")
-            playlist_df.to_csv(playlist_loc, index = False)
-        elif inp3 == "2":
-            inp4 = input("Enter the name of the song you want to remove: ")
-            temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
-            drop_index = temp_song.index
-            playlist_df = playlist_df.drop(drop_index)
-            playlist_df.to_csv(playlist_loc, index = False)
+        playlist_df.to_csv(playlist_loc, index = False)
+    elif inp3 == "2":
+        inp4 = input("Enter the name of the song you want to remove: ")
+        temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
+        drop_index = temp_song.index
+        playlist_df = playlist_df.drop(drop_index)
+        playlist_df.to_csv(playlist_loc, index = False)
 
-    elif inp1 == "3":
-        playlistLink = input("Please enter link to playlist: ")
-        id = extract_playlist_id_from_url(playlistLink)
-        playlistName = input("Please name your imported playlist: ")
+elif inp1 == "3":
+    playlistLink = input("Please enter link to playlist: ")
+    id = extract_playlist_id_from_url(playlistLink)
+    playlistName = input("Please name your imported playlist: ")
 
-        df = make_playlist_df1("spotify", id)
-        csvName = "../output/" + playlistName + ".csv"
-        df.to_csv(csvName, index = False)
+    df = make_playlist_df1("spotify", id)
+    csvName = "../output/" + playlistName + ".csv"
+    df.to_csv(csvName, index = False)
 
-    elif inp1 == "4":
-        playlist1 = input("Please enter the first playlist's name: ")
-        playlist2 = input("Please enter the second playlist's name: ")
-        mergedName = input("Please name your new merged playlist: ")
+elif inp1 == "4":
+    playlist1 = input("Please enter the first playlist's name: ")
+    playlist2 = input("Please enter the second playlist's name: ")
+    mergedName = input("Please name your new merged playlist: ")
 
-        playlist1_loc = "../output/" + playlist1 + ".csv"
-        playlist2_loc = "../output/" + playlist2 + ".csv"
-        merged_loc = "../output/" + mergedName + ".csv"
-        playlist_df1 = pd.read_csv(playlist1_loc)
-        playlist_df2 = pd.read_csv(playlist2_loc)
+    playlist1_loc = "../output/" + playlist1 + ".csv"
+    playlist2_loc = "../output/" + playlist2 + ".csv"
+    merged_loc = "../output/" + mergedName + ".csv"
+    playlist_df1 = pd.read_csv(playlist1_loc)
+    playlist_df2 = pd.read_csv(playlist2_loc)
 
-        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-        combinedPlaylist_df.to_csv(merged_loc)
+    combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
+    combinedPlaylist_df.to_csv(merged_loc)
 
-    elif inp1 == "5":
-       rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+elif inp1 == "5":
+    rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
 
-    elif inp1 not in ["1", "2", "3", "4", "5", "6"]: 
-        print("Not a valid selection")
+elif inp1 == "7":
+    
+    getPlaylistFromUser()
+        
+
+elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
+    print("Not a valid selection")

@@ -1,26 +1,44 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-IV Of Spades,CLAPCLAPCLAP!,Dulo Ng Hangganan,7h4W9blGxYCkKJ3dxPZ84j,0.565,0.565,-8.52,0.0368,0.00262,0.127
-IV Of Spades,CLAPCLAPCLAP!,Come Inside Of My Heart,3Eb5sztvEMa0Mqnb8DUAlU,0.676,0.565,-9.411,0.03,0.000579,0.241
-IV Of Spades,Mundo,Mundo,4u8RkgV6P4TLi89SmlUtv8,0.705,0.401,-8.9,0.0376,8.66e-06,0.0735
-Halina,Kwarto Waltz,Kwarto Waltz,6K8ait6ypOKrZrqWvbueFg,0.675,0.532,-7.01,0.0316,0.167,0.349
-Orange & Lemons,Strike Whilst the Iron Is Hot,Hanggang Kailan - Umuwi Ka Na Baby,5UhpceEr5XmbVwyoIUIRnh,0.556,0.674,-5.563,0.0296,2.19e-06,0.226
-juan karlos,Buwan,Buwan,5f9808hpiCpuNyqqdXmpF2,0.631,0.381,-11.808,0.04,0.000171,0.0902
-Zack Tabudlo,Episode,Habang Buhay,63bmIgH9sS6sX5Sc7MetGq,0.62,0.668,-5.719,0.0305,0.0,0.362
-juan karlos,Drop 1,Pancit (ft. Janine Berdin),4P2LvLI8D2OmARL7lZMaMe,0.644,0.401,-9.869,0.0425,0.00031,0.312
-Unique Salonga,PANGALAN:,Huwag Ka Sanang Magagalit,3lCMZOGuHppxbkJN7yJCLk,0.517,0.515,-8.68,0.0286,0.0403,0.141
-Unique Salonga,Grandma,Sino,2xCkiGqGMkAIg6fQTag51C,0.676,0.43,-10.563,0.0232,0.0309,0.109
-juan karlos,Kunwari,Kunwari,4pyVxegU74TkpQzA7dK0NY,0.505,0.356,-8.416,0.0654,1.17e-06,0.112
-Rob Deniel,Gabi,Gabi,7EYCghalyb9OyI2zrEbcQa,0.51,0.521,-10.06,0.0738,0.0,0.197
-Eraserheads,Cutterpillow,Ang Huling El Bimbo,135ggzbjOogZ75IQ0LQi8r,0.524,0.503,-11.79,0.0245,0.0,0.264
-Rob Deniel,Ulap,Ulap,0yBycfuTYOoDrvfP5wY2Ux,0.655,0.385,-8.967,0.0355,0.00564,0.112
-Halina,Ukay Tamis,Ukay Tamis,0ZEvz7JfbSHrOGO3Dlk404,0.804,0.415,-6.851,0.0327,0.0686,0.107
-Zild,Huminga,Kyusi,4IMI7CdeNMDzq544pAgXqj,0.655,0.541,-8.539,0.0283,0.00811,0.0879
-juan karlos,Drop 1,Aminin,38e8PCATMl0oKMfaJZsyl1,0.712,0.286,-11.995,0.0631,0.0147,0.334
-Zack Tabudlo,Binibini,Binibini,2X5AFygz5SDYlXagyPw8kX,0.642,0.374,-10.606,0.032,1.54e-06,0.435
-Moira Dela Torre,Patawad,Mabagal,4wJ5SjIkViEQEu95U8oyLt,0.356,0.339,-10.893,0.0369,3.28e-06,0.355
-Zild,Ibang Planeta,Ibang Planeta,583dxts9s6DwOgOpOlUUxT,0.589,0.605,-6.217,0.0327,0.597,0.242
-Various Artists,Kami Napo Muna,Yakap sa Dilim,1RGsWrMclCCgKFsQaj6X5D,0.639,0.724,-2.705,0.0278,0.0,0.127
-Raphiel Shannon,"Mundo (From "" On Vodka, Beers and Regrets"")","Mundo - From "" On Vodka, Beers and Regrets""",7g9nE2rSuUhNP186YgM4aE,0.584,0.537,-9.427,0.026,0.695,0.337
-SunKissed Lola,Pasilyo,Pasilyo,0uZFcsx96wzbixsULmrg8o,0.71,0.61,-4.674,0.0351,2.67e-05,0.181
-Adie,Mahika,Mahika,47sq83n5WN22ZzYnGn8aTy,0.635,0.451,-7.406,0.0391,0.0,0.139
-Adie,Tahanan,Tahanan,5CUQnKjA6nlteCnxMKsjIu,0.394,0.366,-10.855,0.031,1.05e-06,0.315
+Taylor Swift,Lover,Miss Americana & The Heartbreak Prince,214nt20w5wOxJnY462klLw,0.662,0.747,-6.926,0.0736,0.00615,0.138
+Taylor Swift,Lover,Cruel Summer,1BxfuPKGuaTgP7aM0Bbdwr,0.552,0.702,-5.707,0.157,2.06e-05,0.105
+Taylor Swift,Lover,The Man,3RauEVgRgj1IuWdJ9fDs70,0.777,0.658,-5.191,0.054,0.0,0.0901
+Taylor Swift,Lover,You Need To Calm Down,6RRNNciQGZEXnqk8SQ9yv5,0.771,0.671,-5.617,0.0553,0.0,0.0637
+Taylor Swift,Lover,Lover,1dGr1c8CrMLDpV6mPbImSI,0.359,0.543,-7.582,0.0919,1.58e-05,0.118
+Taylor Swift,Lover,The Archer,3pHkh7d0lzM2AldUtz2x37,0.292,0.574,-9.375,0.0401,0.00569,0.0663
+Taylor Swift,Fearless (Taylor's Version),Fearless (Taylor’s Version),77sMIMlNaSURUAXq5coCxE,0.569,0.741,-4.963,0.0282,0.0,0.333
+Taylor Swift,Fearless (Taylor's Version),You Belong With Me (Taylor’s Version),1qrpoAMXodY6895hGKoUpA,0.632,0.773,-4.856,0.0346,0.0,0.0885
+Taylor Swift,Fearless (Taylor's Version),Love Story (Taylor’s Version),6YvqWjhGD8mB5QXcbcUKtx,0.627,0.792,-4.311,0.031,3.97e-06,0.0845
+Taylor Swift,evermore,‘tis the damn season,7dW84mWkdWE5a6lFWxJCBG,0.575,0.434,-8.193,0.0312,6.59e-05,0.105
+Taylor Swift,evermore,willow,0lx2cLdOt3piJbcaXIV74f,0.392,0.574,-9.195,0.17,0.00179,0.145
+Taylor Swift,evermore,champagne problems,0sY6ZUTh4yoctD8VIXz339,0.462,0.24,-12.077,0.0377,0.0,0.113
+Taylor Swift,evermore,tolerate it,0PurA4JVJ8YQgSVopY8fn6,0.316,0.361,-10.381,0.0488,2.67e-05,0.0797
+Taylor Swift,reputation,...Ready For It?,2yLa0QULdQr0qAIvVwN6B5,0.613,0.764,-6.509,0.136,0.0,0.197
+Taylor Swift,reputation,Delicate,6NFyWDv5CjfwuzoCkw47Xf,0.75,0.404,-10.178,0.0682,0.000357,0.0911
+Taylor Swift,reputation,Don’t Blame Me,1R0a2iXumgCiFb7HEZ7gUE,0.615,0.534,-6.719,0.0386,1.76e-05,0.0607
+Taylor Swift,reputation,Look What You Made Me Do,1P17dC1amhFzptugyAO7Il,0.766,0.709,-6.471,0.123,1.41e-05,0.126
+Taylor Swift,Speak Now,Enchanted,04S1pkp1VaIqjg8zZqknR5,0.535,0.618,-3.913,0.0273,0.000388,0.169
+Taylor Swift,Red (Taylor's Version),22 (Taylor's Version),3yII7UwgLF6K5zW3xad3MP,0.642,0.695,-5.62,0.0281,1.02e-05,0.0753
+Taylor Swift,Red (Taylor's Version),We Are Never Ever Getting Back Together (Taylor's Version),5YqltLsjdqFtvqE7Nrysvs,0.567,0.686,-6.139,0.175,1.86e-06,0.0732
+Taylor Swift,Red (Taylor's Version),I Knew You Were Trouble (Taylor's Version),6AtZLIzUINvExIUy4QhdjP,0.584,0.557,-6.371,0.0342,0.0,0.0576
+Taylor Swift,Red (Taylor's Version),All Too Well (10 Minute Version) (Taylor's Version) (From The Vault),5enxwA8aAbwZbf5qCHORXi,0.631,0.518,-8.771,0.0303,0.0,0.088
+Taylor Swift,folklore,invisible string,6VsvKPJ4xjVNKpI8VVZ3SV,0.653,0.452,-11.143,0.055,7.73e-05,0.108
+Taylor Swift,folklore,betty,5kI4eCXXzyuIUXjQra0Cxi,0.593,0.377,-8.761,0.0253,0.0,0.0976
+Taylor Swift,folklore,the last great american dynasty,2Eeur20xVqfUoM3Q7EFPFt,0.686,0.662,-8.505,0.0413,0.0023,0.109
+Taylor Swift,folklore,august,3hUxzQpSfdDqwM3ZTFQY0K,0.532,0.623,-9.208,0.0331,7.28e-05,0.0925
+Taylor Swift,folklore,illicit affairs,2NmsngXHeC1GQ9wWrzhOMf,0.559,0.31,-10.445,0.0338,0.0,0.106
+Taylor Swift,folklore,my tears ricochet,1MgV7FIyNxIG7WzMRJV5HC,0.456,0.263,-10.63,0.0332,0.0,0.0749
+Taylor Swift,folklore,cardigan,4R2kfaDFhslZEMJqAFNpdd,0.613,0.581,-8.588,0.0424,0.000345,0.25
+Taylor Swift,1989 (Deluxe),Style,0ug5NqcwcFR2xrfTkc7k8e,0.588,0.791,-5.595,0.0402,0.00258,0.118
+Taylor Swift,1989 (Deluxe),Blank Space,1u8c2t2Cy7UBoG4ArRcF5g,0.76,0.703,-5.412,0.054,0.0,0.0913
+Taylor Swift,1989 (Deluxe),Shake It Off,0cqRj7pUJDkTCEsJkx8snD,0.647,0.8,-5.384,0.165,0.0,0.334
+Taylor Swift,Wildest Dreams (Taylor's Version),Wildest Dreams (Taylor's Version),1Ov37jtRQ2YNAe8HzfczkL,0.583,0.67,-7.289,0.0646,0.0001,0.126
+Taylor Swift,Bad Blood,Bad Blood,6xsEAm6w9oMQYYg3jkEkMT,0.654,0.655,-7.388,0.106,0.0,0.139
+Taylor Swift,folklore,mirrorball,0ZNU020wNYvgW84iljPkPP,0.553,0.413,-10.037,0.0334,2.33e-06,0.0594
+Taylor Swift,Taylor Swift,Tim McGraw,2Fn01AIMyHbha2ceNQeOqw,0.58,0.491,-6.462,0.0251,0.0,0.121
+Taylor Swift,Midnights,Lavender Haze,5jQI2r1RdgtuT8S3iG8zFC,0.733,0.436,-10.489,0.08,0.000573,0.157
+Taylor Swift,Midnights,Anti-Hero,0V3wPSX9ygBnCm8psDIegu,0.637,0.643,-6.571,0.0519,1.8e-06,0.142
+Taylor Swift,Midnights,Midnight Rain,3rWDp9tBPQR9z6U5YyRSK4,0.643,0.363,-11.738,0.0767,5.17e-05,0.115
+Taylor Swift,Midnights,Vigilante Shit,1xwAWUI6Dj0WGC3KiUPN0O,0.798,0.277,-11.096,0.39,5.25e-05,0.121
+Taylor Swift,Midnights,Bejeweled,3qoftcUZaUOncvIYjFSPdE,0.696,0.559,-9.19,0.0693,5.58e-05,0.0887
+Taylor Swift,Midnights,Mastermind,7FmYn9e7KHMXcxqGSj9LjH,0.662,0.357,-14.064,0.154,0.00129,0.0837
+Taylor Swift,Midnights,Karma,7KokYm8cMIXCsGVmUvKtqf,0.642,0.62,-7.091,0.0666,0.0,0.483

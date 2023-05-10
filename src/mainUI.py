@@ -158,3 +158,12 @@ def mergePlaylists():
 
 def getRecommendations():
     rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+
+def getPlaylistFromUser():
+    user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
+    playlists = sp.user_playlists(user_spotify_id, limit=50)
+    print(playlists['items'])
+    # for i, playlist in enumerate(playlists['items']):
+    #     print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
+    return playlists['items']
+    
