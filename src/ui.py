@@ -167,28 +167,22 @@ playlistFrame3 = ttk.LabelFrame(NotebookPlaylist, width=200, height=200)
 
 cols = ("Artist", "Album", "Title", "SongID")
 treeview1 = ttk.Treeview(NotebookPlaylist, show="headings", columns=cols, height=13)
-treeview1.column("Artist", width=100)
-treeview1.column("Album", width=100)
-treeview1.column("Title", width=100)
-treeview1.column("SongID", width=100)
+for col in cols:
+    treeview1.column(col, width=100)
 treeview1.pack(fill="both", expand=True, side="left")
 for col in cols:
     treeview1.heading(col, text=col)
 
 treeview2 = ttk.Treeview(NotebookPlaylist, show="headings", columns=cols, height=13)
-treeview2.column("Artist", width=100)
-treeview2.column("Album", width=100)
-treeview2.column("Title", width=100)
-treeview2.column("SongID", width=100)
+for col in cols:
+    treeview2.column(col, width=100)
 treeview2.pack(fill="both", expand=True, side="left")
 for col in cols:
     treeview2.heading(col, text=col)
 
 treeview3 = ttk.Treeview(NotebookPlaylist, show="headings", columns=cols, height=13)
-treeview3.column("Artist", width=100)
-treeview3.column("Album", width=100)
-treeview3.column("Title", width=100)
-treeview3.column("SongID", width=100)
+for col in cols:
+    treeview3.column(col, width=100)
 treeview3.pack(fill="both", expand=True, side="left")
 for col in cols:
     treeview3.heading(col, text=col)
@@ -219,16 +213,11 @@ NotebookPlaylist.add(treeview2, text="Playlist 2")
 NotebookPlaylist.add(treeview3, text="New Playlist")
 
 
-
 MiniFrame = ttk.Frame(rightFrame)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
-
-
-
 button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
-
 
 
 button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
@@ -288,44 +277,28 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 cols = ("Artist", "Album", "Title", "SongID")
 searchTreeView = ttk.Treeview(rightFrame2, show="headings", columns=cols, height=13)
 searchTreeView.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
-searchTreeView.column("Artist", width=100)
-searchTreeView.column("Album", width=100)
-searchTreeView.column("Title", width=100)
-searchTreeView.column("SongID", width=100)
-
+searchTreeColomns = ["Artist", "Album", "Title", "SongID"]
+for col in searchTreeColomns:
+    searchTreeView.column(col, width=100)
 for col in cols:
     searchTreeView.heading(col, text=col)
 
 
-
 #############################
+
 
 MiniFrame = ttk.Frame(rightFrame2)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
-###create frame under right frame for buttons
-
-#############################
-
 button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
-
-### create button 1 
-
-#############################
 
 button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
-### create button 2 
-
-#############################
 button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
 button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
-### create button 3
-
-#############################
 
 tab3 = ttk.Frame(windowFrameNotebook)
 windowFrameNotebook.add(tab3, text="View Playlists")

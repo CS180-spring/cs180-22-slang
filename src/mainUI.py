@@ -31,23 +31,29 @@ def make_playlist_df1(creator, playlist_id):
     
     #Loop through playlist
     playlist = sp.user_playlist_tracks(creator, playlist_id)["items"]
-    for song in playlist:
-        song_features = {}
-        #Get metadata
-        song_features["artist"] = song["track"]["album"]["artists"][0]["name"]
-        song_features["album"] = song["track"]["album"]["name"]
-        song_features["track_name"] = song["track"]["name"]
-        song_features["track_id"] = song["track"]["id"]
+
+    total_tracks = sp.user_playlist_tracks(creator, playlist_id, limit=1)['total']
+
+    for i in range(0, total_tracks, 100):
+        playlist = sp.user_playlist_tracks(creator, playlist_id, offset=i, limit=100)["items"]
         
-        #Get audio features
-        audio_features = sp.audio_features(song_features["track_id"])[0]
-        for feature in attributes_list[4:]:
-            song_features[feature] = audio_features[feature]
-        
-        #Combine all the dfs we made in each iteration
-        song_df = pd.DataFrame(song_features, index = [0])
-        playlist_df = pd.concat([playlist_df, song_df], ignore_index = True)
-        
+        for song in playlist:
+            song_features = {}
+            #Get metadata
+            song_features["artist"] = song["track"]["album"]["artists"][0]["name"]
+            song_features["album"] = song["track"]["album"]["name"]
+            song_features["track_name"] = song["track"]["name"]
+            song_features["track_id"] = song["track"]["id"]
+            
+            #Get audio features
+            audio_features = sp.audio_features(song_features["track_id"])[0]
+            for feature in attributes_list[4:]:
+                song_features[feature] = audio_features[feature]
+            
+            #Combine all the dfs we made in each iteration
+            song_df = pd.DataFrame(song_features, index = [0])
+            playlist_df = pd.concat([playlist_df, song_df], ignore_index = True)
+            
     return playlist_df
 
 def make_playlist_df2(creator, playlist_id):

@@ -1,50 +1,47 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
+Bee Gees,Tales From The Brothers Gibb,"Night Fever - From ""Saturday Night Fever"" Soundtrack",43TDFuJclqZSQrHZvOpMSv,0.737,0.514,-15.812,0.0288,0.00479,0.135
+Bee Gees,Saturday Night Fever [The Original Movie Soundtrack],Stayin' Alive - 2007 Remastered Version Saturday Night Fever,5cP52DlDN9yryuZVQDg3iq,0.704,0.834,-7.131,0.0358,0.00492,0.147
+Bee Gees,Saturday Night Fever [The Original Movie Soundtrack],How Deep Is Your Love (2007 Remastered Saturday Night Fever LP Version),1gIKd24bixkgYzuxse32oR,0.63,0.357,-9.392,0.026,0.0,0.128
+Bee Gees,Saturday Night Fever [The Original Movie Soundtrack],More Than A Woman (2007 Remastered Saturday Night Fever LP Version),0vDeTWoAooavG2zcCKHmI4,0.6,0.708,-6.249,0.038,0.000139,0.446
+Andy Gibb,Flowing Rivers,I Just Want To Be Your Everything,5EdlwzcgIAYs2HGvOnczPN,0.651,0.648,-7.44,0.0346,1.7e-05,0.192
+Bee Gees,Spirits Having Flown,Tragedy,6UXXeFqMBGiqjkzQzkMT3E,0.665,0.532,-10.793,0.0277,0.0109,0.296
+WILLIS,Locals 2,I Think I Like When It Rains,5S5u0EWtlblH00iTNExZ6X,0.622,0.471,-7.105,0.0277,0.0,0.0957
 Eyedress,Mulholland Drive,Something About You,6RiiSy9GzSwiyDEJDiMuKe,0.648,0.781,-8.736,0.0271,0.013,0.305
+Faye Webster,Atlanta Millionaires Club,Kingston,5WbfFTuIldjL9x7W6y5l7R,0.73,0.355,-9.13,0.0359,0.00155,0.117
+Vansire,Just the Right Song,Just the Right Song,0KOwuwc2XlPU1GFwnG1Gq0,0.688,0.515,-11.148,0.0344,0.0259,0.111
+Peter Cat Recording Co.,Bismillah,Floated By,556jf0hyPQuLNHuNWo12I5,0.729,0.286,-13.654,0.0355,0.0245,0.105
+Makoto Matsushita,FIRST LIGHT (2018 Remaster),September Rain - 2018 Remaster,25z4QmWYR2stp1xbVcG51J,0.649,0.339,-11.357,0.0276,0.0152,0.137
+Bread And Butter,Late Late Summer,SUMMER BLUE,4Ad4HmvkDvFZ5eYaxQcTKh,0.636,0.517,-8.998,0.0348,1.84e-05,0.0753
 Kingo Hamada,midnight cruisin',抱かれに来た女,5ZwDNdZHE1HC4nJPWG321K,0.7,0.521,-9.611,0.0372,0.00199,0.332
-Dayglow,Fuzzybrain,Fuzzybrain,57HJa4ktE7iHGrbFhwzEr2,0.488,0.51,-8.367,0.026,0.15,0.143
+Naoko Gushima,miss. G,Candy,6TdE2qJLF6WVjmSI9tejG2,0.652,0.45,-10.599,0.0254,1.01e-05,0.0932
+Vansire,Angel Youth,Halcyon Age,1jQ19CIEPxKkixOhBh7KNf,0.626,0.482,-9.641,0.029,0.148,0.183
 Blood Orange,Cupid Deluxe,You're Not Good Enough,7vcNp4cj4uF4AyX5aKY4Ps,0.74,0.798,-6.55,0.146,0.00128,0.305
+Men I Trust,Lucky Sue,Lucky Sue,4lAfXpZKFDEudiEzLB9uHm,0.818,0.272,-15.304,0.0733,0.152,0.0892
+Vansire,Metamodernity,Metamodernity,61GiMDN1kUiEQK6zHGMdnx,0.822,0.544,-10.077,0.0358,0.165,0.108
+Peter Cat Recording Co.,Bismillah,Memory Box,024nqC9O76nvAuIWtQGdQy,0.609,0.415,-11.986,0.0435,0.0672,0.136
 Loving,If I Am Only My Thoughts,Visions,1rcxltU3Mzn8gN6Z8ly9Zh,0.658,0.67,-7.093,0.0255,0.0071,0.256
-Strawberry Guy,Mrs Magic,Mrs Magic,0TZejo18HlJ86OrWNsXKnw,0.471,0.634,-7.406,0.031,0.365,0.374
+Men I Trust,Seven,Seven,2dwvxOHnQjndZLowIR6PiS,0.692,0.421,-10.948,0.0295,0.147,0.104
+Ralph Castelli,Morning Sex,Morning Sex,2fGRJzoiYJYAzlQAyBONMb,0.81,0.353,-9.536,0.0437,0.000104,0.082
+Benny Sings,Art,Big Brown Eyes,19ovZMFSIQvehxLmvrRbBS,0.918,0.497,-8.206,0.0441,0.0626,0.134
+Benny Sings,Music,Sunny Afternoon,3Acg5sKJcCjUQBHA8KjX5F,0.838,0.408,-11.721,0.0727,0.000593,0.0793
 LUCKY TAPES,The SHOW,All Because Of You,70dgOIHPxYe4ookbTXp8vp,0.735,0.727,-6.404,0.0306,0.0008,0.0743
+Vansire,After Fillmore County,The Latter Teens,2zNWXaGuC0E9uxGJGauyLP,0.658,0.441,-10.008,0.0436,0.241,0.109
+Vansire,The Modern Western World,Vivienne,7sPJFcAr6I8VPjXgNrXgh1,0.718,0.334,-12.226,0.0328,0.00228,0.103
 Vansire,The Modern Western World,Nosebleed Seats,3zREOGri6ic2vk6Dt2NJWk,0.55,0.71,-8.909,0.0432,0.0816,0.109
 Vansire,The Modern Western World,A Long Drive Back,5ek40zpnWzHxjcV9qUxXTe,0.699,0.629,-8.965,0.0315,0.0352,0.161
+NEIL FRANCES,Tell Me,Tell Me,1FJYX0a18UBzFOWzec43Ih,0.83,0.532,-10.855,0.0409,0.00114,0.112
 Joey Bada$$,2000,Show Me,2uuJs2nltcYFh9pkKP7bW4,0.599,0.646,-6.326,0.337,4.36e-06,0.128
 Mickey Darling,Pink Socks,Pink Socks,57zTjhDSxOPfbACC0vPL8I,0.638,0.898,-3.029,0.157,0.0,0.0703
+Men I Trust,Break for Lovers (feat. Helena),Break for Lovers (feat. Helena),5VU9zOQmK4dbHs0J8PRlPe,0.858,0.326,-11.496,0.0784,0.0614,0.0798
 TV Girl,Who Really Cares,Not Allowed,3IznIgmXtrUaoPWpQTy5jB,0.67,0.905,-6.855,0.129,0.000227,0.349
 IV Of Spades,CLAPCLAPCLAP!,Come Inside Of My Heart,3Eb5sztvEMa0Mqnb8DUAlU,0.676,0.565,-9.411,0.03,0.000579,0.241
+Matt Maltese,Good Morning It's Now Tomorrow,Everyone Adores You (at least I do),6klFWv2xDGeTDoiKTtx4hg,0.599,0.427,-9.037,0.0242,0.105,0.0984
 Fujii Kaze,HELP EVER HURT NEVER,Shinunoga E-Wa,0o9zmvc5f3EFApU52PPIyW,0.6,0.76,-6.124,0.0452,4.09e-05,0.189
 Cannons,Covers by Cannons,Golden - Originally Performed By Harry Styles,4CtdGc3EBrLfrcqKrrUIKm,0.581,0.789,-5.654,0.0328,0.061,0.241
+Matt Maltese,Krystal,Intolewd,79rfskJwK9NLN3p5cdccth,0.759,0.203,-16.991,0.039,0.194,0.104
 PREP,As It Was,As It Was,1i92UFFkxtKv4tYNzt1X1b,0.798,0.628,-6.835,0.0699,0.0759,0.123
-Justin Hurwitz,La La Land (Original Motion Picture Soundtrack),A Lovely Night,4r9hiElqKWMPT4Z3vN2exq,0.364,0.478,-8.645,0.0473,0.0015,0.124
+缺省,Can You Hear the Whistle Blow,Can You Hear the Whistle Blow,2bJjScKqL6XqhwL30X2SaZ,0.633,0.585,-10.048,0.0302,0.201,0.0671
 Sweet After Tears,Au Revoir,Au Revoir,0ke6DgZ3ZFGYoyiO2gsssD,0.662,0.807,-7.226,0.0291,0.000246,0.0968
 Walter The Producer,Since September,Since September,1bB04geBJPO5dLx51CWj5V,0.731,0.728,-2.788,0.0381,4.9e-06,0.243
 Keane,Hopes And Fears,Somewhere Only We Know,0ll8uFnc0nANY35E0Lfxvg,0.453,0.655,-4.22,0.0259,7.61e-06,0.0849
 Florence + The Machine,Lungs (Deluxe Version),Dog Days Are Over,456WNXWhDwYOSf5SpTuqxd,0.501,0.809,-5.264,0.0938,0.00602,0.119
-Taylor Swift,Lover,Miss Americana & The Heartbreak Prince,214nt20w5wOxJnY462klLw,0.662,0.747,-6.926,0.0736,0.00615,0.138
-Taylor Swift,Lover,Cruel Summer,1BxfuPKGuaTgP7aM0Bbdwr,0.552,0.702,-5.707,0.157,2.06e-05,0.105
-Taylor Swift,Lover,The Man,3RauEVgRgj1IuWdJ9fDs70,0.777,0.658,-5.191,0.054,0.0,0.0901
-Taylor Swift,Lover,You Need To Calm Down,6RRNNciQGZEXnqk8SQ9yv5,0.771,0.671,-5.617,0.0553,0.0,0.0637
-Taylor Swift,Lover,Lover,1dGr1c8CrMLDpV6mPbImSI,0.359,0.543,-7.582,0.0919,1.58e-05,0.118
-Taylor Swift,Lover,The Archer,3pHkh7d0lzM2AldUtz2x37,0.292,0.574,-9.375,0.0401,0.00569,0.0663
-Taylor Swift,Fearless (Taylor's Version),Fearless (Taylor’s Version),77sMIMlNaSURUAXq5coCxE,0.569,0.741,-4.963,0.0282,0.0,0.333
-Taylor Swift,Fearless (Taylor's Version),You Belong With Me (Taylor’s Version),1qrpoAMXodY6895hGKoUpA,0.632,0.773,-4.856,0.0346,0.0,0.0885
-Taylor Swift,Fearless (Taylor's Version),Love Story (Taylor’s Version),6YvqWjhGD8mB5QXcbcUKtx,0.627,0.792,-4.311,0.031,3.97e-06,0.0845
-Taylor Swift,evermore,willow,0lx2cLdOt3piJbcaXIV74f,0.392,0.574,-9.195,0.17,0.00179,0.145
-Taylor Swift,reputation,...Ready For It?,2yLa0QULdQr0qAIvVwN6B5,0.613,0.764,-6.509,0.136,0.0,0.197
-Taylor Swift,reputation,Don’t Blame Me,1R0a2iXumgCiFb7HEZ7gUE,0.615,0.534,-6.719,0.0386,1.76e-05,0.0607
-Taylor Swift,reputation,Look What You Made Me Do,1P17dC1amhFzptugyAO7Il,0.766,0.709,-6.471,0.123,1.41e-05,0.126
-Taylor Swift,Speak Now,Enchanted,04S1pkp1VaIqjg8zZqknR5,0.535,0.618,-3.913,0.0273,0.000388,0.169
-Taylor Swift,Red (Taylor's Version),22 (Taylor's Version),3yII7UwgLF6K5zW3xad3MP,0.642,0.695,-5.62,0.0281,1.02e-05,0.0753
-Taylor Swift,Red (Taylor's Version),We Are Never Ever Getting Back Together (Taylor's Version),5YqltLsjdqFtvqE7Nrysvs,0.567,0.686,-6.139,0.175,1.86e-06,0.0732
-Taylor Swift,Red (Taylor's Version),I Knew You Were Trouble (Taylor's Version),6AtZLIzUINvExIUy4QhdjP,0.584,0.557,-6.371,0.0342,0.0,0.0576
-Taylor Swift,folklore,the last great american dynasty,2Eeur20xVqfUoM3Q7EFPFt,0.686,0.662,-8.505,0.0413,0.0023,0.109
-Taylor Swift,folklore,august,3hUxzQpSfdDqwM3ZTFQY0K,0.532,0.623,-9.208,0.0331,7.28e-05,0.0925
-Taylor Swift,folklore,cardigan,4R2kfaDFhslZEMJqAFNpdd,0.613,0.581,-8.588,0.0424,0.000345,0.25
-Taylor Swift,1989 (Deluxe),Style,0ug5NqcwcFR2xrfTkc7k8e,0.588,0.791,-5.595,0.0402,0.00258,0.118
-Taylor Swift,1989 (Deluxe),Blank Space,1u8c2t2Cy7UBoG4ArRcF5g,0.76,0.703,-5.412,0.054,0.0,0.0913
-Taylor Swift,1989 (Deluxe),Shake It Off,0cqRj7pUJDkTCEsJkx8snD,0.647,0.8,-5.384,0.165,0.0,0.334
-Taylor Swift,Wildest Dreams (Taylor's Version),Wildest Dreams (Taylor's Version),1Ov37jtRQ2YNAe8HzfczkL,0.583,0.67,-7.289,0.0646,0.0001,0.126
-Taylor Swift,Bad Blood,Bad Blood,6xsEAm6w9oMQYYg3jkEkMT,0.654,0.655,-7.388,0.106,0.0,0.139
-Taylor Swift,Taylor Swift,Tim McGraw,2Fn01AIMyHbha2ceNQeOqw,0.58,0.491,-6.462,0.0251,0.0,0.121
-Taylor Swift,Midnights,Anti-Hero,0V3wPSX9ygBnCm8psDIegu,0.637,0.643,-6.571,0.0519,1.8e-06,0.142
-Taylor Swift,Midnights,Karma,7KokYm8cMIXCsGVmUvKtqf,0.642,0.62,-7.091,0.0666,0.0,0.483
