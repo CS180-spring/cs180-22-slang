@@ -1,13 +1,19 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-Joey Bada$$,2000,Show Me,2uuJs2nltcYFh9pkKP7bW4,0.599,0.646,-6.326,0.337,4.36e-06,0.128
-MF DOOM,Operation: Doomsday (Complete),Doomsday,7lT1dCz96jANsLAAADlfIg,0.856,0.841,-7.737,0.335,0.0,0.0773
-MF DOOM,MM...FOOD,Rapp Snitch Knishes feat. Mr. Fantastik,5KUNwkaNf8l5A9sXZhiCgI,0.728,0.832,-6.827,0.267,0.0,0.504
-Kanye West,The College Dropout,Through The Wire,4mmkhcEm1Ljy1U9nwtsxUo,0.571,0.739,-6.11,0.247,5.21e-06,0.158
-Jack Harlow,First Class,First Class,1rDQ4oMwGJI7B4tovsBOxc,0.905,0.563,-6.135,0.102,9.71e-06,0.113
-Yung Gravy,Betty (Get Money),Betty (Get Money),4cacyP5c3PMlfnyjpg13xW,0.723,0.772,-6.784,0.0792,1.15e-05,0.367
-Yung Gravy,Thanksgiving's Eve,Ms. Gravystone (feat. Mia Gladstone),0LbnnN004xylojHTZtvsTy,0.661,0.843,-5.288,0.343,0.0,0.231
-Yung Gravy,Yung Gravity - EP,Forget Me Thots,2P1tkiGLZ5hoxrXfs073iU,0.887,0.737,-6.489,0.16,4.11e-05,0.109
-The Weeknd,Dawn FM,Out of Time,2SLwbpExuoBDZBpjfefCtV,0.65,0.76,-4.422,0.0446,0.0,0.339
-Yung Gravy,Cheryl,Cheryl,18gNzobZV5YD8BhL8o3BTi,0.801,0.698,-8.998,0.33,1.46e-06,0.184
-Wiz Khalifa,The Thrill,The Thrill,4wqzOaLxiCRy2Et8tRyNSX,0.817,0.775,-4.767,0.108,0.0,0.108
-Metro Boomin,HEROES & VILLAINS (Heroes Version),Creepin' (with The Weeknd & 21 Savage),4SI5jkfBClYmMWhWWH8f9p,0.715,0.62,-6.005,0.0484,0.0,0.0822
+ABBA,Super Trouper,The Winner Takes It All,3oEkrIfXfSh9zGnE7eBzSV,0.454,0.788,-6.748,0.0371,0.000766,0.0859
+ABBA,Abba,Mamma Mia,2TxCwUlqaOH3TIyJqGgR91,0.749,0.748,-7.011,0.0323,0.000443,0.469
+ABBA,Voulez-Vous,Gimme! Gimme! Gimme! (A Man After Midnight),3vkQ5DAB1qQMYO4Mr9zJN6,0.749,0.491,-9.655,0.0403,0.00899,0.159
+ABBA,The Visitors (Deluxe Edition),Slipping Through My Fingers,6TvxPS4fj4LUdjw2es4g21,0.475,0.26,-15.997,0.0322,0.0016,0.109
+ABBA,Waterloo,Waterloo,0RzhMHIsFMbOGh0oWDvNNK,0.441,0.926,-4.736,0.046,3.38e-06,0.235
+ABBA,ABBA Gold,Does Your Mother Know,45EaIq9lKyoQxxTjFkiGbl,0.703,0.824,-5.17,0.0364,9.19e-05,0.097
+ABBA,Super Trouper,Super Trouper,2nMghZvtLx6DDgTEHEsb4w,0.764,0.626,-8.274,0.0288,6.35e-06,0.172
+ABBA,Arrival,"Knowing Me, Knowing You",46ou4l4zvrZMada0TgoVH9,0.55,0.741,-7.109,0.0299,3.72e-06,0.235
+ABBA,Arrival,Fernando,1IxDBsZdVMhfkLqrZjARpk,0.353,0.526,-8.868,0.0299,2.17e-06,0.0762
+ABBA,The Album,Take A Chance On Me,6vQN2a9QSgWcm74KEZYfDL,0.685,0.685,-8.103,0.0254,0.0,0.201
+ABBA,ABBA Gold,"Money, Money, Money",29FNeqjOV2kPWGS55qhtGB,0.756,0.741,-6.426,0.0364,0.00113,0.0807
+ABBA,ABBA Gold,I Have A Dream,5Ywni2cDKsHSKbburrGFgL,0.53,0.477,-8.954,0.0244,0.0,0.193
+ABBA,ABBA Gold,SOS,5pMmWfuL0FTGshYt7HVJ8P,0.393,0.719,-4.773,0.0279,0.00432,0.219
+ABBA,ABBA Gold,Chiquitita,2v9dMIXI3aEzwv56Gd89yf,0.503,0.629,-6.308,0.0314,2.06e-06,0.263
+ABBA,ABBA Gold,Thank You For The Music,4LVfj3d4HMP14K5fgzxeCS,0.288,0.509,-6.639,0.0413,0.0,0.113
+ABBA,Abba Gold Anniversary Edition,"Honey, Honey",7fBC5hsVNcPWvyifsaxhrP,0.431,0.841,-6.392,0.0515,0.0,0.421
+ABBA,Abba,"I Do, I Do, I Do, I Do, I Do",0x5BKBAcia1th7UzcoHnD1,0.461,0.806,-4.257,0.0355,0.0163,0.348
+ABBA,I Still Have Faith In You / Don't Shut Me Down,I Still Have Faith In You,3ddxe0WYUpNPtSnHgQOad5,0.207,0.363,-7.296,0.0306,5.24e-06,0.128
