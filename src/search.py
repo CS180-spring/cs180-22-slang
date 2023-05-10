@@ -1,4 +1,5 @@
 import numpy
+import pandas as pd
 
 def search(library_df): 
     print("Search by:")
@@ -93,3 +94,33 @@ def search(library_df):
         print("3. Album name")
         print("4. Quit")
         searchBy = input("Please enter what you would like to search by: ")
+
+
+def advanced_search(library_df):
+    songTitle = input('Enter song title: ')
+    artist = input('Enter artist name: ')
+    album = input('Enter album name: ')
+
+    songTitleResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    artistResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    albumResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+
+    if songTitle != '':
+        songTitleResult = library_df.loc[library_df["track_name"].str.contains(songTitle, case=False)]
+    
+    if artist != '':
+        artistResult = library_df.loc[library_df["artist"].str.contains(artist, case=False)]
+
+    if album != '':
+        albumResult = library_df.loc[library_df["album"].str.contains(album, case=False)]
+
+    frames= [songTitleResult, artistResult, albumResult]
+    result = pd.concat(frames)
+
+    print(result)
+
+
+
+if __name__ == '__main__':
+    library_df = pd.read_csv("../library/library.csv")
+    advanced_search(library_df)
