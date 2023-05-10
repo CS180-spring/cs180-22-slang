@@ -6,13 +6,10 @@ import os
 from mainUI import *
 from searchUI import *
 
-
 def searchTitleUI():
     titleSearch = entries[0].get()
     searchbyTitle(library_df, titleSearch)
-
     cacheSearchCSV = "../output/cacheSearch.csv"
-
     with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
         cacheRead = list(reader)
@@ -22,6 +19,19 @@ def searchTitleUI():
 
         for row in cacheRead[1:]:
             searchTreeView.insert("", "end", values=row)
+
+def searchArtistUI():
+    artistSearch = entries[1].get()
+    searchbyArtist(library_df, artistSearch)
+    cacheSearchCSV = "../output/cacheSearch.csv"
+    with open(cacheSearchCSV, 'r') as f:
+        reader = csv.reader(f)
+        cacheRead = list(reader)
+        print(cacheRead)
+        searchTreeView.delete(*searchTreeView.get_children())
+        for row in cacheRead[1:]:
+            searchTreeView.insert("", "end", values=row)
+
 
 
 def loadPlaylistUI():
@@ -271,7 +281,7 @@ for i, text in enumerate(searchFields):
     entries.append(entry)
 
 
-searchButton2 = ttk.Button(widgets_frame2, text="Search", style="Accent.TButton",command=searchTitleUI)
+searchButton2 = ttk.Button(widgets_frame2, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton2.grid(row=11, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 #############################
@@ -310,8 +320,6 @@ scrollbarS.pack(side="right", fill="y")
 
 
 #############################
-
-
 MiniFrame = ttk.Frame(rightFrame2)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
@@ -324,9 +332,11 @@ button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
 button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
-
+########################################
 tab3 = ttk.Frame(windowFrameNotebook)
 windowFrameNotebook.add(tab3, text="View Playlists")
+
+
 
 root.mainloop()
 
