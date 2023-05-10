@@ -114,10 +114,25 @@ def advanced_search(library_df):
     if album != '':
         albumResult = library_df.loc[library_df["album"].str.contains(album, case=False)]
 
-    frames= [songTitleResult, artistResult, albumResult]
-    result = pd.concat(frames)
+    frames = [songTitleResult, artistResult, albumResult]
+    results = pd.concat(frames)
 
-    print(result)
+    output = {}
+    for result in results.index:
+        if result not in output:
+            output[result] = 1
+        else:
+            output[result] += 1
+
+    sorted_output = sorted(output.items(), key=lambda x:x[1], reverse=True)
+    converted_dict = dict(sorted_output)
+
+    print(results)
+    print(converted_dict)
+
+    for thing in converted_dict:
+        print(library_df.loc[thing])
+        print('\n')
 
 
 
