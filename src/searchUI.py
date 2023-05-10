@@ -9,11 +9,16 @@ def searchbyTitle(library_df, titleSearch):
 
     if not songResult.empty:
         print("Related Songs:")
-        print(songResult[["track_name", "artist", "album"]])
+        print(songResult[["artist", "album", "track_name", "track_id", "danceability", "energy", "loudness", "speechiness", "instrumentalness", "liveness"]])
         
         songs = songResult[["track_name"]].to_numpy()
+
+        # Output to csv file
+        csvName = "../output/" + "cacheSearch" + ".csv"
+        songResult.to_csv(csvName, index = False)
     else:
         print("No matching songs found")
+
 
 
 

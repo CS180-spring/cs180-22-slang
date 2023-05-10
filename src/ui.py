@@ -8,8 +8,21 @@ from searchUI import *
 
 
 def searchTitleUI():
-    titleSearch = searchTitle_entry.get()
+    titleSearch = entries[0].get()
     searchbyTitle(library_df, titleSearch)
+
+    cacheSearchCSV = "../output/cacheSearch.csv"
+
+    with open(cacheSearchCSV, 'r') as f:
+        reader = csv.reader(f)
+        cacheRead = list(reader)
+        print(cacheRead)
+
+        searchTreeView.delete(*searchTreeView.get_children())
+
+        for row in cacheRead[1:]:
+            searchTreeView.insert("", "end", values=row)
+
 
 def loadPlaylistUI():
 
@@ -111,7 +124,7 @@ searchArtist_entry.bind("<FocusIn>", lambda e: on_focus_in(e, searchArtist_entry
 searchArtist_entry.bind("<FocusOut>", lambda e: on_focus_out(e, searchArtist_entry, "Artist"))
 searchArtist_entry.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
-loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton", command=searchTitleUI)
+loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
 loadButton.grid(row=3, column=0, padx=5, pady=(0, 5), sticky="nsew")
 #############################
 
@@ -258,7 +271,7 @@ for i, text in enumerate(searchFields):
     entries.append(entry)
 
 
-searchButton2 = ttk.Button(widgets_frame2, text="Search", style="Accent.TButton")
+searchButton2 = ttk.Button(widgets_frame2, text="Search", style="Accent.TButton",command=searchTitleUI)
 searchButton2.grid(row=11, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 #############################
@@ -280,14 +293,20 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 
 ############################# 
 
+treeview_frame = ttk.Frame(rightFrame2)
+treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
+
 cols = ("Artist", "Album", "Title", "SongID")
-searchTreeView = ttk.Treeview(rightFrame2, show="headings", columns=cols, height=13)
-searchTreeView.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
-searchTreeColomns = ["Artist", "Album", "Title", "SongID"]
-for col in searchTreeColomns:
-    searchTreeView.column(col, width=100)
+searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
+
 for col in cols:
     searchTreeView.heading(col, text=col)
+    searchTreeView.column(col, width=100)
+
+scrollbarS = ttk.Scrollbar(treeview_frame, orient="vertical", command=searchTreeView.yview)
+searchTreeView.configure(yscrollcommand=scrollbarS.set)
+searchTreeView.pack(side="left", fill="both", expand=True)
+scrollbarS.pack(side="right", fill="y")
 
 
 #############################

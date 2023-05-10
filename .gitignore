@@ -4,3 +4,4 @@ output/Playlist.csv
 .DS_Store
 library/tracks_features.csv
 library/big_library.csv
+output/cacheSearch.csv
