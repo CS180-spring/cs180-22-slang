@@ -4,6 +4,12 @@ from tkinter import ttk
 import csv
 import os
 from mainUI import *
+from searchUI import *
+
+
+def searchTitleUI():
+    titleSearch = searchTitle_entry.get()
+    searchbyTitle(library_df, titleSearch)
 
 def loadPlaylistUI():
 
@@ -105,7 +111,7 @@ searchArtist_entry.bind("<FocusIn>", lambda e: on_focus_in(e, searchArtist_entry
 searchArtist_entry.bind("<FocusOut>", lambda e: on_focus_out(e, searchArtist_entry, "Artist"))
 searchArtist_entry.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
-loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton")
+loadButton = ttk.Button(widgets_frame, text="Search", style="Accent.TButton", command=searchTitleUI)
 loadButton.grid(row=3, column=0, padx=5, pady=(0, 5), sticky="nsew")
 #############################
 

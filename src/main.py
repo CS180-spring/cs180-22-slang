@@ -8,7 +8,6 @@ import os
 import search
 
 
-
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
 secret = 'e0d800c29a704893b6ce87886e3b02b8'
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)

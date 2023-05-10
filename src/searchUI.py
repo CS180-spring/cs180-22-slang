@@ -4,6 +4,19 @@ import pandas as pd
 library_df = pd.read_csv("../library/big_library.csv",low_memory=False)
 pd.set_option('display.max_rows', 5000)
 
+def searchbyTitle(library_df, titleSearch):
+    songResult = library_df.loc[library_df['track_name'].fillna('').str.contains(titleSearch, case=False)]
+
+    if not songResult.empty:
+        print("Related Songs:")
+        print(songResult[["track_name", "artist", "album"]])
+        
+        songs = songResult[["track_name"]].to_numpy()
+    else:
+        print("No matching songs found")
+
+
+
 def search(library_df): 
     print("Search by:")
     print("1. Song name")
