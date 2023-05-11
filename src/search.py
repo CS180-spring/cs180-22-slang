@@ -1,5 +1,6 @@
 import numpy
 import pandas as pd
+import editDist
 
 def search(library_df): 
     print("Search by:")
@@ -160,6 +161,10 @@ def advanced_search(library_df):
         else:
             output[song] += 1
 
+    for index in output:
+        songResult = library_df.loc[index, "track_name"]
+        output[index] -= editDist.editDistance(songTitle.lower(), songResult.lower(), len(songTitle), len(songResult))
+
     # sort by value (number of times song shows up) in reverse
     sorted_output = sorted(output.items(), key=lambda x:x[1], reverse=True)
     converted_dict = dict(sorted_output)
@@ -167,8 +172,8 @@ def advanced_search(library_df):
     results = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
 
     # store results in df
-    for thing in converted_dict:
-        results = pd.concat([results, library_df.loc[[thing]]], ignore_index=False)
+    for index in converted_dict:
+        results = pd.concat([results, library_df.loc[[index]]], ignore_index=False)
 
     print(results)
 
