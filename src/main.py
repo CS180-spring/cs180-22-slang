@@ -95,7 +95,7 @@ print("6. Print Spotify playlists")
 print("7. Quit")
 inp1 = input("Which would you like to do? ")
 
-while inp1 != "6":
+while inp1 != "7":
 
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
@@ -169,7 +169,6 @@ while inp1 != "6":
             add = input("Keep adding songs? Y/N: ")
 
     elif inp1 == "6":
-        
         getPlaylistFromUser()
             
 
@@ -183,4 +182,4 @@ while inp1 != "6":
     print("5. Get recommendations for a playlist")
     print("6. Print Spotify playlists")
     print("7. Quit")
-    inp1 = input("Which do you want to do?" )
+    inp1 = input("Which do you want to do? ")
