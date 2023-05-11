@@ -100,10 +100,12 @@ def advanced_search(library_df):
     songTitle = input('Enter song title: ')
     artist = input('Enter artist name: ')
     album = input('Enter album name: ')
+    songID = input('Enter song ID: ')
 
     songTitleResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     artistResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     albumResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    songIDResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
 
     if songTitle != '':
         songTitleResult = library_df.loc[library_df["track_name"].str.contains(songTitle, case=False)]
@@ -114,7 +116,10 @@ def advanced_search(library_df):
     if album != '':
         albumResult = library_df.loc[library_df["album"].str.contains(album, case=False)]
 
-    frames = [songTitleResult, artistResult, albumResult]
+    if songID != '':
+        songIDResult = library_df.loc[library_df["track_id"].str.contains(songID, case=False)]
+
+    frames = [songTitleResult, artistResult, albumResult, songIDResult]
     combined = pd.concat(frames) # combined each search table
 
     # count how many times a song appears in combined df
