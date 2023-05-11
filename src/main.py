@@ -80,7 +80,7 @@ while inp1 != "6":
         playlist_df = pd.read_csv(playlist_loc)
         print("1. Add song")
         print("2. Remove song")
-        inp3 = input("What do you wanna do? ")
+        inp3 = input("What do you want to do? ")
         if inp3 == "1":
             temp_song = search.search(library_df)
             playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
