@@ -6,6 +6,7 @@ import pandas as pd
 from numba import njit,jit,prange
 import search
 import kmeans
+import recommend
 
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
@@ -48,6 +49,13 @@ def make_playlist_df1(creator, playlist_id):
 def runKmeans(input_df, input_df2, location):
     merged = kmeans.Classify()
     merged.run_classification(input_df, input_df2, location)
+
+def runRecommend(input_df):
+    recs = recommend.recommend()
+    recs.to_csv("../output/recommendations.csv", index = False)
+    print("Here are your recommendations: ")
+    print(recs)
+    return recs
 
 
 library_df = pd.read_csv("../library/library.csv")
@@ -120,7 +128,15 @@ while inp1 != "6":
         combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2, merged_loc)
 
     elif inp1 == "5":
-       rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+        rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+        playlist_loc = "../output/" + rec_playlist + ".csv"
+        recommended_songs = runRecommend()
+        add = input("Would you like to add any of these to your playlist? Y/N: ")
+        while add == "Y" :
+            new_song_name = input("Please enter the name of the song you want to add: ")
+            new_song = recommended_songs.loc[recommended_songs["track_name"] == new_song_name]
+            add = input("Keep adding songs? Y/N: ")
+
 
     elif inp1 not in ["1", "2", "3", "4", "5", "6"]: 
         print("Not a valid selection")
