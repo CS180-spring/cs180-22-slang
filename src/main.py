@@ -50,8 +50,8 @@ def runKmeans(input_df, input_df2, location):
     merged = kmeans.Classify()
     merged.run_classification(input_df, input_df2, location)
 
-def runRecommend(input_df):
-    recs = recommend.recommend()
+def runRecommend(input_df, lib_df):
+    recs = recommend.recommend(input_df, lib_df)
     recs.to_csv("../output/recommendations.csv", index = False)
     print("Here are your recommendations: ")
     print(recs)
@@ -130,11 +130,14 @@ while inp1 != "6":
     elif inp1 == "5":
         rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
         playlist_loc = "../output/" + rec_playlist + ".csv"
-        recommended_songs = runRecommend()
+        playlist_df = pd.read_csv(playlist_loc)
+        recommended_songs = runRecommend(playlist_df, library_df)
         add = input("Would you like to add any of these to your playlist? Y/N: ")
         while add == "Y" :
             new_song_name = input("Please enter the name of the song you want to add: ")
             new_song = recommended_songs.loc[recommended_songs["track_name"] == new_song_name]
+            playlist_df = pd.concat([playlist_df, new_song], ignore_index=True)
+            playlist_df.to_csv(playlist_loc, index=False)
             add = input("Keep adding songs? Y/N: ")
 
 
