@@ -115,24 +115,27 @@ def advanced_search(library_df):
         albumResult = library_df.loc[library_df["album"].str.contains(album, case=False)]
 
     frames = [songTitleResult, artistResult, albumResult]
-    results = pd.concat(frames)
+    combined = pd.concat(frames) # combined each search table
 
+    # count how many times a song appears in combined df
     output = {}
-    for result in results.index:
-        if result not in output:
-            output[result] = 1
+    for song in combined.index:
+        if song not in output:
+            output[song] = 1
         else:
-            output[result] += 1
+            output[song] += 1
 
+    # sort by value (number of times song shows up) in reverse
     sorted_output = sorted(output.items(), key=lambda x:x[1], reverse=True)
     converted_dict = dict(sorted_output)
+    
+    results = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+
+    # store results in df
+    for thing in converted_dict:
+        results = pd.concat([results, library_df.loc[[thing]]], ignore_index=False)
 
     print(results)
-    print(converted_dict)
-
-    for thing in converted_dict:
-        print(library_df.loc[thing])
-        print('\n')
 
 
 
