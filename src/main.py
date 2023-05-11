@@ -91,7 +91,8 @@ print("2. Edit an existing playlist")
 print("3. Import a playlist")
 print("4. Merge two playlists")
 print("5. Get recommendations for a playlist")
-print("6. Quit")
+print("6. Print Spotify playlists")
+print("7. Quit")
 inp1 = input("Which would you like to do? ")
 
 while inp1 != "6":
@@ -167,7 +168,7 @@ while inp1 != "6":
             playlist_df.to_csv(playlist_loc, index=False)
             add = input("Keep adding songs? Y/N: ")
 
-    elif inp1 == "7":
+    elif inp1 == "6":
         
         getPlaylistFromUser()
             
@@ -180,5 +181,6 @@ while inp1 != "6":
     print("3. Import a playlist")
     print("4. Merge two playlists")
     print("5. Get recommendations for a playlist")
-    print("6. Quit")
+    print("6. Print Spotify playlists")
+    print("7. Quit")
     inp1 = input("Which do you want to do?" )
