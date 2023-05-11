@@ -101,11 +101,23 @@ def advanced_search(library_df):
     artist = input('Enter artist name: ')
     album = input('Enter album name: ')
     songID = input('Enter song ID: ')
+    danceability = input('Enter danceability: ')
+    energy = input('Enter energy: ')
+    loudness = input('Enter loudness: ')
+    speechiness = input('Enter speechiness: ')
+    instrumentalness = input('Enter instrumentalness: ')
+    liveness = input('Enter liveness: ')
 
     songTitleResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     artistResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     albumResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     songIDResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    danceabilityResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    energyResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    loudnessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    speechinessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    instrumentalnessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+    livenessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
 
     if songTitle != '':
         songTitleResult = library_df.loc[library_df["track_name"].str.contains(songTitle, case=False)]
@@ -119,7 +131,25 @@ def advanced_search(library_df):
     if songID != '':
         songIDResult = library_df.loc[library_df["track_id"].str.contains(songID, case=False)]
 
-    frames = [songTitleResult, artistResult, albumResult, songIDResult]
+    if danceability != '':
+        danceabilityResult = library_df.loc[library_df["danceability"].astype(str).str.contains(danceability, case=False)]
+    
+    if energy != '':
+        energyResult = library_df.loc[library_df["energy"].astype(str).str.contains(energy, case=False)]
+
+    if loudness != '':
+        loudnessResult = library_df.loc[library_df["loudness"].astype(str).str.contains(loudness, case=False)]
+
+    if speechiness != '':
+        speechinessResult = library_df.loc[library_df["speechiness"].astype(str).str.contains(speechiness, case=False)]
+
+    if instrumentalness != '':
+        instrumentalnessResult = library_df.loc[library_df["instrumentalness"].astype(str).str.contains(instrumentalness, case=False)]
+
+    if liveness != '':
+        livenessResult = library_df.loc[library_df["liveness"].astype(str).str.contains(liveness, case=False)]
+
+    frames = [songTitleResult, artistResult, albumResult, songIDResult, danceabilityResult, energyResult, loudnessResult, speechinessResult, instrumentalnessResult, livenessResult]
     combined = pd.concat(frames) # combined each search table
 
     # count how many times a song appears in combined df
