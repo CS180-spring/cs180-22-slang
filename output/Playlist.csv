@@ -1,0 +1,54 @@
+artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
+Taylor Swift,Lover,Miss Americana & The Heartbreak Prince,214nt20w5wOxJnY462klLw,0.662,0.747,-6.926,0.0736,0.00615,0.138
+Taylor Swift,Lover,Cruel Summer,1BxfuPKGuaTgP7aM0Bbdwr,0.552,0.702,-5.707,0.157,2.06e-05,0.105
+Taylor Swift,Lover,The Man,3RauEVgRgj1IuWdJ9fDs70,0.777,0.658,-5.191,0.054,0.0,0.0901
+Taylor Swift,Lover,You Need To Calm Down,6RRNNciQGZEXnqk8SQ9yv5,0.771,0.671,-5.617,0.0553,0.0,0.0637
+Taylor Swift,Lover,Lover,1dGr1c8CrMLDpV6mPbImSI,0.359,0.543,-7.582,0.0919,1.58e-05,0.118
+Taylor Swift,Lover,The Archer,3pHkh7d0lzM2AldUtz2x37,0.292,0.574,-9.375,0.0401,0.00569,0.0663
+Taylor Swift,Fearless (Taylor's Version),Fearless (Taylor’s Version),77sMIMlNaSURUAXq5coCxE,0.569,0.741,-4.963,0.0282,0.0,0.333
+Taylor Swift,Fearless (Taylor's Version),You Belong With Me (Taylor’s Version),1qrpoAMXodY6895hGKoUpA,0.632,0.773,-4.856,0.0346,0.0,0.0885
+Taylor Swift,Love Story (Taylor’s Version),Love Story (Taylor’s Version),3CeCwYWvdfXbZLXFhBrbnf,0.626,0.79,-4.302,0.0311,3.97e-06,0.0989
+Taylor Swift,evermore,‘tis the damn season,7dW84mWkdWE5a6lFWxJCBG,0.575,0.434,-8.193,0.0312,6.59e-05,0.105
+Taylor Swift,evermore,willow,0lx2cLdOt3piJbcaXIV74f,0.392,0.574,-9.195,0.17,0.00179,0.145
+Taylor Swift,evermore,marjorie,12ntTeqEeTg7GAVpe8Mhpl,0.535,0.561,-11.609,0.0484,0.000136,0.115
+Taylor Swift,evermore,champagne problems,0sY6ZUTh4yoctD8VIXz339,0.462,0.24,-12.077,0.0377,0.0,0.113
+Taylor Swift,evermore,tolerate it,0PurA4JVJ8YQgSVopY8fn6,0.316,0.361,-10.381,0.0488,2.67e-05,0.0797
+Taylor Swift,reputation,...Ready For It?,2yLa0QULdQr0qAIvVwN6B5,0.613,0.764,-6.509,0.136,0.0,0.197
+Taylor Swift,reputation,Delicate,6NFyWDv5CjfwuzoCkw47Xf,0.75,0.404,-10.178,0.0682,0.000357,0.0911
+Taylor Swift,reputation,Don’t Blame Me,1R0a2iXumgCiFb7HEZ7gUE,0.615,0.534,-6.719,0.0386,1.76e-05,0.0607
+Taylor Swift,reputation,Look What You Made Me Do,1P17dC1amhFzptugyAO7Il,0.766,0.709,-6.471,0.123,1.41e-05,0.126
+Taylor Swift,Speak Now,Enchanted,04S1pkp1VaIqjg8zZqknR5,0.535,0.618,-3.913,0.0273,0.000388,0.169
+Taylor Swift,Red (Taylor's Version),22 (Taylor's Version),3yII7UwgLF6K5zW3xad3MP,0.642,0.695,-5.62,0.0281,1.02e-05,0.0753
+Taylor Swift,Red (Taylor's Version),We Are Never Ever Getting Back Together (Taylor's Version),5YqltLsjdqFtvqE7Nrysvs,0.567,0.686,-6.139,0.175,1.86e-06,0.0732
+Taylor Swift,Red (Taylor's Version),I Knew You Were Trouble (Taylor's Version),6AtZLIzUINvExIUy4QhdjP,0.584,0.557,-6.371,0.0342,0.0,0.0576
+Taylor Swift,Red (Taylor's Version),All Too Well (10 Minute Version) (Taylor's Version) (From The Vault),5enxwA8aAbwZbf5qCHORXi,0.631,0.518,-8.771,0.0303,0.0,0.088
+Taylor Swift,folklore,the 1,0Jlcvv8IykzHaSmj49uNW8,0.777,0.357,-6.942,0.0522,7.28e-06,0.108
+Taylor Swift,folklore,betty,5kI4eCXXzyuIUXjQra0Cxi,0.593,0.377,-8.761,0.0253,0.0,0.0976
+Taylor Swift,folklore,the last great american dynasty,2Eeur20xVqfUoM3Q7EFPFt,0.686,0.662,-8.505,0.0413,0.0023,0.109
+Taylor Swift,folklore,august,3hUxzQpSfdDqwM3ZTFQY0K,0.532,0.623,-9.208,0.0331,7.28e-05,0.0925
+Taylor Swift,folklore,illicit affairs,2NmsngXHeC1GQ9wWrzhOMf,0.559,0.31,-10.445,0.0338,0.0,0.106
+Taylor Swift,folklore,my tears ricochet,1MgV7FIyNxIG7WzMRJV5HC,0.456,0.263,-10.63,0.0332,0.0,0.0749
+Taylor Swift,folklore,cardigan,4R2kfaDFhslZEMJqAFNpdd,0.613,0.581,-8.588,0.0424,0.000345,0.25
+Taylor Swift,1989 (Deluxe),Style,0ug5NqcwcFR2xrfTkc7k8e,0.588,0.791,-5.595,0.0402,0.00258,0.118
+Taylor Swift,1989 (Deluxe),Blank Space,1u8c2t2Cy7UBoG4ArRcF5g,0.76,0.703,-5.412,0.054,0.0,0.0913
+Taylor Swift,1989 (Deluxe),Shake It Off,0cqRj7pUJDkTCEsJkx8snD,0.647,0.8,-5.384,0.165,0.0,0.334
+Taylor Swift,Wildest Dreams (Taylor's Version),Wildest Dreams (Taylor's Version),1Ov37jtRQ2YNAe8HzfczkL,0.583,0.67,-7.289,0.0646,0.0001,0.126
+Taylor Swift,1989,Bad Blood,0TvQLMecTE8utzoNmvXRbK,0.652,0.802,-6.114,0.181,6.45e-06,0.148
+Taylor Swift,folklore,mirrorball,0ZNU020wNYvgW84iljPkPP,0.553,0.413,-10.037,0.0334,2.33e-06,0.0594
+Taylor Swift,Taylor Swift,Tim McGraw,2Fn01AIMyHbha2ceNQeOqw,0.58,0.491,-6.462,0.0251,0.0,0.121
+Taylor Swift,Midnights (3am Edition),Lavender Haze,4g2c7NoTWAOSYDy44l9nub,0.735,0.444,-10.519,0.0684,0.0012,0.17
+Taylor Swift,Midnights (3am Edition),Anti-Hero,02Zkkf2zMkwRGQjZ7T4p8f,0.638,0.634,-6.582,0.0457,1.23e-06,0.152
+Taylor Swift,Midnights (3am Edition),Midnight Rain,6Nl7KyvjkFncGsjB49SxLl,0.636,0.377,-11.721,0.0708,6.51e-05,0.115
+Taylor Swift,Midnights (3am Edition),Vigilante Shit,5yeuXkukVGuix3vmLu2BPJ,0.87,0.279,-11.134,0.364,1.74e-05,0.121
+Taylor Swift,Midnights (3am Edition),Bejeweled,0jvo9CjnbR0lYUDTSNTMiu,0.7,0.55,-9.13,0.0653,0.000102,0.091
+Taylor Swift,Midnights (3am Edition),Mastermind,56hioFjQ0DXrdn04hZcFgG,0.661,0.352,-14.077,0.117,0.00147,0.0884
+Taylor Swift,Midnights (3am Edition),Karma,5oqDgw5VGBln5dSIOPWyBq,0.649,0.622,-7.054,0.0582,0.0,0.594
+beabadoobee,Beatopia,10:36,0P4OHmZ7t092na79ElH7F5,0.611,0.928,-4.543,0.0408,0.0171,0.0667
+Phoebe Bridgers,Stranger in the Alps,Motion Sickness,5xo8RrjJ9CVNrtRg2S3B1R,0.651,0.546,-9.021,0.0357,0.0437,0.0842
+Gracie Abrams,minor,21,5meVa5klVlJalupZTvv5XX,0.759,0.665,-6.338,0.0861,0.0,0.109
+HAIM,Women In Music Pt III (Expanded Edition),Now I'm In It - Bonus Track,1DR2KXb0UvibcLsdDGVwwt,0.717,0.707,-9.495,0.0628,0.000117,0.161
+girl in red,we fell in love in october / October Passed Me By,we fell in love in october,6IPwKM3fUUzlElbvKw2sKl,0.566,0.366,-12.808,0.028,0.181,0.155
+MUNA,MUNA,Silk Chiffon,5ECxiK4Vigo1yRRmAoZc1f,0.622,0.739,-6.219,0.0441,0.0,0.111
+Paramore,This Is Why,This Is Why,7z84Fwf1R3Z2BwHCP620CI,0.723,0.737,-7.566,0.0386,0.00261,0.116
+Owenn,Baby Girl,Baby Girl,5hAF7tv0T8VCNudkNXGd71,0.559,0.721,-6.178,0.0363,0.0,0.12
+GAYLE,abcdefu,abcdefu,4fouWK6XVHhzl78KzQ1UjL,0.695,0.54,-5.692,0.0493,0.0,0.367
