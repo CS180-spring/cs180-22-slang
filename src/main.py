@@ -6,6 +6,8 @@ import pandas as pd
 from numba import njit,jit,prange
 import os
 import search
+import kmeans
+import recommend
 
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
@@ -19,33 +21,6 @@ def extract_playlist_id_from_url(url):
     return playlist_id
 
 def make_playlist_df1(creator, playlist_id):
-    
-    #Making empy dataframe
-    attributes_list = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"]
-    playlist_df = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
-    
-    #Loop through playlist
-    playlist = sp.user_playlist_tracks(creator, playlist_id)["items"]
-    for song in playlist:
-        song_features = {}
-        #Get metadata
-        song_features["artist"] = song["track"]["album"]["artists"][0]["name"]
-        song_features["album"] = song["track"]["album"]["name"]
-        song_features["track_name"] = song["track"]["name"]
-        song_features["track_id"] = song["track"]["id"]
-        
-        #Get audio features
-        audio_features = sp.audio_features(song_features["track_id"])[0]
-        for feature in attributes_list[4:]:
-            song_features[feature] = audio_features[feature]
-        
-        #Combine all the dfs we made in each iteration
-        song_df = pd.DataFrame(song_features, index = [0])
-        playlist_df = pd.concat([playlist_df, song_df], ignore_index = True)
-        
-    return playlist_df
-
-def make_playlist_df2(creator, playlist_id):
     
     #Making empy dataframe
     attributes_list = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"]
@@ -90,6 +65,13 @@ def runKmeans(input_df, input_df2):
     return_df = pd.concat([combined_df, cluster_df], axis=1, join='inner')
     return return_df
 
+def runRecommend(input_df, lib_df):
+    recs = recommend.recommend(input_df, lib_df)
+    recs.to_csv("../output/recommendations.csv", index = False)
+    print("Here are your recommendations: ")
+    print(recs)
+    return recs
+
 
 def getPlaylistFromUser():
     user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
@@ -103,6 +85,7 @@ def getPlaylistFromUser():
 
 library_df = pd.read_csv("../library/library.csv")
 
+
 print("1. Make a new playlist")
 print("2. Edit an existing playlist")
 print("3. Import a playlist")
@@ -111,72 +94,91 @@ print("5. Get recommendations for a playlist")
 print("6. Quit")
 inp1 = input("Which would you like to do? ")
 
+while inp1 != "6":
 
-if inp1 == "1":
-    newPlaylistName = input("Please name your playlist: ")
-    newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
-    temp_song = search.search(library_df)
-    playlist = temp_song
-    inp3 = input("Keep adding songs? Y/N: ")
-    while inp3 == "Y":
-        new_temp_song = search.search(library_df)
-        playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
-        inp3 = input("Keep adding songs? Y/N: ")
-    playlist.to_csv(newPlaylist_loc, index = False)
-
-elif inp1 == "2":
-    inp2 = input("Please enter the name of the playlist you want to edit: ")
-    playlist_loc = "../output/" + inp2 + ".csv"
-    playlist_df = pd.read_csv(playlist_loc)
-    print("1. Add song")
-    print("2. Remove song")
-    inp3 = input("What do you wanna do? ")
-    if inp3 == "1":
+    if inp1 == "1":
+        newPlaylistName = input("Please name your playlist: ")
+        newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
         temp_song = search.search(library_df)
-        playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
-        inp4 = input("Keep adding songs? Y/N: ")
-        while inp4 == "Y":
+        playlist = temp_song
+        inp3 = input("Keep adding songs? Y/N: ")
+        while inp3 == "Y":
             new_temp_song = search.search(library_df)
-            playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
+            playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
+            inp3 = input("Keep adding songs? Y/N: ")
+        playlist.to_csv(newPlaylist_loc, index = False)
+
+    elif inp1 == "2":
+        inp2 = input("Please enter the name of the playlist you want to edit: ")
+        playlist_loc = "../output/" + inp2 + ".csv"
+        playlist_df = pd.read_csv(playlist_loc)
+        print("1. Add song")
+        print("2. Remove song")
+        inp3 = input("What do you want to do? ")
+        if inp3 == "1":
+            temp_song = search.search(library_df)
+            playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
             inp4 = input("Keep adding songs? Y/N: ")
-        playlist_df.to_csv(playlist_loc, index = False)
-    elif inp3 == "2":
-        inp4 = input("Enter the name of the song you want to remove: ")
-        temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
-        drop_index = temp_song.index
-        playlist_df = playlist_df.drop(drop_index)
-        playlist_df.to_csv(playlist_loc, index = False)
+            while inp4 == "Y":
+                new_temp_song = search.search(library_df)
+                playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
+                inp4 = input("Keep adding songs? Y/N: ")
+            playlist_df.to_csv(playlist_loc, index = False)
+        elif inp3 == "2":
+            inp4 = input("Enter the name of the song you want to remove: ")
+            temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
+            drop_index = temp_song.index
+            playlist_df = playlist_df.drop(drop_index)
+            playlist_df.to_csv(playlist_loc, index = False)
 
-elif inp1 == "3":
-    playlistLink = input("Please enter link to playlist: ")
-    id = extract_playlist_id_from_url(playlistLink)
-    playlistName = input("Please name your imported playlist: ")
+    elif inp1 == "3":
+        playlistLink = input("Please enter link to playlist: ")
+        id = extract_playlist_id_from_url(playlistLink)
+        playlistName = input("Please name your imported playlist: ")
 
-    df = make_playlist_df1("spotify", id)
-    csvName = "../output/" + playlistName + ".csv"
-    df.to_csv(csvName, index = False)
+        df = make_playlist_df1("spotify", id)
+        csvName = "../output/" + playlistName + ".csv"
+        df.to_csv(csvName, index = False)
 
-elif inp1 == "4":
-    playlist1 = input("Please enter the first playlist's name: ")
-    playlist2 = input("Please enter the second playlist's name: ")
-    mergedName = input("Please name your new merged playlist: ")
+    elif inp1 == "4":
+        playlist1 = input("Please enter the first playlist's name: ")
+        playlist2 = input("Please enter the second playlist's name: ")
+        mergedName = input("Please name your new merged playlist: ")
 
-    playlist1_loc = "../output/" + playlist1 + ".csv"
-    playlist2_loc = "../output/" + playlist2 + ".csv"
-    merged_loc = "../output/" + mergedName + ".csv"
-    playlist_df1 = pd.read_csv(playlist1_loc)
-    playlist_df2 = pd.read_csv(playlist2_loc)
+        playlist1_loc = "../output/" + playlist1 + ".csv"
+        playlist2_loc = "../output/" + playlist2 + ".csv"
+        merged_loc = "../output/" + mergedName + ".csv"
+        playlist_df1 = pd.read_csv(playlist1_loc)
+        playlist_df2 = pd.read_csv(playlist2_loc)
 
-    combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-    combinedPlaylist_df.to_csv(merged_loc)
+        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
+        combinedPlaylist_df.to_csv(merged_loc)
 
-elif inp1 == "5":
-    rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+    elif inp1 == "5":
+        rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
+        playlist_loc = "../output/" + rec_playlist + ".csv"
+        playlist_df = pd.read_csv(playlist_loc)
+        recommended_songs = runRecommend(playlist_df, library_df)
+        add = input("Would you like to add any of these to your playlist? Y/N: ")
+        while add == "Y" :
+            new_song_name = input("Please enter the name of the song you want to add: ")
+            new_song = recommended_songs.loc[recommended_songs["track_name"] == new_song_name]
+            playlist_df = pd.concat([playlist_df, new_song], ignore_index=True)
+            playlist_df.to_csv(playlist_loc, index=False)
+            add = input("Keep adding songs? Y/N: ")
 
-elif inp1 == "7":
-    
-    getPlaylistFromUser()
+    elif inp1 == "7":
         
+        getPlaylistFromUser()
+            
 
-elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
-    print("Not a valid selection")
+    elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
+        print("Not a valid selection")
+
+    print("1. Make a new playlist")
+    print("2. Edit an existing playlist")
+    print("3. Import a playlist")
+    print("4. Merge two playlists")
+    print("5. Get recommendations for a playlist")
+    print("6. Quit")
+    inp1 = input("Which do you want to do?" )
