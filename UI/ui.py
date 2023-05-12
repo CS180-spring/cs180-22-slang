@@ -3,12 +3,12 @@ import tkinter as tk
 from tkinter import ttk
 import csv
 import os
-from mainUI import *
-from searchUI import *
+#from mainUI import *
+#from searchUI import *
 
 def searchTitleUI():
     titleSearch = entries[0].get()
-    searchbyTitle(library_df, titleSearch)
+   # searchbyTitle(library_df, titleSearch)
     cacheSearchCSV = "../output/cacheSearch.csv"
     with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
@@ -22,7 +22,7 @@ def searchTitleUI():
 
 def searchArtistUI():
     artistSearch = entries[1].get()
-    searchbyArtist(library_df, artistSearch)
+   # searchbyArtist(library_df, artistSearch)
     cacheSearchCSV = "../output/cacheSearch.csv"
     with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
@@ -39,7 +39,7 @@ def loadPlaylistUI():
     playlist1Link = playlist1_entry.get()
     playlist2Link = playlist2_entry.get()
 
-    importSpotifyPlaylist(playlist1Link, "Playlist")
+   # importSpotifyPlaylist(playlist1Link, "Playlist")
     
 
     file_path1 = '../output/Playlist.csv'
@@ -56,7 +56,7 @@ def loadPlaylistUI():
             treeview1.insert("", "end", values=row)
 
 
-    importSpotifyPlaylist(playlist2Link, "Playlist2")
+   # importSpotifyPlaylist(playlist2Link, "Playlist2")
     with open(file_path2, 'r') as f2:
         reader2 = csv.reader(f2)
         playlist2 = list(reader2)
@@ -69,7 +69,7 @@ def loadPlaylistUI():
 
 def mergePlaylistsUI():
     file_path3 = '../output/MergedPlaylist.csv'
-    mergePlaylists()
+    #mergePlaylists()
 
     with open(file_path3, 'r') as f3:
         reader3 = csv.reader(f3)
@@ -332,11 +332,71 @@ button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
 button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
+
+#######################################
 ########################################
+
+
+
 tab3 = ttk.Frame(windowFrameNotebook)
 windowFrameNotebook.add(tab3, text="View Playlists")
 
+leftFrame3 = ttk.Frame(tab3)
+leftFrame3.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
+#############################
+widgets_frame3 = ttk.LabelFrame(leftFrame3, text="Spotify user ID",padding=(20, 10))
+widgets_frame3.grid(row=1, column=0, padx=20, pady=20, sticky="new")
+
+searchFields = ["User ID"]
+
+entries = []
+for i, text in enumerate(searchFields):
+    entry = ttk.Entry(widgets_frame3)
+    entry.insert(0, text)
+    entry.bind("<FocusIn>", lambda e, entry=entry, text=text: on_focus_in(e, entry, text))
+    entry.bind("<FocusOut>", lambda e, entry=entry, text=text: on_focus_out(e, entry, text))
+    entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
+    entries.append(entry)
+
+
+searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
+searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+#############################
+rightFrame3 = ttk.Frame(tab3)
+rightFrame3.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
+buttonsFrame3 = ttk.Frame(rightFrame3)
+buttonsFrame3.grid(row=0, column=0, sticky="nsew")
+
+
+#############################
+
+separator1 = ttk.Separator(rightFrame3)
+separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
+
+############################# 
+
+treeview_frame = ttk.Frame(rightFrame3)
+treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
+
+cols = ("Artist", "Album", "Title", "SongID")
+searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
+
+for col in cols:
+    searchTreeView.heading(col, text=col)
+    searchTreeView.column(col, width=100)
+
+scrollbarS = ttk.Scrollbar(treeview_frame, orient="vertical", command=searchTreeView.yview)
+searchTreeView.configure(yscrollcommand=scrollbarS.set)
+searchTreeView.pack(side="left", fill="both", expand=True)
+scrollbarS.pack(side="right", fill="y")
+
+
+
+
+
+#################################
 
 root.mainloop()
 
