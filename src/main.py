@@ -112,6 +112,12 @@ body_content = """
 7. Quit
 """
 
+panel_width = 40
+panel_height = 10
+
+body_text = Text(body_content)
+body_text.truncate(panel_width * panel_height)
+
 body_panel = Panel.fit(body_content, title=title_text)
 
 layout.split(
