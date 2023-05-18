@@ -123,34 +123,34 @@ def advanced_search(library_df):
     livenessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
 
     if songTitle != '':
-        songTitleResult = library_df.loc[library_df["track_name"].str.contains(songTitle, case=False)]
+        songTitleResult = library_df.loc[library_df["track_name"].str.contains(songTitle, case=False).fillna(False)]
     
     if artist != '':
-        artistResult = library_df.loc[library_df["artist"].str.contains(artist, case=False)]
+        artistResult = library_df.loc[library_df["artist"].str.contains(artist, case=False).fillna(False)]
 
     if album != '':
-        albumResult = library_df.loc[library_df["album"].str.contains(album, case=False)]
+        albumResult = library_df.loc[library_df["album"].str.contains(album, case=False).fillna(False)]
 
     if songID != '':
-        songIDResult = library_df.loc[library_df["track_id"].str.contains(songID, case=False)]
+        songIDResult = library_df.loc[library_df["track_id"].str.contains(songID, case=False).fillna(False)]
 
     if danceability != '':
-        danceabilityResult = library_df.loc[library_df["danceability"].astype(str).str.contains(danceability, case=False)]
+        danceabilityResult = library_df.loc[library_df["danceability"].astype(str).str.contains(danceability, case=False).fillna(False)]
     
     if energy != '':
-        energyResult = library_df.loc[library_df["energy"].astype(str).str.contains(energy, case=False)]
+        energyResult = library_df.loc[library_df["energy"].astype(str).str.contains(energy, case=False).fillna(False)]
 
     if loudness != '':
-        loudnessResult = library_df.loc[library_df["loudness"].astype(str).str.contains(loudness, case=False)]
+        loudnessResult = library_df.loc[library_df["loudness"].astype(str).str.contains(loudness, case=False).fillna(False)]
 
     if speechiness != '':
-        speechinessResult = library_df.loc[library_df["speechiness"].astype(str).str.contains(speechiness, case=False)]
+        speechinessResult = library_df.loc[library_df["speechiness"].astype(str).str.contains(speechiness, case=False).fillna(False)]
 
     if instrumentalness != '':
-        instrumentalnessResult = library_df.loc[library_df["instrumentalness"].astype(str).str.contains(instrumentalness, case=False)]
+        instrumentalnessResult = library_df.loc[library_df["instrumentalness"].astype(str).str.contains(instrumentalness, case=False).fillna(False)]
 
     if liveness != '':
-        livenessResult = library_df.loc[library_df["liveness"].astype(str).str.contains(liveness, case=False)]
+        livenessResult = library_df.loc[library_df["liveness"].astype(str).str.contains(liveness, case=False).fillna(False)]
 
     frames = [songTitleResult, artistResult, albumResult, songIDResult, danceabilityResult, energyResult, loudnessResult, speechinessResult, instrumentalnessResult, livenessResult]
     combined = pd.concat(frames) # combined each search table
