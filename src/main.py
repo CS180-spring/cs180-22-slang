@@ -7,6 +7,7 @@ from rich.layout import Layout
 from rich.panel import Panel
 from rich.align import Align
 from rich.markdown import Markdown
+from rich.text import Text
 import pandas as pd
 from numba import njit,jit,prange
 import os
@@ -15,7 +16,7 @@ import kmeans
 import recommend
 
 console = Console()
-# layout = Layout()
+layout = Layout()
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
 secret = 'e0d800c29a704893b6ce87886e3b02b8'
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
@@ -91,39 +92,47 @@ def getPlaylistFromUser():
 
 library_df = pd.read_csv("../library/library.csv")
 
-# layout.split(
-#     Layout(name = "header", size = 3),
-#     Layout(ratio = 1, name = "main")
-# )
-
-# console.print(layout)
-
-# def make_panel() -> Panel:
-#     message.add_row("1. Make a new playlist")
-#     message_panel = Panel(
-#         Align.center(
-#             Group("\n", Align.center(message)),
-#             vertical="middle",
-#         ),
-#         title = "Menu Options"
-#     )
-#     return message_panel
+# header_text = Text("SpotiDB Terminal", style="bold white")
 
 MARKDOWN = """
 # SpotiDB Terminal
-Menu Options
-
 """
 md = Markdown(MARKDOWN)
-console.print(md)
+console.print(md) 
 
-print("1. Make a new playlist")
-print("2. Edit an existing playlist")
-print("3. Import a playlist")
-print("4. Merge two playlists")
-print("5. Get recommendations for a playlist")
-print("6. Print Spotify playlists")
-print("7. Quit")
+body_content = """
+1. Make a new playlist
+2. Edit an existing playlist
+3. Import a playlist
+4. Merge two playlists
+5. Get recommendations for a playlist
+6. Print Spotify playlists
+7. Quit
+"""
+
+body_panel = Panel.fit(body_content, title="Menu Options")
+
+layout.split(
+    Layout(body_panel)
+)
+
+console.print(layout)
+
+# MARKDOWN = """
+# # SpotiDB Terminal
+# Menu Options
+
+# """
+# md = Markdown(MARKDOWN)
+# console.print(md) 
+
+# print("1. Make a new playlist")
+# print("2. Edit an existing playlist")
+# print("3. Import a playlist")
+# print("4. Merge two playlists")
+# print("5. Get recommendations for a playlist")
+# print("6. Print Spotify playlists")
+# print("7. Quit")
 inp1 = input("Which would you like to do? ")
 
 while inp1 != "7":
