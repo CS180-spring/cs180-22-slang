@@ -8,6 +8,8 @@ from rich.panel import Panel
 from rich.align import Align
 from rich.markdown import Markdown
 from rich.text import Text
+from rich.progress import Progress
+import time
 import pandas as pd
 from numba import njit,jit,prange
 import os
@@ -93,6 +95,13 @@ def getPlaylistFromUser():
 library_df = pd.read_csv("../library/library.csv")
 
 # header_text = Text("SpotiDB Terminal", style="bold white")
+
+with Progress() as progress:
+    task = progress.add_task("[green]Loading up Terminal Menu...", total=100)
+    while not progress.finished:
+        progress.update(task, advance=1)
+        # Simulate some delay
+        time.sleep(0.1)
 
 MARKDOWN = """
 # SpotiDB Terminal
