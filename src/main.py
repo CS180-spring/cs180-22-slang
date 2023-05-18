@@ -2,6 +2,11 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from sklearn.cluster import KMeans
 from sklearn import preprocessing
+from rich.console import Console, Group
+from rich.layout import Layout
+from rich.panel import Panel
+from rich.align import Align
+from rich.markdown import Markdown
 import pandas as pd
 from numba import njit,jit,prange
 import os
@@ -9,7 +14,8 @@ import search
 import kmeans
 import recommend
 
-
+console = Console()
+# layout = Layout()
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
 secret = 'e0d800c29a704893b6ce87886e3b02b8'
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
@@ -85,6 +91,31 @@ def getPlaylistFromUser():
 
 library_df = pd.read_csv("../library/library.csv")
 
+# layout.split(
+#     Layout(name = "header", size = 3),
+#     Layout(ratio = 1, name = "main")
+# )
+
+# console.print(layout)
+
+# def make_panel() -> Panel:
+#     message.add_row("1. Make a new playlist")
+#     message_panel = Panel(
+#         Align.center(
+#             Group("\n", Align.center(message)),
+#             vertical="middle",
+#         ),
+#         title = "Menu Options"
+#     )
+#     return message_panel
+
+MARKDOWN = """
+# SpotiDB Terminal
+Menu Options
+
+"""
+md = Markdown(MARKDOWN)
+console.print(md)
 
 print("1. Make a new playlist")
 print("2. Edit an existing playlist")
