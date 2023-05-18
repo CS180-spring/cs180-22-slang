@@ -100,6 +100,8 @@ MARKDOWN = """
 md = Markdown(MARKDOWN)
 console.print(md) 
 
+title_text = Text("Menu Options", style = "green")
+
 body_content = """
 1. Make a new playlist
 2. Edit an existing playlist
@@ -110,7 +112,7 @@ body_content = """
 7. Quit
 """
 
-body_panel = Panel.fit(body_content, title="Menu Options")
+body_panel = Panel.fit(body_content, title=title_text)
 
 layout.split(
     Layout(body_panel)
