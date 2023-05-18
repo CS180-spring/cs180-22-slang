@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn import preprocessing
 import pandas as pd
 from numba import njit,jit,prange
+import os
 import search
 import kmeans
 import recommend
@@ -46,9 +47,23 @@ def make_playlist_df1(creator, playlist_id):
         
     return playlist_df
 
-def runKmeans(input_df, input_df2, location):
-    merged = kmeans.Classify()
-    merged.run_classification(input_df, input_df2, location)
+def runKmeans(input_df, input_df2):
+    combined_df = pd.concat([input_df, input_df2], ignore_index= True)
+
+    #removing duplicates
+    combined_df = combined_df.drop_duplicates(subset = ['track_id'], keep = 'first')
+    #normalizing values
+    x = combined_df.iloc[:, 4:].values 
+    min_max_scaler = preprocessing.MinMaxScaler()
+    x_scaled = min_max_scaler.fit_transform(x)
+    scaled_df = pd.DataFrame(x_scaled)
+
+    kmeans = KMeans(init="k-means++", n_clusters=3, random_state=15, max_iter = 100).fit(x_scaled)
+    scaled_df['cluster number'] = kmeans.labels_
+    scaled_df.columns = ['danceability', 'energy', 'loudness', 'speechiness', 'instrumentalness', 'liveness', 'cluster number']
+    cluster_df = scaled_df.iloc[:, -1:]
+    return_df = pd.concat([combined_df, cluster_df], axis=1, join='inner')
+    return return_df
 
 def runRecommend(input_df, lib_df):
     recs = recommend.recommend(input_df, lib_df)
@@ -56,17 +71,29 @@ def runRecommend(input_df, lib_df):
     return recs
 
 
+def getPlaylistFromUser():
+    user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
+    playlists = sp.user_playlists(user_spotify_id, limit=50)
+
+    for i, playlist in enumerate(playlists['items']):
+        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
+    return playlists['items']
+    
+
+
 library_df = pd.read_csv("../library/library.csv")
+
 
 print("1. Make a new playlist")
 print("2. Edit an existing playlist")
 print("3. Import a playlist")
 print("4. Merge two playlists")
 print("5. Get recommendations for a playlist")
-print("6. Quit")
+print("6. Print Spotify playlists")
+print("7. Quit")
 inp1 = input("Which would you like to do? ")
 
-while inp1 != "6":
+while inp1 != "7":
 
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
@@ -123,7 +150,8 @@ while inp1 != "6":
         playlist_df1 = pd.read_csv(playlist1_loc)
         playlist_df2 = pd.read_csv(playlist2_loc)
 
-        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2, merged_loc)
+        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
+        combinedPlaylist_df.to_csv(merged_loc)
 
     elif inp1 == "5":
         rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
@@ -133,8 +161,11 @@ while inp1 != "6":
         playlist_df = pd.concat([playlist_df, recommended_songs], ignore_index=True)
         playlist_df.to_csv(playlist_loc, index=False)
 
+    elif inp1 == "6":
+        getPlaylistFromUser()
+            
 
-    elif inp1 not in ["1", "2", "3", "4", "5", "6"]: 
+    elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
         print("Not a valid selection")
 
     print("1. Make a new playlist")
@@ -142,5 +173,6 @@ while inp1 != "6":
     print("3. Import a playlist")
     print("4. Merge two playlists")
     print("5. Get recommendations for a playlist")
-    print("6. Quit")
-    inp1 = input("Which would you like to do? ")
+    print("6. Print Spotify playlists")
+    print("7. Quit")
+    inp1 = input("Which do you want to do? ")

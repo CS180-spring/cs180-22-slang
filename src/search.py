@@ -11,7 +11,7 @@ def search(library_df):
     while searchBy != '4':
         if searchBy == '1':
             songSearch = input("Please enter the song name you would like to search for: ")
-            songResult = library_df.loc[library_df["track_name"].str.contains(songSearch, case=False)]
+            songResult = library_df.loc[library_df['track_name'].fillna('').str.contains(songSearch, case=False)]
 
             if not songResult.empty:
                 print("Related Songs:")
@@ -29,7 +29,9 @@ def search(library_df):
 
         elif searchBy == '2':
             artistSearch = input("Please enter the artist name you would like to search for: ")
-            artistResult = library_df.loc[library_df["artist"].str.contains(artistSearch, case=False)]
+            artistResult = library_df.loc[library_df['artist'].fillna('').str.contains(artistSearch, case=False)]
+
+
 
             if not artistResult.empty:
                 artists = artistResult[["artist"]].drop_duplicates().to_numpy()
@@ -58,7 +60,7 @@ def search(library_df):
             
         elif searchBy == '3':
             albumSearch = input("Please enter the album name you would like to search for: ")
-            albumResult = library_df.loc[library_df["album"].str.contains(albumSearch, case=False)]
+            albumResult = library_df.loc[library_df['album'].fillna('').str.contains(albumSearch, case=False)]
 
             if not albumResult.empty:
                 albums = albumResult[["album", "artist"]].drop_duplicates().to_numpy()
