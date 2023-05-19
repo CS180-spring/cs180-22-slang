@@ -252,8 +252,11 @@ def advanced_search(library_df):
     results.to_csv(playlist_loc, index = False)
 
     songToAdd = input('Enter the index of the song you would like to add: ')
-
-    return library_df.loc[[int(songToAdd)]]
+    if int(songToAdd) in results.index:
+        return library_df.loc[[int(songToAdd)]]
+    else:
+        print("invalid song")
+    
 
 def searchBySongTitle(library_df, songTitle):
     songTitleResult = library_df.loc[library_df["track_name"].str.lower() == songTitle]
