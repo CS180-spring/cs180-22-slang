@@ -9,6 +9,8 @@ from rich.align import Align
 from rich.markdown import Markdown
 from rich.text import Text
 from rich.progress import Progress
+from rich import box
+from rich.table import Table
 import time
 import pandas as pd
 from numba import njit,jit,prange
@@ -170,13 +172,14 @@ while inp1 != "7":
         inp3 = 'y'
         while inp3.lower() == 'y':
             temp_song = search.advanced_search(library_df, library_loc)
-            if not temp_song.empty and temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
-                inp4 = input("Song already in playlist. Would you still like to add? Y/N: ")
-                if inp4.lower() == "y":
-                    print('Song added')
+            if not temp_song.empty: 
+                if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                    inp4 = input("Song already in playlist. Would you still like to add? Y/N: ")
+                    if inp4.lower() == "y":
+                        print('Song added')
+                        playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                else:
                     playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
-            else:
-                playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
             inp3 = input("Keep adding songs? Y/N: ")
         playlist_df.to_csv(newPlaylist_loc, index = False)
 
@@ -196,17 +199,25 @@ while inp1 != "7":
             inp4 = 'y'
             while inp4.lower() == 'y':
                 temp_song = search.advanced_search(library_df, library_loc)
-                if not temp_song.empty and temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
-                    inp5 = input("Song already in playlist. Would you still like to add? Y/N: ")
-                    if inp5.lower() == "y":
-                        print('Song added')
+                if not temp_song.empty:
+                    if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                        inp5 = input("Song already in playlist. Would you still like to add? Y/N: ")
+                        if inp5.lower() == "y":
+                            print('Song added')
+                            playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                    else:
                         playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
-                else:
-                    playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
                 inp4 = input("Keep adding songs? Y/N: ")
             playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
-            print(playlist_df[['track_name', 'artist', 'album']])
+            # Initiate a Table instance to be modified
+            table = Table(show_header=True, header_style="green")
+            # Modify the table instance to have the data from the DataFrame
+            table = search.df_to_table(playlist_df[["track_name", "artist", "album"]], table, index_name='index')
+            # Update the style of the table
+            table.row_styles = ["none", "dim"]
+            table.box = box.SIMPLE_HEAD
+            console.print(table)
             inp4 = input("Enter the index of the song you want to remove: ")
             # temp_song = playlist_df.loc[playlist_df[[int(inp4)]]]
             # drop_index = temp_song.index
@@ -251,7 +262,7 @@ while inp1 != "7":
         playlist_df2 = pd.read_csv(playlist2_loc)
 
         combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-        combinedPlaylist_df.to_csv(merged_loc)
+        combinedPlaylist_df.to_csv(merged_loc, index=False)
 
     elif inp1 == "5":
         rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
