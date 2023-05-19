@@ -110,7 +110,7 @@ def runRecommend(input_df, lib_df):
     return recs
 
 
-library_df = pd.read_csv("../library/library.csv")
+library_df = pd.read_csv("../library/big_library.csv")
 
 
 def namePlaylist():
@@ -170,8 +170,13 @@ def mergePlaylists():
     cluster_1 = cluster_1.drop(["cluster number"], axis = 1)
     cluster_1.to_csv(merged_loc, index = False)
 
+def runRecommend(input_df, lib_df):
+    recs = recommend.recommend(input_df, lib_df)
+    recs.to_csv("../output/recommendations.csv", index = False)
+    return recs
+
 def getRecommendations():
-    playlist_loc = "../output/" + "merged.csv"
+    playlist_loc = "../output/" + "MergedPlaylist.csv"
     playlist_df = pd.read_csv(playlist_loc)
     recommended_songs = runRecommend(playlist_df, library_df)
     playlist_df = pd.concat([playlist_df, recommended_songs], ignore_index=True)
