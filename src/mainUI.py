@@ -110,7 +110,7 @@ def runRecommend(input_df, lib_df):
     return recs
 
 
-library_df = pd.read_csv("../library/library.csv")
+library_df = pd.read_csv("../library/big_library.csv")
 
 
 def namePlaylist():
@@ -170,18 +170,17 @@ def mergePlaylists():
     cluster_1 = cluster_1.drop(["cluster number"], axis = 1)
     cluster_1.to_csv(merged_loc, index = False)
 
+def runRecommend(input_df, lib_df):
+    recs = recommend.recommend(input_df, lib_df)
+    recs.to_csv("../output/recommendations.csv", index = False)
+    return recs
+
 def getRecommendations():
-    rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
-    playlist_loc = "../output/" + rec_playlist + ".csv"
+    playlist_loc = "../output/" + "MergedPlaylist.csv"
     playlist_df = pd.read_csv(playlist_loc)
     recommended_songs = runRecommend(playlist_df, library_df)
-    add = input("Would you like to add any of these to your playlist? Y/N: ")
-    while add == "Y" :
-        new_song_name = input("Please enter the name of the song you want to add: ")
-        new_song = recommended_songs.loc[recommended_songs["track_name"] == new_song_name]
-        playlist_df = pd.concat([playlist_df, new_song], ignore_index=True)
-        playlist_df.to_csv(playlist_loc, index=False)
-        add = input("Keep adding songs? Y/N: ")
+    playlist_df = pd.concat([playlist_df, recommended_songs], ignore_index=True)
+    playlist_df.to_csv(playlist_loc, index=False)
 
 def getPlaylistFromUser():
     user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID

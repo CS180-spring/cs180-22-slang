@@ -3,12 +3,12 @@ import tkinter as tk
 from tkinter import ttk
 import csv
 import os
-#from mainUI import *
-#from searchUI import *
+from mainUI import *
+from searchUI import *
 
 def searchTitleUI():
     titleSearch = entries[0].get()
-   # searchbyTitle(library_df, titleSearch)
+    searchbyTitle(library_df, titleSearch)
     cacheSearchCSV = "../output/cacheSearch.csv"
     with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
@@ -22,7 +22,7 @@ def searchTitleUI():
 
 def searchArtistUI():
     artistSearch = entries[1].get()
-   # searchbyArtist(library_df, artistSearch)
+    searchbyArtist(library_df, artistSearch)
     cacheSearchCSV = "../output/cacheSearch.csv"
     with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
@@ -39,7 +39,7 @@ def loadPlaylistUI():
     playlist1Link = playlist1_entry.get()
     playlist2Link = playlist2_entry.get()
 
-   # importSpotifyPlaylist(playlist1Link, "Playlist")
+    importSpotifyPlaylist(playlist1Link, "Playlist")
     
 
     file_path1 = '../output/Playlist.csv'
@@ -56,7 +56,7 @@ def loadPlaylistUI():
             treeview1.insert("", "end", values=row)
 
 
-   # importSpotifyPlaylist(playlist2Link, "Playlist2")
+    importSpotifyPlaylist(playlist2Link, "Playlist2")
     with open(file_path2, 'r') as f2:
         reader2 = csv.reader(f2)
         playlist2 = list(reader2)
@@ -69,12 +69,25 @@ def loadPlaylistUI():
 
 def mergePlaylistsUI():
     file_path3 = '../output/MergedPlaylist.csv'
-    #mergePlaylists()
+    mergePlaylists()
 
     with open(file_path3, 'r') as f3:
         reader3 = csv.reader(f3)
         MergedPlaylist = list(reader3)
         print(MergedPlaylist)
+
+        treeview3.delete(*treeview3.get_children())
+
+        for row in MergedPlaylist:
+            treeview3.insert("", "end", values=row)
+
+def runRecommendUI():
+    print("Here are your recommendations: ")
+    file_path3 = '../output/MergedPlaylist.csv'
+    getRecommendations()
+    with open(file_path3, 'r') as f3:
+        reader3 = csv.reader(f3)
+        MergedPlaylist = list(reader3)
 
         treeview3.delete(*treeview3.get_children())
 
@@ -171,7 +184,7 @@ buttonsFrame.grid(row=0, column=0, sticky="nsew")
 mergeButton = ttk.Button(buttonsFrame, text="Merge", style="Accent.TButton", command=mergePlaylistsUI)
 mergeButton.grid(row=0, column=0, padx = (0,20),pady=(20,0))
 
-recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton")
+recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton", command=runRecommendUI)
 recommendButton.grid(row=0, column=1, padx=20,pady=(20,0))
 
 combo_list = ["Sort By", "Title", "Album", "Artist", "Genre", "Release Date"]
@@ -332,14 +345,10 @@ button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
 button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
-
-#######################################
 ########################################
-
-
-
 tab3 = ttk.Frame(windowFrameNotebook)
 windowFrameNotebook.add(tab3, text="View Playlists")
+
 
 leftFrame3 = ttk.Frame(tab3)
 leftFrame3.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
@@ -370,8 +379,6 @@ buttonsFrame3 = ttk.Frame(rightFrame3)
 buttonsFrame3.grid(row=0, column=0, sticky="nsew")
 
 
-#############################
-
 separator1 = ttk.Separator(rightFrame3)
 separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 
@@ -393,13 +400,7 @@ searchTreeView.pack(side="left", fill="both", expand=True)
 scrollbarS.pack(side="right", fill="y")
 
 
-
-
-
-#################################
-
 root.mainloop()
-
 
 
 
