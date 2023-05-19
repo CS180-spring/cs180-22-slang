@@ -28,7 +28,7 @@ def get_song_attributes(song_name):
             song_features[feature] = audio_features[feature]
         
         #Combine all the dfs we made in each iteration
-        song_df = pd.DataFrame(song_features, index = [0], ignore_index = True)
+        song_df = pd.DataFrame(song_features, index = [0])
 
         return song_df
     
