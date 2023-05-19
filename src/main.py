@@ -18,7 +18,7 @@ import search
 import kmeans
 import recommend
 
-console = Console()
+console = Console(height = 11)
 layout = Layout()
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
 secret = 'e0d800c29a704893b6ce87886e3b02b8'
@@ -126,8 +126,8 @@ panel_height = 10
 body_text = Text(body_content)
 body_text.truncate(panel_width * panel_height)
 
-body_panel = Panel.fit(body_content, title=title_text)
-# body_panel = Panel(body_content, title=title_text, expand=False, height=11)
+# body_panel = Panel.fit(body_content, title=title_text)
+body_panel = Panel(body_content, title=title_text, expand=False, height=11)
 
 layout.split(
     Layout(body_panel)
