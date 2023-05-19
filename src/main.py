@@ -155,11 +155,11 @@ while inp1 != "7":
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
         newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
-        temp_song = search.search(library_df)
+        temp_song = search.advanced_search(library_df)
         playlist = temp_song
         inp3 = input("Keep adding songs? Y/N: ")
         while inp3 == "Y":
-            new_temp_song = search.search(library_df)
+            new_temp_song = search.advanced_search(library_df)
             playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
             inp3 = input("Keep adding songs? Y/N: ")
         playlist.to_csv(newPlaylist_loc, index = False)
@@ -172,19 +172,20 @@ while inp1 != "7":
         print("2. Remove song")
         inp3 = input("What do you want to do? ")
         if inp3 == "1":
-            temp_song = search.search(library_df)
+            temp_song = search.advanced_search(library_df)
             playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
             inp4 = input("Keep adding songs? Y/N: ")
             while inp4 == "Y":
-                new_temp_song = search.search(library_df)
+                new_temp_song = search.advanced_search(library_df)
                 playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
                 inp4 = input("Keep adding songs? Y/N: ")
             playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
-            inp4 = input("Enter the name of the song you want to remove: ")
-            temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
-            drop_index = temp_song.index
-            playlist_df = playlist_df.drop(drop_index)
+            print(playlist_df[['track_name', 'artist', 'album']])
+            inp4 = input("Enter the index of the song you want to remove: ")
+            # temp_song = playlist_df.loc[playlist_df[[int(inp4)]]]
+            # drop_index = temp_song.index
+            playlist_df = playlist_df.drop(int(inp4))
             playlist_df.to_csv(playlist_loc, index = False)
 
     elif inp1 == "3":
@@ -225,11 +226,12 @@ while inp1 != "7":
     elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
         print("Not a valid selection")
 
-    print("1. Make a new playlist")
-    print("2. Edit an existing playlist")
-    print("3. Import a playlist")
-    print("4. Merge two playlists")
-    print("5. Get recommendations for a playlist")
-    print("6. Print Spotify playlists")
-    print("7. Quit")
+    # print("1. Make a new playlist")
+    # print("2. Edit an existing playlist")
+    # print("3. Import a playlist")
+    # print("4. Merge two playlists")
+    # print("5. Get recommendations for a playlist")
+    # print("6. Print Spotify playlists")
+    # print("7. Quit")
+    console.print(layout)
     inp1 = input("Which do you want to do? ")
