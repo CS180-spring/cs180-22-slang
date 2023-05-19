@@ -2,6 +2,21 @@ import numpy
 import pandas as pd
 import editDist
 
+import itertools
+
+from rich.console import Console, Group
+from rich.layout import Layout
+from rich.panel import Panel
+from rich.align import Align
+from rich.markdown import Markdown
+from rich.text import Text
+from rich.progress import Progress
+import time
+
+from fuzzywuzzy import fuzz
+
+pd.set_option('display.max_rows', 20)
+
 def search(library_df): 
     print("Search by:")
     print("1. Song name")
@@ -154,6 +169,13 @@ def advanced_search(library_df):
 
     frames = [songTitleResult, artistResult, albumResult, songIDResult, danceabilityResult, energyResult, loudnessResult, speechinessResult, instrumentalnessResult, livenessResult]
     combined = pd.concat(frames) # combined each search table
+    
+    with Progress() as progress:
+        task = progress.add_task("[green]Searching...", total=100)
+        while not progress.finished:
+            progress.update(task, advance=1)
+            # Simulate some delay
+            time.sleep(0.1)
 
     # count how many times a song appears in combined df
     output = {}
@@ -164,23 +186,48 @@ def advanced_search(library_df):
             output[song] += 1
 
     for index in output:
-        songResult = library_df.loc[index, "track_name"]
-        output[index] -= editDist.editDistance(songTitle.lower(), songResult.lower(), len(songTitle), len(songResult))
+        if library_df.loc[index, "track_name"].lower() == songTitle.lower() :
+            output[index] += 1
+        if library_df.loc[index, "artist"].lower() == artist.lower():
+            output[index] += 1
+        if library_df.loc[index, "album"].lower() == album.lower():
+            output[index] += 1
+        # songResult = library_df.loc[index, "track_name"]
+        # output[index] -= editDist.editDistance(songTitle.lower(), songResult.lower(), len(songTitle), len(songResult))
 
     # sort by value (number of times song shows up) in reverse
     sorted_output = sorted(output.items(), key=lambda x:x[1], reverse=True)
     converted_dict = dict(sorted_output)
+
+    with Progress() as progress:
+        task = progress.add_task("[green]Sorting...", total=100)
+        while not progress.finished:
+            progress.update(task, advance=1)
+            # Simulate some delay
+            time.sleep(0.1)
+
     
     results = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
 
     # store results in df
-    for index in converted_dict:
+    for index in itertools.islice(converted_dict, 20):
         results = pd.concat([results, library_df.loc[[index]]], ignore_index=False)
+        # print(library_df.loc[[index]])
 
-    print(results)
+    with Progress() as progress:
+        task = progress.add_task("[green]Saving as dataframe...", total=100)
+        while not progress.finished:
+            progress.update(task, advance=1)
+            # Simulate some delay
+            time.sleep(0.1)
+
+    print(results[["track_name", "artist", "album"]].to_string())
 
 
 
 if __name__ == '__main__':
-    library_df = pd.read_csv("../library/library.csv")
+    library_df = pd.read_csv("../library/big_library.csv",low_memory=False)
+    library_df['track_name'] = library_df['track_name'].astype(str)
+    library_df['artist'] = library_df['artist'].astype(str)
+    library_df['album'] = library_df['album'].astype(str)
     advanced_search(library_df)
