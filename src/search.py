@@ -223,6 +223,9 @@ def advanced_search(library_df):
 
     print(results[["track_name", "artist", "album"]].to_string())
 
+    playlist_loc = "../output/searchResults.csv"
+    results.to_csv(playlist_loc, index = False)
+
 
 
 if __name__ == '__main__':
