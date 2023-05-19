@@ -77,8 +77,6 @@ def runKmeans(input_df, input_df2):
 def runRecommend(input_df, lib_df):
     recs = recommend.recommend(input_df, lib_df)
     recs.to_csv("../output/recommendations.csv", index = False)
-    print("Here are your recommendations: ")
-    print(recs)
     return recs
 
 
@@ -217,13 +215,8 @@ while inp1 != "7":
         playlist_loc = "../output/" + rec_playlist + ".csv"
         playlist_df = pd.read_csv(playlist_loc)
         recommended_songs = runRecommend(playlist_df, library_df)
-        add = input("Would you like to add any of these to your playlist? Y/N: ")
-        while add == "Y" :
-            new_song_name = input("Please enter the name of the song you want to add: ")
-            new_song = recommended_songs.loc[recommended_songs["track_name"] == new_song_name]
-            playlist_df = pd.concat([playlist_df, new_song], ignore_index=True)
-            playlist_df.to_csv(playlist_loc, index=False)
-            add = input("Keep adding songs? Y/N: ")
+        playlist_df = pd.concat([playlist_df, recommended_songs], ignore_index=True)
+        playlist_df.to_csv(playlist_loc, index=False)
 
     elif inp1 == "6":
         getPlaylistFromUser()
