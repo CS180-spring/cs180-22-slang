@@ -13,11 +13,12 @@ import time
 import pandas as pd
 from numba import njit,jit,prange
 import os
+import os.path
 import search
 import kmeans
 import recommend
 
-console = Console()
+console = Console(height = 11)
 layout = Layout()
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
 secret = 'e0d800c29a704893b6ce87886e3b02b8'
@@ -89,8 +90,11 @@ def getPlaylistFromUser():
     return playlists['items']
     
 
-
-library_df = pd.read_csv("../library/library.csv")
+library_loc = "../library/library.csv"
+library_df = pd.read_csv(library_loc)
+library_df['track_name'] = library_df['track_name'].astype(str)
+library_df['artist'] = library_df['artist'].astype(str)
+library_df['album'] = library_df['album'].astype(str)
 
 # header_text = Text("SpotiDB Terminal", style="bold white")
 
@@ -125,7 +129,8 @@ panel_height = 10
 body_text = Text(body_content)
 body_text.truncate(panel_width * panel_height)
 
-body_panel = Panel.fit(body_content, title=title_text)
+# body_panel = Panel.fit(body_content, title=title_text)
+body_panel = Panel(body_content, title=title_text, expand=False, height=11)
 
 layout.split(
     Layout(body_panel)
@@ -153,38 +158,59 @@ inp1 = input("Which would you like to do? ")
 while inp1 != "7":
 
     if inp1 == "1":
-        newPlaylistName = input("Please name your playlist: ")
-        newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
-        temp_song = search.search(library_df)
-        playlist = temp_song
-        inp3 = input("Keep adding songs? Y/N: ")
-        while inp3 == "Y":
-            new_temp_song = search.search(library_df)
-            playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
+        playlistExists = True
+        while playlistExists:
+            newPlaylistName = input("Please name your playlist: ")
+            newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
+            playlistExists = os.path.isfile(newPlaylist_loc)
+            if playlistExists:
+                print("Playlist name already exists")
+        playlist_df = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+        print("Add songs:")
+        inp3 = 'y'
+        while inp3.lower() == 'y':
+            temp_song = search.advanced_search(library_df, library_loc)
+            if not temp_song.empty and temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                inp4 = input("Song already in playlist. Would you still like to add? Y/N: ")
+                if inp4.lower() == "y":
+                    print('Song added')
+                    playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+            else:
+                playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
             inp3 = input("Keep adding songs? Y/N: ")
-        playlist.to_csv(newPlaylist_loc, index = False)
+        playlist_df.to_csv(newPlaylist_loc, index = False)
 
     elif inp1 == "2":
-        inp2 = input("Please enter the name of the playlist you want to edit: ")
-        playlist_loc = "../output/" + inp2 + ".csv"
+        playlistExists = False
+        while not playlistExists:
+            inp2 = input("Please enter the name of the playlist you want to edit: ")
+            playlist_loc = "../output/" + inp2 + ".csv"
+            playlistExists = os.path.isfile(playlist_loc)
+            if not playlistExists:
+                print("Playlist does not exist")
         playlist_df = pd.read_csv(playlist_loc)
         print("1. Add song")
         print("2. Remove song")
         inp3 = input("What do you want to do? ")
         if inp3 == "1":
-            temp_song = search.search(library_df)
-            playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
-            inp4 = input("Keep adding songs? Y/N: ")
-            while inp4 == "Y":
-                new_temp_song = search.search(library_df)
-                playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
+            inp4 = 'y'
+            while inp4.lower() == 'y':
+                temp_song = search.advanced_search(library_df, library_loc)
+                if not temp_song.empty and temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                    inp5 = input("Song already in playlist. Would you still like to add? Y/N: ")
+                    if inp5.lower() == "y":
+                        print('Song added')
+                        playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                else:
+                    playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
                 inp4 = input("Keep adding songs? Y/N: ")
             playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
-            inp4 = input("Enter the name of the song you want to remove: ")
-            temp_song = playlist_df.loc[playlist_df["track_name"] == inp4]
-            drop_index = temp_song.index
-            playlist_df = playlist_df.drop(drop_index)
+            print(playlist_df[['track_name', 'artist', 'album']])
+            inp4 = input("Enter the index of the song you want to remove: ")
+            # temp_song = playlist_df.loc[playlist_df[[int(inp4)]]]
+            # drop_index = temp_song.index
+            playlist_df = playlist_df.drop(int(inp4))
             playlist_df.to_csv(playlist_loc, index = False)
 
     elif inp1 == "3":
@@ -197,13 +223,30 @@ while inp1 != "7":
         df.to_csv(csvName, index = False)
 
     elif inp1 == "4":
-        playlist1 = input("Please enter the first playlist's name: ")
-        playlist2 = input("Please enter the second playlist's name: ")
-        mergedName = input("Please name your new merged playlist: ")
+        playlist1Exists = False
+        while not playlist1Exists:
+            playlist1 = input("Please enter the first playlist's name: ")
+            playlist1_loc = "../output/" + playlist1 + ".csv"
+            playlist1Exists = os.path.isfile(playlist1_loc)
+            if not playlist1Exists:
+                print("Playlist does not exist")
 
-        playlist1_loc = "../output/" + playlist1 + ".csv"
-        playlist2_loc = "../output/" + playlist2 + ".csv"
-        merged_loc = "../output/" + mergedName + ".csv"
+        playlist2Exists = False
+        while not playlist2Exists:
+            playlist2 = input("Please enter the second playlist's name: ")
+            playlist2_loc = "../output/" + playlist2 + ".csv"
+            playlist2Exists = os.path.isfile(playlist2_loc)
+            if not playlist2Exists:
+                print("Playlist does not exist")
+
+        playlistMergeExists = True
+        while playlistMergeExists:
+            mergedName = input("Please name your new merged playlist: ")
+            merged_loc = "../output/" + mergedName + ".csv"
+            playlistMergeExists = os.path.isfile(merged_loc)
+            if playlistMergeExists:
+                print("Playlist name already exist")
+
         playlist_df1 = pd.read_csv(playlist1_loc)
         playlist_df2 = pd.read_csv(playlist2_loc)
 
@@ -225,11 +268,12 @@ while inp1 != "7":
     elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
         print("Not a valid selection")
 
-    print("1. Make a new playlist")
-    print("2. Edit an existing playlist")
-    print("3. Import a playlist")
-    print("4. Merge two playlists")
-    print("5. Get recommendations for a playlist")
-    print("6. Print Spotify playlists")
-    print("7. Quit")
+    # print("1. Make a new playlist")
+    # print("2. Edit an existing playlist")
+    # print("3. Import a playlist")
+    # print("4. Merge two playlists")
+    # print("5. Get recommendations for a playlist")
+    # print("6. Print Spotify playlists")
+    # print("7. Quit")
+    console.print(layout)
     inp1 = input("Which do you want to do? ")
