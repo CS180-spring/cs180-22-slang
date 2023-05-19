@@ -147,7 +147,7 @@ def advanced_search(library_df):
         elif liveness:
             results = searchByLiveness(library_df, liveness)
         
-        print(results)
+        print(results[["track_name", "artist", "album"]].head(20))
     
     # slower search for 2+ search fields
     else:
