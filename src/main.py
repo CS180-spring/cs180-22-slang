@@ -126,6 +126,7 @@ body_text = Text(body_content)
 body_text.truncate(panel_width * panel_height)
 
 body_panel = Panel.fit(body_content, title=title_text)
+# body_panel = Panel(body_content, title=title_text, expand=False, height=11)
 
 layout.split(
     Layout(body_panel)
@@ -155,14 +156,19 @@ while inp1 != "7":
     if inp1 == "1":
         newPlaylistName = input("Please name your playlist: ")
         newPlaylist_loc = "../output/" + newPlaylistName + ".csv"
-        temp_song = search.advanced_search(library_df)
-        playlist = temp_song
-        inp3 = input("Keep adding songs? Y/N: ")
-        while inp3 == "Y":
-            new_temp_song = search.advanced_search(library_df)
-            playlist = pd.concat([playlist, new_temp_song], ignore_index= True)
+        playlist_df = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+        inp3 = 'y'
+        while inp3.lower() == 'y':
+            temp_song = search.advanced_search(library_df)
+            if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                inp4 = input("Song already in playlist. Would you still like to add? Y/N: ")
+                if inp4.lower() == "y":
+                    print('Song added')
+                    playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+            else:
+                playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
             inp3 = input("Keep adding songs? Y/N: ")
-        playlist.to_csv(newPlaylist_loc, index = False)
+        playlist_df.to_csv(newPlaylist_loc, index = False)
 
     elif inp1 == "2":
         inp2 = input("Please enter the name of the playlist you want to edit: ")
@@ -172,12 +178,16 @@ while inp1 != "7":
         print("2. Remove song")
         inp3 = input("What do you want to do? ")
         if inp3 == "1":
-            temp_song = search.advanced_search(library_df)
-            playlist_df = pd.concat([playlist_df, temp_song], ignore_index=True)
-            inp4 = input("Keep adding songs? Y/N: ")
-            while inp4 == "Y":
-                new_temp_song = search.advanced_search(library_df)
-                playlist_df = pd.concat([playlist_df, new_temp_song], ignore_index= True)
+            inp4 = 'y'
+            while inp4.lower() == 'y':
+                temp_song = search.advanced_search(library_df)
+                if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                    inp5 = input("Song already in playlist. Would you still like to add? Y/N: ")
+                    if inp5.lower() == "y":
+                        print('Song added')
+                        playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                else:
+                    playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
                 inp4 = input("Keep adding songs? Y/N: ")
             playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
