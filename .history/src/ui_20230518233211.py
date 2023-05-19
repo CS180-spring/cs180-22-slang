@@ -371,34 +371,30 @@ for i, text in enumerate(searchFields):
     entry.bind("<FocusOut>", lambda e, entry=entry, text=text: on_focus_out(e, entry, text))
     entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
     entries.append(entry)
-
-
-def getPlaylistFromUser(user_spotify_id):
-    playlists = sp.user_playlists(user_spotify_id, limit=50)
-    playlist_items = playlists['items']
-
-    for i, playlist in enumerate(playlist_items):
-        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'], playlist['name']))
-
-    return playlist_items
-
-
-def searchArtistUI():
-    user_spotify_id = 'zeldran05'  # Replace with the desired Spotify user ID
-
-    # Clear the searchTreeView
+def searchPlaylistUI():
+    # Clear previous results from the searchTreeView
     searchTreeView.delete(*searchTreeView.get_children())
 
-    # Call the getPlaylistFromUser function
-    playlists = getPlaylistFromUser(user_spotify_id)
+    # Get the entered userID
+    userID = entries[0].get()
 
-    # Display the playlists in the searchTreeView
-    for playlist in playlists:
-        name = playlist['name']
-        playlist_id = playlist['playlist_id']
-        searchTreeView.insert("", "end", values=(name, " ", playlist_id))
+    # Fetch playlist data based on the userID (implement this logic)
 
-# Modify the searchButton3 command
+    # Populate the searchTreeView with playlist information
+    for playlist in fetched_playlists:
+        # Extract relevant information from the fetched playlist
+        artist = playlist["artist"]
+        album = playlist["album"]
+        title = playlist["title"]
+        songID = playlist["songID"]
+
+        # Insert a new row into the searchTreeView
+        searchTreeView.insert("", "end", values=(artist, album, title, songID))
+
+for playlist in playlists:
+    artist = playlist.get('Artist', 'N/A')
+    song_id = playlist.get('SongID', 'N/A')
+    searchTreeView.insert("", "end", values=(artist, "", "", song_id))
 
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")

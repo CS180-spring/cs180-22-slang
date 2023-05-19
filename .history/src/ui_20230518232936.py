@@ -373,33 +373,6 @@ for i, text in enumerate(searchFields):
     entries.append(entry)
 
 
-def getPlaylistFromUser(user_spotify_id):
-    playlists = sp.user_playlists(user_spotify_id, limit=50)
-    playlist_items = playlists['items']
-
-    for i, playlist in enumerate(playlist_items):
-        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'], playlist['name']))
-
-    return playlist_items
-
-
-def searchArtistUI():
-    user_spotify_id = 'zeldran05'  # Replace with the desired Spotify user ID
-
-    # Clear the searchTreeView
-    searchTreeView.delete(*searchTreeView.get_children())
-
-    # Call the getPlaylistFromUser function
-    playlists = getPlaylistFromUser(user_spotify_id)
-
-    # Display the playlists in the searchTreeView
-    for playlist in playlists:
-        name = playlist['name']
-        playlist_id = playlist['playlist_id']
-        searchTreeView.insert("", "end", values=(name, " ", playlist_id))
-
-# Modify the searchButton3 command
-
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
@@ -418,7 +391,7 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 treeview_frame = ttk.Frame(rightFrame3)
 treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
-cols = ("Name", " ", "PlaylistID")
+cols = ("Name", "Album", "Title", "SongID")
 searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
 
 for col in cols:

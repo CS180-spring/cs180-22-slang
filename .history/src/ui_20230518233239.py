@@ -371,34 +371,26 @@ for i, text in enumerate(searchFields):
     entry.bind("<FocusOut>", lambda e, entry=entry, text=text: on_focus_out(e, entry, text))
     entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
     entries.append(entry)
-
-
-def getPlaylistFromUser(user_spotify_id):
-    playlists = sp.user_playlists(user_spotify_id, limit=50)
-    playlist_items = playlists['items']
-
-    for i, playlist in enumerate(playlist_items):
-        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'], playlist['name']))
-
-    return playlist_items
-
-
-def searchArtistUI():
-    user_spotify_id = 'zeldran05'  # Replace with the desired Spotify user ID
-
-    # Clear the searchTreeView
+def searchPlaylistUI():
+    # Clear previous results from the searchTreeView
     searchTreeView.delete(*searchTreeView.get_children())
 
-    # Call the getPlaylistFromUser function
+    # Get the entered userID
+    userID = entries[0].get()
+
+ def searchPlaylists():
+    user_spotify_id = entries[0].get()  # Get the user ID from the entry widget
     playlists = getPlaylistFromUser(user_spotify_id)
 
-    # Display the playlists in the searchTreeView
-    for playlist in playlists:
-        name = playlist['name']
-        playlist_id = playlist['playlist_id']
-        searchTreeView.insert("", "end", values=(name, " ", playlist_id))
+    # Clear existing items from the treeview
+    for item in searchTreeView.get_children():
+        searchTreeView.delete(item)
 
-# Modify the searchButton3 command
+    # Insert the playlists into the treeview
+    for playlist in playlists:
+        searchTreeView.insert("", "end", values=(playlist['artist'], playlist['album'], playlist['title'], playlist['songID']))
+
+    searchTreeView.insert("", "end", values=(artist, "", "", song_id))
 
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")

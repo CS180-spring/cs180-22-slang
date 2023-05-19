@@ -1,5 +1,6 @@
 import numpy
 import pandas as pd
+import SpotSearch
 import editDist
 
 import itertools
@@ -37,13 +38,16 @@ def search(library_df):
                     print("invalid song")
             
             else:
-                print("No matching songs found")
+                print("No matching songs found in database, here's what we found on Spotify: ")
+                spotifySongSearch = SpotSearch.get_song_attributes(songSearch)
+                print(spotifySongSearch)
+                library_df = pd.concat([library_df, spotifySongSearch], ignore_index = True)
+                print("We've added this song to our database!")
+                return spotifySongSearch
 
         elif searchBy == '2':
             artistSearch = input("Please enter the artist name you would like to search for: ")
             artistResult = library_df.loc[library_df['artist'].fillna('').str.contains(artistSearch, case=False)]
-
-
 
             if not artistResult.empty:
                 artists = artistResult[["artist"]].drop_duplicates().to_numpy()
@@ -68,7 +72,13 @@ def search(library_df):
                     print("invalid artist")  
 
             else: 
-                print("No matching artists found")          
+                print("No matching artists found in database, here's what we found on Spotify:") 
+                spotifyArtistSearch = SpotSearch.get_artist_attributes(artistSearch)
+                print(spotifyArtistSearch)
+                library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = True)
+                print("We've added this artist to our database!")
+                songToAdd = input("Which song would you like to add: ")
+                return spotifyArtistSearch.loc[spotifyArtistSearch["track_name"] == songToAdd]
             
         elif searchBy == '3':
             albumSearch = input("Please enter the album name you would like to search for: ")
@@ -97,7 +107,13 @@ def search(library_df):
                     print("invalid album")
 
             else:
-                print("No matching albums found")
+                print("No matching albums found in database, here's what we found on Spotify:") 
+                spotifyAlbumSearch = SpotSearch.get_album_attribtues(albumSearch)
+                print(spotifyAlbumSearch)
+                library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = True)
+                print("We've added this album to our database!")
+                songToAdd = input("Which song would you like to add: ")
+                return spotifyAlbumSearch.loc[spotifyAlbumSearch["track_name"] == songToAdd]
 
         else: 
             print("Invalid choice")

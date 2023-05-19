@@ -372,36 +372,28 @@ for i, text in enumerate(searchFields):
     entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
     entries.append(entry)
 
-
-def getPlaylistFromUser(user_spotify_id):
-    playlists = sp.user_playlists(user_spotify_id, limit=50)
-    playlist_items = playlists['items']
-
-    for i, playlist in enumerate(playlist_items):
-        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'], playlist['name']))
-
-    return playlist_items
-
-
-def searchArtistUI():
-    user_spotify_id = 'zeldran05'  # Replace with the desired Spotify user ID
-
-    # Clear the searchTreeView
-    searchTreeView.delete(*searchTreeView.get_children())
-
-    # Call the getPlaylistFromUser function
-    playlists = getPlaylistFromUser(user_spotify_id)
-
-    # Display the playlists in the searchTreeView
-    for playlist in playlists:
-        name = playlist['name']
-        playlist_id = playlist['playlist_id']
-        searchTreeView.insert("", "end", values=(name, " ", playlist_id))
-
-# Modify the searchButton3 command
-
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
+
+cols = ("Artist", "Album", "Title", "SongID")
+searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
+
+# Configure column headings and widths
+for col in cols:
+    searchTreeView.heading(col, text=col)
+    searchTreeView.column(col, width=100)
+
+scrollbarS = ttk.Scrollbar(treeview_frame, orient="vertical", command=searchTreeView.yview)
+searchTreeView.configure(yscrollcommand=scrollbarS.set)
+searchTreeView.pack(side="left", fill="both", expand=True)
+scrollbarS.pack(side="right", fill="y")
+
+# Insert playlist data into the Treeview
+for playlist in playlists:
+    artist = playlist.get('Artist', 'N/A')
+    song_id = playlist.get('SongID', 'N/A')
+    searchTreeView.insert("", "end", values=(artist, "", "", song_id))
+
 
 #############################
 rightFrame3 = ttk.Frame(tab3)
