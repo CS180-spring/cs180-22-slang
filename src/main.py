@@ -90,8 +90,11 @@ def getPlaylistFromUser():
     return playlists['items']
     
 
-
-library_df = pd.read_csv("../library/library.csv")
+library_loc = "../library/library.csv"
+library_df = pd.read_csv(library_loc)
+library_df['track_name'] = library_df['track_name'].astype(str)
+library_df['artist'] = library_df['artist'].astype(str)
+library_df['album'] = library_df['album'].astype(str)
 
 # header_text = Text("SpotiDB Terminal", style="bold white")
 
@@ -166,8 +169,8 @@ while inp1 != "7":
         print("Add songs:")
         inp3 = 'y'
         while inp3.lower() == 'y':
-            temp_song = search.advanced_search(library_df)
-            if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+            temp_song = search.advanced_search(library_df, library_loc)
+            if not temp_song.empty and temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
                 inp4 = input("Song already in playlist. Would you still like to add? Y/N: ")
                 if inp4.lower() == "y":
                     print('Song added')
@@ -192,8 +195,8 @@ while inp1 != "7":
         if inp3 == "1":
             inp4 = 'y'
             while inp4.lower() == 'y':
-                temp_song = search.advanced_search(library_df)
-                if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
+                temp_song = search.advanced_search(library_df, library_loc)
+                if not temp_song.empty and temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
                     inp5 = input("Song already in playlist. Would you still like to add? Y/N: ")
                     if inp5.lower() == "y":
                         print('Song added')

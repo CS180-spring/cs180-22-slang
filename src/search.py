@@ -126,7 +126,7 @@ def search(library_df):
         searchBy = input("Please enter what you would like to search by: ")
 
 
-def advanced_search(library_df):
+def advanced_search(library_df, library_loc):
     print("Press 'Enter' to leave a field blank")
     songTitle = input('Enter song title: ')
     artist = input('Enter artist name: ')
@@ -144,10 +144,25 @@ def advanced_search(library_df):
     if check_only_one_string(inputs):
         if songTitle:
             results = searchBySongTitle(library_df, songTitle)
+            if results.empty:
+                spotifySongSearch = SpotSearch.get_song_attributes(songTitle)
+                results = spotifySongSearch
+                library_df = pd.concat([library_df, spotifySongSearch], ignore_index = True)
+                library_df.to_csv(library_loc, index = False)
         elif artist:
             results = searchByArtist(library_df, artist)
+            if results.empty:
+                spotifyArtistSearch = SpotSearch.get_artist_attributes(artist)
+                results = spotifyArtistSearch
+                library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = True)
+                library_df.to_csv(library_loc, index = False)
         elif album:
             results = searchByAlbum(library_df, album)
+            if results.empty:
+                spotifyAlbumSearch = SpotSearch.get_album_attribtues(album)
+                results = spotifyAlbumSearch
+                library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = True)
+                library_df.to_csv(library_loc, index = False)
         elif songID:
             results = searchBySongID(library_df, songID)
         elif danceability:
@@ -181,12 +196,27 @@ def advanced_search(library_df):
 
         if songTitle != '':
             songTitleResult = library_df.loc[library_df["track_name"].str.contains(songTitle, case=False).fillna(False)]
+            if songTitleResult.empty:
+                spotifySongSearch = SpotSearch.get_song_attributes(songTitle)
+                songTitleResult = spotifySongSearch
+                library_df = pd.concat([library_df, spotifySongSearch], ignore_index = True)
+                library_df.to_csv(library_loc, index = False)
         
         if artist != '':
             artistResult = library_df.loc[library_df["artist"].str.contains(artist, case=False).fillna(False)]
+            if artistResult.empty:
+                spotifyArtistSearch = SpotSearch.get_artist_attributes(artist)
+                artistResult = spotifyArtistSearch
+                library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = True)
+                library_df.to_csv(library_loc, index = False)
 
         if album != '':
             albumResult = library_df.loc[library_df["album"].str.contains(album, case=False).fillna(False)]
+            if albumResult.empty:
+                spotifyAlbumSearch = SpotSearch.get_album_attribtues(album)
+                albumResult = spotifyAlbumSearch
+                library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = True)
+                library_df.to_csv(library_loc, index = False)
 
         if songID != '':
             songIDResult = library_df.loc[library_df["track_id"].str.contains(songID, case=False).fillna(False)]
@@ -372,8 +402,9 @@ def df_to_table(
     return rich_table
 
 if __name__ == '__main__':
-    library_df = pd.read_csv("../library/big_library.csv",low_memory=False)
+    library_loc = "../library/library.csv"
+    library_df = pd.read_csv(library_loc,low_memory=False)
     library_df['track_name'] = library_df['track_name'].astype(str)
     library_df['artist'] = library_df['artist'].astype(str)
     library_df['album'] = library_df['album'].astype(str)
-    advanced_search(library_df)
+    advanced_search(library_df, library_loc)
