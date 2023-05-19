@@ -111,6 +111,7 @@ def search(library_df):
 
 
 def advanced_search(library_df):
+    print("Press 'Enter' to leave a field blank")
     songTitle = input('Enter song title: ')
     artist = input('Enter artist name: ')
     album = input('Enter album name: ')
@@ -123,13 +124,31 @@ def advanced_search(library_df):
     liveness = input('Enter liveness: ')
 
     inputs = [songTitle, artist, album, songID, danceability, energy, loudness, speechiness, instrumentalness, liveness]
-    if check_only_one_empty_string(inputs):
+    if check_only_one_string(inputs):
         if songTitle:
             result = searchBySongTitle(songTitle)
         elif artist:
             result = searchByArtist(artist)
+        elif album:
+            result = searchByAlbum(album)
+        elif songID:
+            result = searchBySongID(songID)
+        elif danceability:
+            result = searchByDanceability(danceability)
+        elif energy:
+            result = searchByEnergy(energy)
+        elif loudness:
+            result = searchByLoudness(loudness)
+        elif speechiness:
+            result = searchBySpeechiness(speechiness)
+        elif instrumentalness:
+            result = searchByInstrumentalness(instrumentalness)
+        elif liveness:
+            result = searchByLiveness(liveness)
         
         print(result)
+        playlist_loc = "../output/searchResults.csv"
+        results.to_csv(playlist_loc, index = False)
         return
 
     songTitleResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
@@ -242,7 +261,47 @@ def searchByArtist(artist):
     artistResult = pd.concat([artistResult, library_df.loc[library_df["artist"].str.contains(artist, case=False).fillna(False)]], ignore_index=False)
     return artistResult.drop_duplicates()
 
-def check_only_one_empty_string(arr):
+def searchByAlbum(album):
+    albumResult = library_df.loc[library_df["album"].str.lower() == album]
+    albumResult = pd.concat([albumResult, library_df.loc[library_df["album"].str.contains(album, case=False).fillna(False)]], ignore_index=False)
+    return albumResult.drop_duplicates()
+
+def searchBySongID(songID):
+    songIDResult = library_df.loc[library_df["track_id"].str.lower() == songID]
+    songIDResult = pd.concat([songIDResult, library_df.loc[library_df["track_id"].str.contains(songID, case=False).fillna(False)]], ignore_index=False)
+    return songIDResult.drop_duplicates()
+
+def searchByDanceability(danceability):
+    danceabilityResult = library_df.loc[library_df["danceability"].astype(str) == danceability]
+    danceabilityResult = pd.concat([danceabilityResult, library_df.loc[library_df["danceability"].astype(str).str.contains(danceability, case=False).fillna(False)]], ignore_index=False)
+    return danceabilityResult.drop_duplicates()
+
+def searchByEnergy(energy):
+    energyResult = library_df.loc[library_df["energy"].astype(str) == energy]
+    energyResult = pd.concat([energyResult, library_df.loc[library_df["energy"].astype(str).str.contains(energy, case=False).fillna(False)]], ignore_index=False)
+    return energyResult.drop_duplicates()
+
+def searchByLoudness(loudness):
+    loudnessResult = library_df.loc[library_df["loudness"].astype(str) == loudness]
+    loudnessResult = pd.concat([loudnessResult, library_df.loc[library_df["loudness"].astype(str).str.contains(loudness, case=False).fillna(False)]], ignore_index=False)
+    return loudnessResult.drop_duplicates()
+
+def searchBySpeechiness(speechiness):
+    speechinessResult = library_df.loc[library_df["speechiness"].astype(str) == speechiness]
+    speechinessResult = pd.concat([speechinessResult, library_df.loc[library_df["speechiness"].astype(str).str.contains(speechiness, case=False).fillna(False)]], ignore_index=False)
+    return speechinessResult.drop_duplicates()
+
+def searchByInstrumentalness(instrumentalness):
+    instrumentalnessResult = library_df.loc[library_df["instrumentalness"].astype(str) == instrumentalness]
+    instrumentalnessResult = pd.concat([instrumentalnessResult, library_df.loc[library_df["instrumentalness"].astype(str).str.contains(instrumentalness, case=False).fillna(False)]], ignore_index=False)
+    return instrumentalnessResult.drop_duplicates()
+
+def searchByLiveness(liveness):
+    livenessResult = library_df.loc[library_df["liveness"].astype(str) == liveness]
+    livenessResult = pd.concat([livenessResult, library_df.loc[library_df["liveness"].astype(str).str.contains(liveness, case=False).fillna(False)]], ignore_index=False)
+    return livenessResult.drop_duplicates()
+
+def check_only_one_string(arr):
     empty_count = 0
     
     for string in arr:
