@@ -4,14 +4,14 @@ import editDist
 
 import itertools
 
-from rich.console import Console, Group
-from rich.layout import Layout
-from rich.panel import Panel
-from rich.align import Align
-from rich.markdown import Markdown
-from rich.text import Text
+from rich import box
+from rich.console import Console
+from rich.table import Table
 from rich.progress import Progress
+from typing import Optional
 import time
+
+console = Console()
 
 def search(library_df): 
     print("Search by:")
@@ -147,7 +147,8 @@ def advanced_search(library_df):
         elif liveness:
             results = searchByLiveness(library_df, liveness)
         
-        print(results[["track_name", "artist", "album"]].head(20))
+        # print(results[["track_name", "artist", "album"]].head(20))
+        results = results.head(20) # print only top 20 results
     
     # slower search for 2+ search fields
     else:
@@ -246,14 +247,26 @@ def advanced_search(library_df):
                 # Simulate some delay
                 time.sleep(0.1)
 
-        print(results[["track_name", "artist", "album"]].to_string())
+        # print(results[["track_name", "artist", "album"]].to_string())
+
+    # Initiate a Table instance to be modified
+    table = Table(show_header=True, header_style="green")
+
+    # Modify the table instance to have the data from the DataFrame
+    table = df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
+
+    # Update the style of the table
+    table.row_styles = ["none", "dim"]
+    table.box = box.SIMPLE_HEAD
+
+    console.print(table)
 
     playlist_loc = "../output/searchResults.csv"
     results.to_csv(playlist_loc, index = False)
 
     songToAdd = input('Enter the index of the song you would like to add: ')
     if int(songToAdd) in results.index:
-        return library_df.loc[[int(songToAdd)]]
+        return results.loc[[int(songToAdd)]]
     else:
         print("invalid song")
     
@@ -320,6 +333,27 @@ def check_only_one_string(arr):
     else:
         return False
 
+def df_to_table(
+    pandas_dataframe: pd.DataFrame,
+    rich_table: Table,
+    show_index: bool = True,
+    index_name: Optional[str] = None,
+) -> Table:
+
+    if show_index:
+        index_name = str(index_name) if index_name else ""
+        rich_table.add_column(index_name)
+        rich_indexes = pandas_dataframe.index.to_list()
+
+    for column in pandas_dataframe.columns:
+        rich_table.add_column(str(column))
+
+    for index, value_list in enumerate(pandas_dataframe.values.tolist()):
+        row = [str(rich_indexes[index])] if show_index else []
+        row += [str(x) for x in value_list]
+        rich_table.add_row(*row)
+
+    return rich_table
 
 if __name__ == '__main__':
     library_df = pd.read_csv("../library/big_library.csv",low_memory=False)
