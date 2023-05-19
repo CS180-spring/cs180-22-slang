@@ -7,6 +7,7 @@ from mainUI import *
 from searchUI import *
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 
@@ -391,7 +392,7 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 treeview_frame = ttk.Frame(rightFrame3)
 treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
-cols = ("Name", " ", "PlaylistID")
+cols = ("Artist", "Album", "Title", "SongID")
 searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
 
 for col in cols:
@@ -403,5 +404,30 @@ searchTreeView.configure(yscrollcommand=scrollbarS.set)
 searchTreeView.pack(side="left", fill="both", expand=True)
 scrollbarS.pack(side="right", fill="y")
 
+########################################################
+
+
+def loadPlaylistUI():
+    # Get the Spotify user ID
+    user_id = "your_user_id"  # Replace "your_user_id" with the actual Spotify user ID
+    
+    playlist1Link = playlist1_entry.get()
+    playlist2Link = playlist2_entry.get()
+
+    # Initialize the Spotipy client
+    client_credentials_manager = SpotifyClientCredentials()
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+    # Get the playlist tracks using the Spotify API
+    playlist1 = sp.user_playlist_tracks(user_id, playlist_id=playlist1Link)
+    playlist2 = sp.user_playlist_tracks(user_id, playlist_id=playlist2Link)
+
+    # Rest of your code...
+    # Update the treeview with the playlist data
+
+
 
 root.mainloop()
+
+
+

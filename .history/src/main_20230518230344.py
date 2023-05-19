@@ -81,7 +81,7 @@ def getPlaylistFromUser():
     
 
 
-library_df = pd.read_csv("/Users/riyapatel/github-classroom/CS180-spring/cs180-22-slang/library/library.csv")
+library_df = pd.read_csv("../library/library.csv")
 
 
 print("1. Make a new playlist")

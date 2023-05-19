@@ -110,7 +110,7 @@ def runRecommend(input_df, lib_df):
     return recs
 
 
-library_df = pd.read_csv("/Users/riyapatel/github-classroom/CS180-spring/cs180-22-slang/library/library.csv")
+library_df = pd.read_csv("../library/big_library.csv")
 
 
 def namePlaylist():

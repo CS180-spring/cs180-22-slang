@@ -372,7 +372,11 @@ for i, text in enumerate(searchFields):
     entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
     entries.append(entry)
 
-
+for playlist in playlists:
+    artist = playlist.get('Artist', 'N/A')
+    song_id = playlist.get('SongID', 'N/A')
+    searchTreeView.insert("", "end", values=(artist, "", "", song_id))
+    
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 

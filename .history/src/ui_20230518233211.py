@@ -371,7 +371,30 @@ for i, text in enumerate(searchFields):
     entry.bind("<FocusOut>", lambda e, entry=entry, text=text: on_focus_out(e, entry, text))
     entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
     entries.append(entry)
+def searchPlaylistUI():
+    # Clear previous results from the searchTreeView
+    searchTreeView.delete(*searchTreeView.get_children())
 
+    # Get the entered userID
+    userID = entries[0].get()
+
+    # Fetch playlist data based on the userID (implement this logic)
+
+    # Populate the searchTreeView with playlist information
+    for playlist in fetched_playlists:
+        # Extract relevant information from the fetched playlist
+        artist = playlist["artist"]
+        album = playlist["album"]
+        title = playlist["title"]
+        songID = playlist["songID"]
+
+        # Insert a new row into the searchTreeView
+        searchTreeView.insert("", "end", values=(artist, album, title, songID))
+
+for playlist in playlists:
+    artist = playlist.get('Artist', 'N/A')
+    song_id = playlist.get('SongID', 'N/A')
+    searchTreeView.insert("", "end", values=(artist, "", "", song_id))
 
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")

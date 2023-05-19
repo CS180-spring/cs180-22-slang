@@ -391,7 +391,7 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 treeview_frame = ttk.Frame(rightFrame3)
 treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
-cols = ("Name", " ", "PlaylistID")
+cols = ("Name", " " "PlaylistID")
 searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
 
 for col in cols:
