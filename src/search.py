@@ -315,6 +315,7 @@ def advanced_search(library_df, library_loc):
         return results.loc[[int(songToAdd)]]
     else:
         print("invalid song")
+        return pd.DataFrame()
     
 
 def searchBySongTitle(library_df, songTitle):
