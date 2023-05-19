@@ -1,21 +1,21 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-Bruno Mars,Unorthodox Jukebox,Young Girls,3G5iN5QBqMeXx3uZPy8tgB,0.561,0.7490000000000001,-4.9510000000000005,0.032,1.82e-06,0.205
-Bruno Mars,Unorthodox Jukebox,Locked out of Heaven,3w3y8KPTfNeOKPiqUTakBh,0.726,0.698,-4.165,0.0431,0.0,0.309
-Bruno Mars,Unorthodox Jukebox,Gorilla,2ih2U8ttFzCjnQ5njF3SrR,0.7170000000000001,0.544,-6.598,0.0371,5.16e-06,0.0973
-Bruno Mars,Unorthodox Jukebox,Treasure,55h7vJchibLdUkxdlX3fK7,0.8740000000000001,0.6920000000000001,-5.28,0.0431,7.240000000000001e-05,0.324
-Bruno Mars,Unorthodox Jukebox,Moonshine,30raivfq7rSt5nKltiHfzG,0.705,0.784,-4.351,0.0279,4.3e-06,0.0813
-Bruno Mars,Unorthodox Jukebox,When I Was Your Man,0nJW01T7XtvILxQgC5J7Wh,0.612,0.28,-8.648,0.0434,0.0,0.088
-Bruno Mars,Unorthodox Jukebox,Natalie,0inMKhbKWOTDA9UBUAKoU6,0.76,0.733,-6.704,0.0504,0.0,0.0647
-Bruno Mars,Unorthodox Jukebox,Show Me,2tCPIp83mRXvVTytTAf1W4,0.743,0.706,-5.728,0.0535,0.0,0.204
-Bruno Mars,Unorthodox Jukebox,Money Make Her Smile,6FPQabaldvKE5cjqRfY9Os,0.754,0.677,-6.555,0.0709,7.390000000000001e-05,0.153
-Bruno Mars,Unorthodox Jukebox,If I Knew,7lXOqE38eCr979gp27O5wr,0.522,0.413,-5.86,0.0316,0.0,0.0854
-Bruno Mars,24K Magic,24K Magic,6b8Be6ljOzmkOmFslEb23P,0.818,0.8029999999999999,-4.282,0.0797,0.0,0.153
-Bruno Mars,24K Magic,Chunky,0mBKv9DkYfQHjdMcw2jdyI,0.5710000000000001,0.539,-4.4460000000000015,0.1159999999999999,0.0,0.125
-Bruno Mars,24K Magic,Perm,1I6pKIyaBp4OebTGLJpCCC,0.853,0.871,-3.715,0.0851,6.840000000000001e-05,0.198
-Bruno Mars,24K Magic,That's What I Like,0KKkJNfGyhkQ5aFogxQAPU,0.853,0.56,-4.961,0.0406,0.0,0.0944
-Bruno Mars,24K Magic,Versace on the Floor,0kN8xEmgMW9mh7UmDYHlJP,0.578,0.574,-6.209,0.0454,0.0,0.083
-Bruno Mars,24K Magic,Straight up & Down,2mrZYZGmPFV3QOyYPZ1zsn,0.552,0.733,-6.898,0.0933,0.0,0.0858
-Bruno Mars,24K Magic,Calling All My Lovelies,6ObpR8ek44tvWefQRcSo8K,0.662,0.705,-6.56,0.0399,2.38e-06,0.105
-Bruno Mars,24K Magic,Finesse,5XMkENs3GfeRza8MfVAhjK,0.741,0.7979999999999999,-5.3420000000000005,0.0718,0.0,0.0232
-Bruno Mars,24K Magic,Too Good to Say Goodbye,0B0tYbVp7pDQAqKDhgMeaL,0.5870000000000001,0.63,-6.053999999999999,0.0311,0.0,0.35
-Bruno Mars,Locked out of Heaven (Remix),Locked out of Heaven - CAZZETTE's Answering Machine Mix,7G0by64JaYIEnkFqDb1cZ6,0.785,0.764,-4.634,0.073,0.000239,0.114
+Adele,Hello,Hello,0ENSn4fwAbCGeFGVUbXEU3,0.481,0.451,-6.095,0.0347,0.0,0.0872
+Adele,25,Hello,4sPmO7WMQUAf45kwMOtONw,0.481,0.451,-6.095,0.0347,0.0,0.0872
+Full Catastrophe Living,Drowning By Proxy,Hello,4Wbwj79lFsrwuYJSagyVJe,0.523,0.351,-17.82,0.044,0.935,0.0699
+Tali Goya,Que Vivan Lo Tiger,Hello,6lELGUBWQ7MxU94YcmsS1T,0.742,0.635,-8.404,0.187,0.000212,0.176
+Ken Nordine,Transparent Mask,Hello,1ltD34sF6c1NwE8FqJbEX8,0.524,0.059,-24.303,0.3,0.0345,0.109
+Vitamin String Quartet,VSQ Performs Evanescence,Hello,4O7BkEHKMG38QBwkZ9ryE5,0.2189999999999999,0.1639999999999999,-12.345999999999998,0.0389,0.742,0.107
+The Velmas,Station,Hello,1MY5AVZZkBLsU2VzNo9NZB,0.4639999999999999,0.941,-4.018,0.0489,0.0,0.142
+Claude,Distances,Hello,6r8Y4xaRjoOgL4qATRCiUh,0.457,0.445,-9.668,0.0288,0.477,0.1119999999999999
+Luther Vandross,Songs,Hello,0oRLDQtzPHzUPhwXGtVX9m,0.324,0.271,-12.238,0.0326,0.000135,0.2019999999999999
+Sputnik,"I, Cosmonaut",Hello,7AXNMXDB1vXbE83jZPeL7H,0.406,0.959,-7.43,0.0453,3.2e-05,0.264
+Loop!station,balance on what,hello,5dmIaqNA9uiAywhmGMhJIV,0.599,0.3939999999999999,-7.526,0.0304,0.3289999999999999,0.103
+Michelle Penn,2 Good 4 U,Hello,0LjS5UNw5dGvDcGRjx0C9J,0.419,0.841,-5.525,0.0371,0.0,0.266
+The Celebrity Orphans,The Celebrity Orphans,Hello,748YjIMJTP2N48W8ebeq4h,0.324,0.851,-6.819,0.0706,0.00473,0.206
+From Indian Lakes,Everything Feels Better Now,Hello,6ZmqRJ5vYG31GBh1Lz36do,0.621,0.235,-17.586,0.0346,0.369,0.0981
+Quazar,21 Hours,Hello,2yK0yPrZOiHWXSHQB98MjT,0.784,0.706,-17.479,0.0427,0.958,0.102
+Sunday Blue,Breathe,Hello,1evUXdbBOozWHEQUkp4vNi,0.4370000000000001,0.45,-10.976,0.0308,4.33e-06,0.0999
+Via Audio,Animalore,Hello,1v1DQmSTFjrFdZBniXzKmz,0.802,0.5720000000000001,-6.823,0.0305,0.228,0.125
+TJ Sherrill,TJ Sherrill,Hello,6gJpTwI1tbx2zYHFfxlTxZ,0.451,0.57,-7.8039999999999985,0.0267,0.0006889999999999,0.1
+Ginuwine,Ginuwine... The Bachelor,Hello,3B7t3BSaUj8f5YNWh5HOnF,0.7390000000000001,0.286,-8.158,0.128,0.000109,0.48
+Tiff Jimber,Obstacles,Hello,5uNNTsQMW1xQByjwk3YEc1,0.727,0.318,-15.077,0.0341,0.77,0.324

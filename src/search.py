@@ -13,10 +13,6 @@ from rich.text import Text
 from rich.progress import Progress
 import time
 
-from fuzzywuzzy import fuzz
-
-pd.set_option('display.max_rows', 20)
-
 def search(library_df): 
     print("Search by:")
     print("1. Song name")
@@ -126,6 +122,16 @@ def advanced_search(library_df):
     instrumentalness = input('Enter instrumentalness: ')
     liveness = input('Enter liveness: ')
 
+    inputs = [songTitle, artist, album, songID, danceability, energy, loudness, speechiness, instrumentalness, liveness]
+    if check_only_one_empty_string(inputs):
+        if songTitle:
+            result = searchBySongTitle(songTitle)
+        elif artist:
+            result = searchByArtist(artist)
+        
+        print(result)
+        return
+
     songTitleResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     artistResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
     albumResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
@@ -226,6 +232,27 @@ def advanced_search(library_df):
     playlist_loc = "../output/searchResults.csv"
     results.to_csv(playlist_loc, index = False)
 
+def searchBySongTitle(songTitle):
+    songTitleResult = library_df.loc[library_df["track_name"].str.lower() == songTitle]
+    songTitleResult = pd.concat([songTitleResult, library_df.loc[library_df["track_name"].str.contains(songTitle, case=False).fillna(False)]], ignore_index=False)
+    return songTitleResult.drop_duplicates()
+
+def searchByArtist(artist):
+    artistResult = library_df.loc[library_df["artist"].str.lower() == artist]
+    artistResult = pd.concat([artistResult, library_df.loc[library_df["artist"].str.contains(artist, case=False).fillna(False)]], ignore_index=False)
+    return artistResult.drop_duplicates()
+
+def check_only_one_empty_string(arr):
+    empty_count = 0
+    
+    for string in arr:
+        if string == "":
+            empty_count += 1
+
+    if empty_count == 9:
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
