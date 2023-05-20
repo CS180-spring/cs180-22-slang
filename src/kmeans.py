@@ -1,4 +1,5 @@
 import random
+import recommend
 from typing import List
 import pandas as pd
 
@@ -167,10 +168,11 @@ class kMeans:
         with_clusters = total_playlist.copy()
         cluster_numbers = [song.get_cluster() for song in all_songs]
         with_clusters.loc[:, 'cluster_number'] = cluster_numbers
-        with_clusters.to_csv(self.output_file, index = False)
+        # with_clusters.to_csv(self.output_file, index = False)
+        return with_clusters
 
 class Classify:
-    def run_classification(self, playlist1, playlist2, mergedLoc):
+    def run_classification(playlist1, playlist2, mergedLoc):
         both_playlist = pd.concat([playlist1, playlist2], ignore_index= True)
         songs = []
         for index, row in both_playlist.iterrows():
@@ -178,7 +180,21 @@ class Classify:
             new_Song = Song(row["track_name"], row["album"], row["artist"], temp_cords)
             songs.append(new_Song)
 
-        k = input("How many clusters do you want? ")
         iterations = 1000
-        merge = kMeans(k, iterations, mergedLoc)
-        merge.classify(songs, both_playlist)
+        merge = kMeans(3, iterations, mergedLoc)
+        merged = merge.classify(songs, both_playlist)
+
+        clusters = merged["cluster_number"].unique()
+        options = []
+        for cluster in clusters:
+            temp_df = merged.loc[merged["cluster_number"] == cluster]
+            options.append(temp_df)
+        max_len = len(options[0])
+        max_i = 0
+        i = 0
+        for option in options:
+            if len(option) > max_len:
+                max_len = len(option)
+                max_i = i
+            i += 1
+        return options[max_i].drop("cluster_number", axis = 1)
