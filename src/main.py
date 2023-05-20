@@ -1,7 +1,7 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from sklearn.cluster import KMeans
-from sklearn import preprocessing
+# from sklearn.cluster import KMeans
+# from sklearn import preprocessing
 from rich.console import Console, Group
 from rich.layout import Layout
 from rich.panel import Panel
@@ -57,23 +57,9 @@ def make_playlist_df1(creator, playlist_id):
         
     return playlist_df
 
-def runKmeans(input_df, input_df2):
-    combined_df = pd.concat([input_df, input_df2], ignore_index= True)
-
-    #removing duplicates
-    combined_df = combined_df.drop_duplicates(subset = ['track_id'], keep = 'first')
-    #normalizing values
-    x = combined_df.iloc[:, 4:].values 
-    min_max_scaler = preprocessing.MinMaxScaler()
-    x_scaled = min_max_scaler.fit_transform(x)
-    scaled_df = pd.DataFrame(x_scaled)
-
-    kmeans = KMeans(init="k-means++", n_clusters=3, random_state=15, max_iter = 100).fit(x_scaled)
-    scaled_df['cluster number'] = kmeans.labels_
-    scaled_df.columns = ['danceability', 'energy', 'loudness', 'speechiness', 'instrumentalness', 'liveness', 'cluster number']
-    cluster_df = scaled_df.iloc[:, -1:]
-    return_df = pd.concat([combined_df, cluster_df], axis=1, join='inner')
-    return return_df
+def runKmeans(input_df, input_df2, merged_loc):
+    combined_df = kmeans.Classify.run_classification(input_df, input_df2, merged_loc)
+    combined_df.to_csv(merged_loc, index = False)
 
 def runRecommend(input_df, lib_df):
     recs = recommend.recommend(input_df, lib_df)
@@ -81,13 +67,12 @@ def runRecommend(input_df, lib_df):
     return recs
 
 
-def getPlaylistFromUser():
-    user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
+def getPlaylistFromUser(user_spotify_id):
     playlists = sp.user_playlists(user_spotify_id, limit=50)
 
     for i, playlist in enumerate(playlists['items']):
         print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
-    return playlists['items']
+    return playlists
     
 
 library_loc = "../library/library.csv"
@@ -250,8 +235,8 @@ while inp1 != "7":
         playlist_df1 = pd.read_csv(playlist1_loc)
         playlist_df2 = pd.read_csv(playlist2_loc)
 
-        combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-        combinedPlaylist_df.to_csv(merged_loc)
+        merged = kmeans.Classify.run_classification(playlist_df1, playlist_df2, merged_loc)
+        merged.to_csv(merged_loc, index = False)
 
     elif inp1 == "5":
         rec_playlist = input("Enter the name of the playlist you want songs recommended for: ")
@@ -262,8 +247,28 @@ while inp1 != "7":
         playlist_df.to_csv(playlist_loc, index=False)
 
     elif inp1 == "6":
-        getPlaylistFromUser()
+        inp2 = input("Please enter the spotify username: ")
+        spotify_playlists = getPlaylistFromUser(inp2)
+        inp3 = input("Do you want to import this user's playlists? Y/N: ")
+        if inp3 == "Y":
+            original = []
+            changed = []
+            for i, playlist in enumerate(spotify_playlists['items']):
+                id = playlist["uri"].rsplit(":", 1)[-1]
+                new_playlist = make_playlist_df1("spotify", id)
+                new_name = playlist["name"]
+                if " " in new_name:
+                    new_name = playlist["name"].replace(" ", "_")
+                    original.append(playlist["name"])
+                    changed.append(new_name)
+                new_loc = "../output/" + new_name + ".csv"
+                new_playlist.to_csv(new_loc, index=False)
+            if original and changed:
+                renamed = pd.DataFrame({'original name': original, 'new name': changed})
+                print("The following playlist names were changed to fit our naming conventions:")
+                print(renamed)
             
+
 
     elif inp1 not in ["1", "2", "3", "4", "5", "6", "7"]: 
         print("Not a valid selection")
