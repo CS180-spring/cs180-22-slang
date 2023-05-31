@@ -369,9 +369,6 @@ searchUserPlaylist_entry.bind("<FocusOut>", lambda e: on_focus_out(e, searchUser
 searchUserPlaylist_entry.grid(row=0, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 
-
-
-
 def searchUserPlaylist():
     user_spotify_id = searchUserPlaylist_entry.get()  # Replace with the desired Spotify user ID
 
