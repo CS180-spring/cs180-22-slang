@@ -7,6 +7,7 @@ from numba import njit,jit,prange
 import search
 import recommend
 import os
+import kmeans
 
 
 cid = 'ce0010be0c7946a0b9f926585bc24c62'
@@ -164,11 +165,10 @@ def mergePlaylists():
     merged_loc = "../output/" + mergedName + ".csv"
     playlist_df1 = pd.read_csv(playlist1_loc)
     playlist_df2 = pd.read_csv(playlist2_loc)
-    combinedPlaylist_df = runKmeans(playlist_df1, playlist_df2)
-    
-    cluster_1 = combinedPlaylist_df.loc[combinedPlaylist_df["cluster number"] == 1]
-    cluster_1 = cluster_1.drop(["cluster number"], axis = 1)
-    cluster_1.to_csv(merged_loc, index = False)
+
+    merged = kmeans.Classify.run_classification(playlist_df1, playlist_df2, merged_loc)
+    merged.to_csv(merged_loc, index = False)
+
 
 def runRecommend(input_df, lib_df):
     recs = recommend.recommend(input_df, lib_df)
@@ -182,11 +182,21 @@ def getRecommendations():
     playlist_df = pd.concat([playlist_df, recommended_songs], ignore_index=True)
     playlist_df.to_csv(playlist_loc, index=False)
 
-def getPlaylistFromUser():
-    user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
+def getPlaylistFromUser(user_spotify_id):
     playlists = sp.user_playlists(user_spotify_id, limit=50)
-    print(playlists['items'])
-    # for i, playlist in enumerate(playlists['items']):
-    #     print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
     return playlists['items']
+
+def getPlaylistIDFromPlaylists(playlists, selected_playlist_name, playlistNumber):
+    for playlist in playlists:
+        if playlist['name'] == selected_playlist_name:
+            importSongsFromPlaylistID(playlist['id'], playlistNumber)
+   
+
+def importSongsFromPlaylistID(playlist_id, playlistNumber):
+    playlist_df = make_playlist_df1("spotify", playlist_id)
+    if playlistNumber == 1:
+        playlist_df.to_csv("../output/Playlist.csv", index = False)
+    elif playlistNumber == 2:
+        playlist_df.to_csv("../output/Playlist2.csv", index = False)
+    
     

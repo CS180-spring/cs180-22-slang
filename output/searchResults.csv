@@ -1,27 +1,4 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-<<<<<<< HEAD
-Bruno Mars,Unorthodox Jukebox,Young Girls,3G5iN5QBqMeXx3uZPy8tgB,0.561,0.7490000000000001,-4.9510000000000005,0.032,1.82e-06,0.205
-Bruno Mars,Unorthodox Jukebox,Locked out of Heaven,3w3y8KPTfNeOKPiqUTakBh,0.726,0.698,-4.165,0.0431,0.0,0.309
-Bruno Mars,Unorthodox Jukebox,Gorilla,2ih2U8ttFzCjnQ5njF3SrR,0.7170000000000001,0.544,-6.598,0.0371,5.16e-06,0.0973
-Bruno Mars,Unorthodox Jukebox,Treasure,55h7vJchibLdUkxdlX3fK7,0.8740000000000001,0.6920000000000001,-5.28,0.0431,7.240000000000001e-05,0.324
-Bruno Mars,Unorthodox Jukebox,Moonshine,30raivfq7rSt5nKltiHfzG,0.705,0.784,-4.351,0.0279,4.3e-06,0.0813
-Bruno Mars,Unorthodox Jukebox,When I Was Your Man,0nJW01T7XtvILxQgC5J7Wh,0.612,0.28,-8.648,0.0434,0.0,0.088
-Bruno Mars,Unorthodox Jukebox,Natalie,0inMKhbKWOTDA9UBUAKoU6,0.76,0.733,-6.704,0.0504,0.0,0.0647
-Bruno Mars,Unorthodox Jukebox,Show Me,2tCPIp83mRXvVTytTAf1W4,0.743,0.706,-5.728,0.0535,0.0,0.204
-Bruno Mars,Unorthodox Jukebox,Money Make Her Smile,6FPQabaldvKE5cjqRfY9Os,0.754,0.677,-6.555,0.0709,7.390000000000001e-05,0.153
-Bruno Mars,Unorthodox Jukebox,If I Knew,7lXOqE38eCr979gp27O5wr,0.522,0.413,-5.86,0.0316,0.0,0.0854
-Bruno Mars,24K Magic,24K Magic,6b8Be6ljOzmkOmFslEb23P,0.818,0.8029999999999999,-4.282,0.0797,0.0,0.153
-Bruno Mars,24K Magic,Chunky,0mBKv9DkYfQHjdMcw2jdyI,0.5710000000000001,0.539,-4.4460000000000015,0.1159999999999999,0.0,0.125
-Bruno Mars,24K Magic,Perm,1I6pKIyaBp4OebTGLJpCCC,0.853,0.871,-3.715,0.0851,6.840000000000001e-05,0.198
-Bruno Mars,24K Magic,That's What I Like,0KKkJNfGyhkQ5aFogxQAPU,0.853,0.56,-4.961,0.0406,0.0,0.0944
-Bruno Mars,24K Magic,Versace on the Floor,0kN8xEmgMW9mh7UmDYHlJP,0.578,0.574,-6.209,0.0454,0.0,0.083
-Bruno Mars,24K Magic,Straight up & Down,2mrZYZGmPFV3QOyYPZ1zsn,0.552,0.733,-6.898,0.0933,0.0,0.0858
-Bruno Mars,24K Magic,Calling All My Lovelies,6ObpR8ek44tvWefQRcSo8K,0.662,0.705,-6.56,0.0399,2.38e-06,0.105
-Bruno Mars,24K Magic,Finesse,5XMkENs3GfeRza8MfVAhjK,0.741,0.7979999999999999,-5.3420000000000005,0.0718,0.0,0.0232
-Bruno Mars,24K Magic,Too Good to Say Goodbye,0B0tYbVp7pDQAqKDhgMeaL,0.5870000000000001,0.63,-6.053999999999999,0.0311,0.0,0.35
-Bruno Mars,Locked out of Heaven (Remix),Locked out of Heaven - CAZZETTE's Answering Machine Mix,7G0by64JaYIEnkFqDb1cZ6,0.785,0.764,-4.634,0.073,0.000239,0.114
-=======
 Bruno Mars,24K Magic,Chunky,0mBKv9DkYfQHjdMcw2jdyI,0.571,0.539,-4.446,0.116,0.0,0.125
 Bruno Mars,An Evening With Silk Sonic,Smokin Out The Window,1oERlssLrpssCAY6Yqqs6c,0.627,0.618,-8.529,0.0437,0.0,0.351
 Glass Animals,Dreamland (+ Bonus Levels),Heat Waves,02MWAaffLxlfxAUY7c5dvx,0.761,0.525,-6.9,0.0944,6.7e-06,0.0921
->>>>>>> main
