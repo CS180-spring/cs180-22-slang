@@ -224,6 +224,14 @@ def deletePlaylist():
     os.remove(file_path)
     searchTreeView4.delete(selected)
 
+def deleteSong():
+    # select one or more songs to delete from new playlist 
+
+def addSong():
+    # select one or more songs to add to new playlist
+
+def deselect():
+    # make sure the selected songs can be deselected by just hitting the button deselect
 
 root = tk.Tk()
 root.title("SpotiDB")
