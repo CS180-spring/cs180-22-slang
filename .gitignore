@@ -5,3 +5,6 @@ output/Playlist.csv
 library/tracks_features.csv
 library/big_library.csv
 output/cacheSearch.csv
+
+src/__pycache__/*.pyc
+src/.cache

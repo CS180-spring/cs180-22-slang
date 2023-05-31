@@ -361,30 +361,19 @@ leftFrame3.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 widgets_frame3 = ttk.LabelFrame(leftFrame3, text="Spotify user ID",padding=(20, 10))
 widgets_frame3.grid(row=1, column=0, padx=20, pady=20, sticky="new")
 
-searchFields = ["User ID"]
 
-entries = []
-for i, text in enumerate(searchFields):
-    entry = ttk.Entry(widgets_frame3)
-    entry.insert(0, text)
-    entry.bind("<FocusIn>", lambda e, entry=entry, text=text: on_focus_in(e, entry, text))
-    entry.bind("<FocusOut>", lambda e, entry=entry, text=text: on_focus_out(e, entry, text))
-    entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
-    entries.append(entry)
+searchUserPlaylist_entry = ttk.Entry(widgets_frame3)
+searchUserPlaylist_entry.insert(0, "User ID")
+searchUserPlaylist_entry.bind("<FocusIn>", lambda e: on_focus_in(e, searchUserPlaylist_entry, "User ID"))
+searchUserPlaylist_entry.bind("<FocusOut>", lambda e: on_focus_out(e, searchUserPlaylist_entry, "User ID"))
+searchUserPlaylist_entry.grid(row=0, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 
-def getPlaylistFromUser(user_spotify_id):
-    playlists = sp.user_playlists(user_spotify_id, limit=50)
-    playlist_items = playlists['items']
-
-    for i, playlist in enumerate(playlist_items):
-        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'], playlist['name']))
-
-    return playlist_items
 
 
-def searchArtistUI():
-    user_spotify_id = 'zeldran05'  # Replace with the desired Spotify user ID
+
+def searchUserPlaylist():
+    user_spotify_id = searchUserPlaylist_entry.get()  # Replace with the desired Spotify user ID
 
     # Clear the searchTreeView
     searchTreeView.delete(*searchTreeView.get_children())
@@ -401,7 +390,7 @@ def searchArtistUI():
 
 # Modify the searchButton3 command
 
-searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
+searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchUserPlaylist)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 #############################

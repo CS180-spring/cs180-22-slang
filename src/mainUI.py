@@ -182,10 +182,10 @@ def getRecommendations():
     playlist_df = pd.concat([playlist_df, recommended_songs], ignore_index=True)
     playlist_df.to_csv(playlist_loc, index=False)
 
-def getPlaylistFromUser():
-    user_spotify_id = 'zeldran05'  # Replace with the user's Spotify ID
+def getPlaylistFromUser(user_spotify_id):
+    user_spotify_id = user_spotify_id  # Replace with the user's Spotify ID
     playlists = sp.user_playlists(user_spotify_id, limit=50)
-    print(playlists['items'])
+    ###print(playlists['items'])
     # for i, playlist in enumerate(playlists['items']):
     #     print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
     return playlists['items']
