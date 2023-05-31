@@ -7,85 +7,35 @@ from mainUI import *
 from searchUI import *
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 
 def searchTitleUI():
-    titleSearch = searchTitle_entry.get()
+    titleSearch = entries[0].get()
     searchbyTitle(library_df, titleSearch)
-    searchResultsCSV = "../output/searchResults.csv"
-    with open(searchResultsCSV, 'r') as f:
+    cacheSearchCSV = "../output/cacheSearch.csv"
+    with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
-        searchResults = list(reader)
-        print(searchResults)
+        cacheRead = list(reader)
+        print(cacheRead)
 
         searchTreeView.delete(*searchTreeView.get_children())
 
-        for row in searchResults[1:]:
+        for row in cacheRead[1:]:
             searchTreeView.insert("", "end", values=row)
 
 def searchArtistUI():
-    artistSearch = artist_entry.get()
+    artistSearch = entries[1].get()
     searchbyArtist(library_df, artistSearch)
-    searchResultsCSV = "../output/searchResults.csv"
-    with open(searchResultsCSV, 'r') as f:
+    cacheSearchCSV = "../output/cacheSearch.csv"
+    with open(cacheSearchCSV, 'r') as f:
         reader = csv.reader(f)
-        searchResults = list(reader)
-        print(searchResults)
-
+        cacheRead = list(reader)
+        print(cacheRead)
         searchTreeView.delete(*searchTreeView.get_children())
-
-        for row in searchResults[1:]:
+        for row in cacheRead[1:]:
             searchTreeView.insert("", "end", values=row)
-
-def searchUI():
-    titleSearch = songTitle_entry.get()
-    artistSearch = artist_entry.get()
-    albumSearch = albumn_entry.get()
-    titleIDSearch = titleID_entry.get()
-    dancebilitySearch = dancebility_entry.get()
-    energySearch = energy_entry.get()
-    loudnessSearch = loudness_entry.get()
-    speechinessSearch = speechiness_entry.get()
-    instrumentalnessSearch = instrumentalness_entry.get()
-    livenessSearch = liveness_entry.get()
-
-    print(artistSearch)
-    advanced_search(library_df, titleSearch, artistSearch, albumSearch, titleIDSearch, dancebilitySearch, energySearch, loudnessSearch, speechinessSearch, instrumentalnessSearch, livenessSearch)
-
-    searchResultsCSV = "../output/searchResults.csv"
-    with open(searchResultsCSV, 'r') as f:
-        reader = csv.reader(f)
-        searchResults = list(reader)
-        print(searchResults)
-
-        searchTreeView.delete(*searchTreeView.get_children())
-
-        for row in searchResults[1:]:
-            searchTreeView.insert("", "end", values=row)
-
-
-def filterSearchUI():
-  
-    titleSearch = songTitle_entry.get()
-    artistSearch = artist_entry.get()
-    albumSearch = albumn_entry.get()
-    titleIDSearch = titleID_entry.get()
-    danceabilitySearch = dancebility_entry.get()
-    energySearch = energy_entry.get()
-    loudnessSearch = loudness_entry.get()
-    speechinessSearch = speechiness_entry.get()
-    instrumentalnessSearch = instrumentalness_entry.get()
-    livenessSearch = liveness_entry.get()
-
-
-    if titleSearch and titleSearch != "Song Title" and artistSearch and artistSearch != "Artist":
-        searchUI()
-    elif titleSearch and titleSearch != "Song Title":
-        searchTitleUI()
-    elif artistSearch and artistSearch != "Artist":
-        searchArtistUI()
-
 
 
 
@@ -156,7 +106,6 @@ def on_focus_in(e, entry, default_text):
 def on_focus_out(e, entry, default_text):
     if not entry.get():
         entry.insert(0, default_text)
-
 
 
 root = tk.Tk()
@@ -337,67 +286,20 @@ leftFrame2.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 widgets_frame2 = ttk.LabelFrame(leftFrame2, text="Search Database",padding=(20, 10))
 widgets_frame2.grid(row=1, column=0, padx=20, pady=20, sticky="new")
 
-songTitle_entry = ttk.Entry(widgets_frame2)
-songTitle_entry.insert(0, "Song Title")
-songTitle_entry.bind("<FocusIn>", lambda e: on_focus_in(e, songTitle_entry, "Song Title"))
-songTitle_entry.bind("<FocusOut>", lambda e: on_focus_out(e, songTitle_entry, "Song Title"))
-songTitle_entry.grid(row=0, column=0, padx=5, pady=(0, 5), sticky="ew")
+searchFields = ["Song Title", "Artist", "Albumn", "Title ID", "Dancebility", "Energy", 
+          "Loudness", "Speechiness", "Instrumentalness", "Liveness"]
 
-artist_entry = ttk.Entry(widgets_frame2)
-artist_entry.insert(0, "Artist")
-artist_entry.bind("<FocusIn>", lambda e: on_focus_in(e, artist_entry, "Artist"))
-artist_entry.bind("<FocusOut>", lambda e: on_focus_out(e, artist_entry, "Artist"))
-artist_entry.grid(row=1, column=0, padx=5, pady=(0, 5), sticky="ew")
+entries = []
+for i, text in enumerate(searchFields):
+    entry = ttk.Entry(widgets_frame2)
+    entry.insert(0, text)
+    entry.bind("<FocusIn>", lambda e, entry=entry, text=text: on_focus_in(e, entry, text))
+    entry.bind("<FocusOut>", lambda e, entry=entry, text=text: on_focus_out(e, entry, text))
+    entry.grid(row=i, column=0, padx=5, pady=(0, 5), sticky="nsew")
+    entries.append(entry)
 
-albumn_entry = ttk.Entry(widgets_frame2)
-albumn_entry.insert(0, "Albumn")
-albumn_entry.bind("<FocusIn>", lambda e: on_focus_in(e, albumn_entry, "Albumn"))
-albumn_entry.bind("<FocusOut>", lambda e: on_focus_out(e, albumn_entry, "Albumn"))
-albumn_entry.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="ew")
 
-titleID_entry = ttk.Entry(widgets_frame2)
-titleID_entry.insert(0, "Title ID")
-titleID_entry.bind("<FocusIn>", lambda e: on_focus_in(e, titleID_entry, "Title ID"))
-titleID_entry.bind("<FocusOut>", lambda e: on_focus_out(e, titleID_entry, "Title ID"))
-titleID_entry.grid(row=3, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-dancebility_entry = ttk.Entry(widgets_frame2)
-dancebility_entry.insert(0, "Dancebility")
-dancebility_entry.bind("<FocusIn>", lambda e: on_focus_in(e, dancebility_entry, "Dancebility"))
-dancebility_entry.bind("<FocusOut>", lambda e: on_focus_out(e, dancebility_entry, "Dancebility"))
-dancebility_entry.grid(row=4, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-energy_entry = ttk.Entry(widgets_frame2)
-energy_entry.insert(0, "Energy")
-energy_entry.bind("<FocusIn>", lambda e: on_focus_in(e, energy_entry, "Energy"))
-energy_entry.bind("<FocusOut>", lambda e: on_focus_out(e, energy_entry, "Energy"))
-energy_entry.grid(row=5, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-loudness_entry = ttk.Entry(widgets_frame2)
-loudness_entry.insert(0, "Loudness")
-loudness_entry.bind("<FocusIn>", lambda e: on_focus_in(e, loudness_entry, "Loudness"))
-loudness_entry.bind("<FocusOut>", lambda e: on_focus_out(e, loudness_entry, "Loudness"))
-loudness_entry.grid(row=6, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-speechiness_entry = ttk.Entry(widgets_frame2)
-speechiness_entry.insert(0, "Speechiness")
-speechiness_entry.bind("<FocusIn>", lambda e: on_focus_in(e, speechiness_entry, "Speechiness"))
-speechiness_entry.bind("<FocusOut>", lambda e: on_focus_out(e, speechiness_entry, "Speechiness"))
-speechiness_entry.grid(row=7, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-instrumentalness_entry = ttk.Entry(widgets_frame2)
-instrumentalness_entry.insert(0, "Instrumentalness")
-instrumentalness_entry.bind("<FocusIn>", lambda e: on_focus_in(e, instrumentalness_entry, "Instrumentalness"))
-instrumentalness_entry.bind("<FocusOut>", lambda e: on_focus_out(e, instrumentalness_entry, "Instrumentalness"))
-instrumentalness_entry.grid(row=8, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-liveness_entry = ttk.Entry(widgets_frame2)
-liveness_entry.insert(0, "Liveness")
-liveness_entry.bind("<FocusIn>", lambda e: on_focus_in(e, liveness_entry, "Liveness"))
-liveness_entry.bind("<FocusOut>", lambda e: on_focus_out(e, liveness_entry, "Liveness"))
-liveness_entry.grid(row=9, column=0, padx=5, pady=(0, 5), sticky="ew")
-
-searchButton2 = ttk.Button(widgets_frame2, text="Search", style="Accent.TButton",command=filterSearchUI)
+searchButton2 = ttk.Button(widgets_frame2, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton2.grid(row=11, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
 #############################
@@ -419,25 +321,20 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 
 ############################# 
 
-treeview_frame2 = ttk.Frame(rightFrame2)
-treeview_frame2.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
+treeview_frame = ttk.Frame(rightFrame2)
+treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
 cols = ("Artist", "Album", "Title", "SongID")
-searchTreeView = ttk.Treeview(treeview_frame2, show="headings", columns=cols, height=13)
-
-for col in cols:
-    searchTreeView.column(col, width=100)
+searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
 
 for col in cols:
     searchTreeView.heading(col, text=col)
+    searchTreeView.column(col, width=100)
 
-
-
-scrollbarS = ttk.Scrollbar(treeview_frame2, orient="vertical", command=searchTreeView.yview)
+scrollbarS = ttk.Scrollbar(treeview_frame, orient="vertical", command=searchTreeView.yview)
 searchTreeView.configure(yscrollcommand=scrollbarS.set)
 searchTreeView.pack(side="left", fill="both", expand=True)
 scrollbarS.pack(side="right", fill="y")
-
 
 
 #############################
@@ -477,34 +374,6 @@ for i, text in enumerate(searchFields):
     entries.append(entry)
 
 
-def getPlaylistFromUser(user_spotify_id):
-    playlists = sp.user_playlists(user_spotify_id, limit=50)
-    playlist_items = playlists['items']
-
-    for i, playlist in enumerate(playlist_items):
-        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'], playlist['name']))
-
-    return playlist_items
-
-
-def searchArtistUI():
-    user_spotify_id = 'zeldran05'  # Replace with the desired Spotify user ID
-
-    # Clear the searchTreeView
-    searchTreeView.delete(*searchTreeView.get_children())
-
-    # Call the getPlaylistFromUser function
-    playlists = getPlaylistFromUser(user_spotify_id)
-
-    # Display the playlists in the searchTreeView
-    for playlist in playlists:
-        name = playlist['name']
-        playlist_id = playlist['id']
-        searchTreeView.insert("", "end", values=(name, " ", playlist_id))
-
-
-# Modify the searchButton3 command
-
 searchButton3 = ttk.Button(widgets_frame3, text="Search", style="Accent.TButton",command=searchArtistUI)
 searchButton3.grid(row=2, column=0, padx=5, pady=(0, 5), sticky="nsew")
 
@@ -523,7 +392,7 @@ separator1.grid(row=1, column=0, pady=(20,0), sticky="ew")
 treeview_frame = ttk.Frame(rightFrame3)
 treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
-cols = ("Name", " ", "PlaylistID")
+cols = ("Artist", "Album", "Title", "SongID")
 searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
 
 for col in cols:
@@ -535,5 +404,30 @@ searchTreeView.configure(yscrollcommand=scrollbarS.set)
 searchTreeView.pack(side="left", fill="both", expand=True)
 scrollbarS.pack(side="right", fill="y")
 
+########################################################
+
+
+def loadPlaylistUI():
+    # Get the Spotify user ID
+    user_id = "your_user_id"  # Replace "your_user_id" with the actual Spotify user ID
+    
+    playlist1Link = playlist1_entry.get()
+    playlist2Link = playlist2_entry.get()
+
+    # Initialize the Spotipy client
+    client_credentials_manager = SpotifyClientCredentials()
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+    # Get the playlist tracks using the Spotify API
+    playlist1 = sp.user_playlist_tracks(user_id, playlist_id=playlist1Link)
+    playlist2 = sp.user_playlist_tracks(user_id, playlist_id=playlist2Link)
+
+    # Rest of your code...
+    # Update the treeview with the playlist data
+
+
 
 root.mainloop()
+
+
+
