@@ -12,9 +12,7 @@ from rich.progress import Progress
 from typing import Optional
 import time
 
-from fuzzywuzzy import fuzz
-
-pd.set_option('display.max_rows', 20)
+console = Console()
 
 def search(library_df): 
     print("Search by:")
