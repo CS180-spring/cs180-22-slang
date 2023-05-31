@@ -11,8 +11,6 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from spotipy.oauth2 import SpotifyOAuth
 
 
-library_loc = "../library/library.csv"
-library_df = pd.read_csv(library_loc,low_memory=False)
 
 def searchTitleUI():
     titleSearch = entries[0].get()
@@ -41,6 +39,8 @@ def searchArtistUI():
             searchTreeView.insert("", "end", values=row)
 
 def searchDatabaseUI():
+    library_loc = "../library/library.csv"
+    library_df = pd.read_csv(library_loc,low_memory=False)
     advanced_search(library_df, library_loc,entries[0].get(),entries[1].get(),entries[2].get(),entries[3].get(),entries[4].get(),entries[5].get(),entries[6].get(),entries[7].get(),entries[8].get(),entries[9].get())
 
     searchResultsCSV = "../output/searchResults.csv"
