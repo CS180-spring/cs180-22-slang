@@ -1,26 +1,23 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-Vansire,After Fillmore County,Every Time Around,22iZ9lazlmjPO9sp0uzUex,0.742,0.556,-8.252,0.0262,0.73,0.108
-Men I Trust,Numb,Numb,6Ijmj8Z0L31hCp5pLZnT5U,0.783,0.303,-14.393,0.0527,0.945,0.109
-Vansire,"The Rolling, Driftless North",Eleven Weeks,6eFV4CnBrdsYlF4s1wdqG0,0.302,0.411,-13.016,0.0361,0.835,0.135
-Men I Trust,Show Me How,Show Me How,01TyFEZu6mHbffsVfxgrFn,0.791,0.267,-11.997,0.0415,0.534,0.102
-KIRINJI,cherish,killer tune kills me,2JCdUwmGDO3SBkhwkfRaLr,0.787,0.414,-8.745,0.0379,0.587,0.14
-Men I Trust,Untourable Album,Sorbitol,4VCYhzxyxsmf41R3Hvab0h,0.797,0.238,-14.984,0.0459,0.783,0.109
-Men I Trust,Untourable Album,Before Dawn,74qn7Z1icF6rB9kUiVFUFm,0.824,0.386,-10.247,0.254,0.949,0.0563
-Men I Trust,Untourable Album,Tree Among Shrubs,4JYJU761kWJEK91hyug33F,0.713,0.443,-11.704,0.0531,0.804,0.111
-Men I Trust,Oncle Jazz,Alright,5cW8mZYs5mKGZP5n2azBW3,0.824,0.318,-16.416,0.0773,0.894,0.0926
-Cigarettes After Sex,Cigarettes After Sex,K.,7LX4aXtvImhdgUHQBlo8Kp,0.454,0.404,-10.26,0.027,0.819,0.141
-Cigarettes After Sex,Cigarettes After Sex,Apocalypse,3AVrVz5rK8Hrqo9YGiVGN5,0.369,0.467,-9.018,0.0274,0.46,0.109
-Cigarettes After Sex,Cigarettes After Sex,Sunsetz,69UqtTHfUKAJweQwEStRzC,0.412,0.477,-9.381,0.029,0.798,0.0975
-Vansire,That I Miss You,That I Miss You,7cneuh5BMBbqbbGrpqTDHQ,0.779,0.572,-9.259,0.0396,0.739,0.106
-CASTLEBEAT,VHS,Research,3GJ6jnDrapgXAmxEXO6fWw,0.524,0.891,-9.074,0.0292,0.793,0.169
-Matt Maltese,Krystal,Krystal,5JJPfHpByZ66XsEyCNVi2p,0.521,0.509,-8.059,0.0276,0.784,0.119
-Surf Curse,Freaks,Freaks,7EkWXAI1wn8Ii883ecd9xr,0.345,0.941,-9.918,0.0466,0.633,0.0511
-Vaundy,踊り子,踊り子,4xk70Qur2QeRmWIzWPC63V,0.718,0.475,-11.469,0.0611,0.801,0.105
-Ginger Root,Loretta (日本語 version),Loretta - 日本語 version,62YmOiT1RxAffnCSMqo4Kw,0.727,0.815,-5.424,0.0431,0.612,0.185
-Eoxinum,What Falling In Love Feels Like,What Falling In Love Feels Like,0456CLvPsaF7qwEWHQLCMK,0.443,0.0825,-22.991,0.0509,0.928,0.141
-Sports,Naked All the Time,You Are the Right One,2qpacEyFxmbxCpIEqZkqvC,0.659,0.594,-8.494,0.0261,0.846,0.632
-Okay Kaya,Watch This Liquid Pour Itself,Mother Nature's Bitch,3vy3ld7my2hDUTv4u7KIJR,0.729,0.588,-10.167,0.0339,0.582,0.216
-Men I Trust,Ring of Past,Ring of Past,11sfRkHdvsop5DdHVmGpt1,0.699,0.372,-13.396,0.0476,0.915,0.1
-Men I Trust,Oncle Jazz,Oncle Jazz,204t5SErksNRHRhU52g5JF,0.712,0.308,-16.776,0.0519,0.816,0.0813
-Daft Punk,Random Access Memories (10th Anniversary Edition),Infinity Repeating (2013 Demo) [feat. Julian Casablancas+The Voidz],4r4fX4NZIqVIhGyDvERp0l,0.636,0.635,-10.532,0.0534,0.643,0.61
-Lymbyc Systym,Split Stones,Scientific Romance,5SGrzJaSEx9WJIrqK8C2Yc,0.649,0.53,-11.399,0.0523,0.8290000000000001,0.168
+Taylor Swift,Red (Taylor's Version),All Too Well (10 Minute Version) (Taylor's Version) (From The Vault),5enxwA8aAbwZbf5qCHORXi,0.631,0.518,-8.771,0.0303,0.0,0.088
+Taylor Swift,Midnights,Maroon,3eX0NZfLtGzoLUxPNvRfqm,0.637,0.398,-8.294,0.0564,1.03e-06,0.101
+Taylor Swift,Midnights,Anti-Hero,0V3wPSX9ygBnCm8psDIegu,0.637,0.643,-6.571,0.0519,1.8e-06,0.142
+Taylor Swift,Midnights,Question...?,0heeNYlwOGuUSe7TgUD27B,0.751,0.502,-8.763,0.167,0.0,0.296
+Taylor Swift,Midnights,Karma,7KokYm8cMIXCsGVmUvKtqf,0.642,0.62,-7.091,0.0666,0.0,0.483
+Harry Styles,As It Was,As It Was,4LRPiXqCikLlN15c3yImP7,0.52,0.731,-5.338,0.0557,0.00101,0.311
+Harry Styles,Harry's House,Late Night Talking,1qEmFfgcLObUfQm0j1W2CK,0.714,0.728,-4.595,0.0468,0.0,0.106
+The Radiators,New Dark Ages,Dream Woman,6x2TpeiwPPR94PhTqaJBkS,0.621,0.565,-7.097,0.0515,0.000819,0.241
+Cyanna,Just A Crash,Done Be,1vPMum9SVv29vMII1X0e3b,0.581,0.633,-7.129,0.0676,0.00171,0.166
+Kim Wilson,Lookin' For Trouble,Love My Baby,2quMLkj3NIlRC4mfX9rMTC,0.634,0.555,-7.12,0.0693,0.0,0.235
+Simon Kinny-Lewis,Street Blues,Purple Rain,6NGjLkEnXuNzrl44K871TX,0.649,0.5529999999999999,-7.109,0.0501,0.0003109999999999,0.157
+Julie Bergan,Turn On The Lights,I'm Good,6Cyky0ziRozMxICkpI7Y8Y,0.603,0.643,-7.147,0.0502,3.4200000000000005e-05,0.244
+Na Leo Pilimehana,Local Boys - 20th Anniversary 1984-2004,Local Boys,23KBbvW5kXuuRyxNaC09oU,0.64,0.574,-7.053999999999999,0.0962,0.0,0.176
+Smileyface,Lost Luggage,B*Tch Keep Rollin,1M0Qm0F9h03QEZJiNo8nWY,0.593,0.616,-7.084,0.104,0.0,0.228
+Syl Johnson,Talkin' About Chicago,Trade Secret,2ZkyQs02kQnk1pvSxk1m3G,0.615,0.59,-7.125,0.0783,0.0,0.211
+Colacho Mendoza,"Clásicos de la Música Tropical Colombiana, Vol. 4",La Casa en el Aire,5FR7Wpr0YI5q8n1JGRimKd,0.616,0.649,-7.115,0.102,0.0,0.1689999999999999
+JOY.,Six - EP,Smoke Too Much,7ypn9YucE5ULiqP4pVwv10,0.5670000000000001,0.5539999999999999,-7.08,0.0639,0.0,0.156
+Mariah Carey,Merry Christmas (Deluxe Anniversary Edition),When Christmas Comes,1dTzXtog6vWqdLc7BgRScw,0.595,0.609,-7.147,0.0543,0.0,0.242
+Jovem Dionisio,Dança Entre Casais,Te Olhei,1ObAnKZF6qTYg1W9ZAhKrs,0.632,0.628,-7.086,0.0752,0.0,0.157
+Jon,Flammer,Flammer,1PrCPwaFJAZUkJcE34Tstc,0.6459999999999999,0.638,-7.069,0.0575,0.0,0.161
+Biicla,Deeper (Zeds Dead x Funkin Matt Remix),Deeper (Zeds Dead x Funkin Matt Remix),3gKNfWPsf30s5ku2jqo64j,0.617,0.551,-7.0710000000000015,0.0511,0.00297,0.195
+3T,Chapter III,Heaven,0b1iN8bs4lCZAuWPTkbdhK,0.606,0.5920000000000001,-7.108,0.0721,4.38e-06,0.248

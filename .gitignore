@@ -5,3 +5,11 @@ output/Playlist.csv
 library/tracks_features.csv
 library/big_library.csv
 output/cacheSearch.csv
+
+
+cs180-22-slang/src/__pycache__/*
+*.pyc 
+src/__pycache__/*.pyc
+src/.cache
+src/__pycache__/search.cpython-311.pyc
+pycache/*
