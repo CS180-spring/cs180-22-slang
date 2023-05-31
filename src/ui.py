@@ -285,7 +285,7 @@ leftFrame2.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 widgets_frame2 = ttk.LabelFrame(leftFrame2, text="Search Database",padding=(20, 10))
 widgets_frame2.grid(row=1, column=0, padx=20, pady=20, sticky="new")
 
-searchFields = ["Song Title", "Artist", "Albumn", "Title ID", "Dancebility", "Energy", 
+searchFields = ["Song Title", "Artist", "Album", "Title ID", "Danceability", "Energy", 
           "Loudness", "Speechiness", "Instrumentalness", "Liveness"]
 
 entries = []
@@ -373,7 +373,7 @@ def searchUserPlaylist():
     user_spotify_id = searchUserPlaylist_entry.get()  # Replace with the desired Spotify user ID
 
     # Clear the searchTreeView
-    searchTreeView.delete(*searchTreeView.get_children())
+    searchTreeView3.delete(*searchTreeView3.get_children())
 
     # Call the getPlaylistFromUser function
     playlists = getPlaylistFromUser(user_spotify_id)
@@ -382,7 +382,7 @@ def searchUserPlaylist():
     for playlist in playlists:
         name = playlist['name']
         playlist_id = playlist['id']
-        searchTreeView.insert("", "end", values=(name, " ", playlist_id))
+        searchTreeView3.insert("", "end", values=(name, " ", playlist_id))
 
 
 # Modify the searchButton3 command
@@ -406,15 +406,15 @@ treeview_frame = ttk.Frame(rightFrame3)
 treeview_frame.grid(row=2, column=0, padx=(0,20), pady=20, sticky="nsew")
 
 cols = ("Name", " ", "PlaylistID")
-searchTreeView = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
+searchTreeView3 = ttk.Treeview(treeview_frame, show="headings", columns=cols, height=13)
 
 for col in cols:
-    searchTreeView.heading(col, text=col)
-    searchTreeView.column(col, width=100)
+    searchTreeView3.heading(col, text=col)
+    searchTreeView3.column(col, width=100)
 
 scrollbarS = ttk.Scrollbar(treeview_frame, orient="vertical", command=searchTreeView.yview)
-searchTreeView.configure(yscrollcommand=scrollbarS.set)
-searchTreeView.pack(side="left", fill="both", expand=True)
+searchTreeView3.configure(yscrollcommand=scrollbarS.set)
+searchTreeView3.pack(side="left", fill="both", expand=True)
 scrollbarS.pack(side="right", fill="y")
 
 
