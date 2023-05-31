@@ -261,23 +261,37 @@ while inp1 != "7":
         inp2 = input("Please enter the spotify username: ")
         spotify_playlists = getPlaylistFromUser(inp2)
         inp3 = input("Do you want to import this user's playlists? Y/N: ")
-        if inp3 == "Y":
+        if inp3.lower() == "y":
             original = []
             changed = []
-            for i, playlist in enumerate(spotify_playlists['items']):
-                id = playlist["uri"].rsplit(":", 1)[-1]
-                new_playlist = make_playlist_df1("spotify", id)
-                new_name = playlist["name"]
-                if " " in new_name:
-                    new_name = playlist["name"].replace(" ", "_")
-                    original.append(playlist["name"])
-                    changed.append(new_name)
-                new_loc = "../output/" + new_name + ".csv"
-                new_playlist.to_csv(new_loc, index=False)
-            if original and changed:
-                renamed = pd.DataFrame({'original name': original, 'new name': changed})
-                print("The following playlist names were changed to fit our naming conventions:")
-                print(renamed)
+            
+            inp4 = input("Type the index of the playlist you would like to import: ")
+            playlist = spotify_playlists['items'][int(inp4)-1]
+            id = playlist["uri"].rsplit(":", 1)[-1]
+            new_playlist = make_playlist_df1("spotify", id)
+            new_name = playlist["name"]
+            if " " in new_name:
+                new_name = playlist["name"].replace(" ", "_")
+                original.append(playlist["name"])
+                changed.append(new_name)
+            new_loc = "../output/" + new_name + ".csv"
+            new_playlist.to_csv(new_loc, index=False)
+
+            # for i, playlist in enumerate(spotify_playlists['items']):
+            #     print(i)
+            #     id = playlist["uri"].rsplit(":", 1)[-1]
+            #     new_playlist = make_playlist_df1("spotify", id)
+            #     new_name = playlist["name"]
+            #     if " " in new_name:
+            #         new_name = playlist["name"].replace(" ", "_")
+            #         original.append(playlist["name"])
+            #         changed.append(new_name)
+            #     new_loc = "../output/" + new_name + ".csv"
+            #     new_playlist.to_csv(new_loc, index=False)
+            # if original and changed:
+            #     renamed = pd.DataFrame({'original name': original, 'new name': changed})
+            #     print("The following playlist names were changed to fit our naming conventions:")
+            #     print(renamed)
             
 
 
