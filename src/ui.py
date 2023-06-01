@@ -232,25 +232,26 @@ def deleteSong():
         for item in selected_items:
             song_name = treeview1.item(item)['values'][0]
             treeview1.delete(item)
-            remove_song_from_csv(song_name)
+            remove_song_from_csv(song_name,'Playlist')
     
     elif selected_tab == 'Playlist 2':
         selected_items = treeview2.selection()
         for item in selected_items:
             song_name = treeview2.item(item)['values'][0]
             treeview2.delete(item)
-            remove_song_from_csv(song_name)
+            remove_song_from_csv(song_name,'Playlist2')
     
     elif selected_tab == 'New Playlist':
         selected_items = treeview3.selection()
         for item in selected_items:
             song_name = treeview3.item(item)['values'][0]
             treeview3.delete(item)
-            remove_song_from_csv(song_name)
+            remove_song_from_csv(song_name,'MergedPlaylist')
 
 def remove_song_from_csv(song_name, playlistName):
     filename = playlistName
-    file_path = '../output/MergedPlaylist.csv'
+    print(filename)
+    file_path = '../output/{filename}.csv'
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         rows = list(reader)
