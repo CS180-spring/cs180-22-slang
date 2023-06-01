@@ -264,10 +264,33 @@ def remove_song_from_csv(song_id, playlist_name):
         writer.writerows(rows_to_keep)
 
 
-#def addSong():
-    # select one or more songs to add to new playlist   
-    # determine if you are in playlist 1 and playlist 2 
-
+def addSong():
+    selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
+    
+    if selected_tab == 'Playlist 1':
+        selected_items = treeview1.selection()
+        for item in selected_items:
+            song_id = treeview1.item(item)['values'][3]
+            add_song_to_csv(song_id)
+    
+    elif selected_tab == 'Playlist 2':
+        selected_items = treeview2.selection()
+        for item in selected_items:
+            song_id = treeview2.item(item)['values'][3]
+            add_song_to_csv(song_id)
+    
+def add_song_to_csv(song_id):
+    file_path = f'../output/MergedPlaylist.csv'
+    rows_to_keep = []
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[3] != song_id:
+                rows_to_keep.append(row)
+    
+    with open(file_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows_to_keep)
 
 
 #def deselect():
