@@ -224,15 +224,38 @@ def deletePlaylist():
     os.remove(file_path)
     searchTreeView4.delete(selected)
 
-def treeViewSelection():
-    global treeviewNumber
+# def treeViewSelection():
+#     global treeviewNumber
 
-
-def deleteSong(treeviewNumber):
+def deleteSong():
     # select one or more songs to delete from new playlist 
     selected_items = treeview3.selection()
     for item in selected_items:
+        song_name = treeview3.item(item)['values'][0]
+        
+        # Delete item from treeview
         treeview3.delete(item)
+        # Remove song from CSV file
+        remove_song_from_csv(song_name)
+
+def remove_song_from_csv(song_name):
+    # Remove the song from the CSV file
+    file_path = '../output/MergedPlaylist.csv'
+    
+    # Open the CSV file and read its contents
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    
+    # Find the row containing the song and remove it
+    for row in rows:
+        if row[0] == song_name:
+            rows.remove(row)
+    
+    # Write the updated contents back to the CSV file
+    with open(file_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
 
 #def addSong():
     # select one or more songs to add to new playlist
@@ -243,7 +266,6 @@ def deleteSong(treeviewNumber):
 root = tk.Tk()
 root.title("SpotiDB")
 root.resizable(width=False, height=False)
-
 
 style = ttk.Style(root)
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -387,7 +409,7 @@ button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 
-button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton", command=lambda: deleteSong(treeviewNumber))
+button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton", command=deleteSong)
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
 
