@@ -163,10 +163,11 @@ while inp1 != "7":
                     if inp4.lower() == "y":
                         print('Song added')
                         playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                        playlist_df.to_csv(newPlaylist_loc, index = False)
                 else:
                     playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                    playlist_df.to_csv(newPlaylist_loc, index = False)
             inp3 = input("Keep adding songs? Y/N: ")
-        playlist_df.to_csv(newPlaylist_loc, index = False)
 
     elif inp1 == "2":
         playlistExists = False
@@ -190,10 +191,11 @@ while inp1 != "7":
                         if inp5.lower() == "y":
                             print('Song added')
                             playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                            playlist_df.to_csv(playlist_loc, index = False)
                     else:
                         playlist_df = pd.concat([playlist_df, temp_song], ignore_index= True)
+                        playlist_df.to_csv(playlist_loc, index = False)
                 inp4 = input("Keep adding songs? Y/N: ")
-            playlist_df.to_csv(playlist_loc, index = False)
         elif inp3 == "2":
             # Initiate a Table instance to be modified
             table = Table(show_header=True, header_style="green")
@@ -203,11 +205,22 @@ while inp1 != "7":
             table.row_styles = ["none", "dim"]
             table.box = box.SIMPLE_HEAD
             console.print(table)
-            inp4 = input("Enter the index of the song you want to remove: ")
+            
             # temp_song = playlist_df.loc[playlist_df[[int(inp4)]]]
             # drop_index = temp_song.index
-            playlist_df = playlist_df.drop(int(inp4))
-            playlist_df.to_csv(playlist_loc, index = False)
+            validInput = True
+            while validInput:
+                inp4 = input("Enter the index of the song you want to remove: ")
+                if int(inp4) in playlist_df.index:
+                    playlist_df = playlist_df.drop(int(inp4))
+                    playlist_df.to_csv(playlist_loc, index = False)
+                    break
+                else:
+                    validInput = False
+                    inp5 = input('Invalid song choice. Would you like to try again? Y/N: ')
+                    if inp5.lower() == 'y':
+                        validInput = True
+
 
     elif inp1 == "3":
         playlistLink = input("Please enter link to playlist: ")
