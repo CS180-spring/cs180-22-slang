@@ -224,14 +224,21 @@ def deletePlaylist():
     os.remove(file_path)
     searchTreeView4.delete(selected)
 
-def deleteSong():
-    # select one or more songs to delete from new playlist 
+def treeViewSelection():
+    global treeviewNumber
 
-def addSong():
+
+def deleteSong(treeviewNumber):
+    # select one or more songs to delete from new playlist 
+    selected_items = treeview3.selection()
+    for item in selected_items:
+        treeview3.delete(item)
+
+#def addSong():
     # select one or more songs to add to new playlist
 
-def deselect():
-    # make sure the selected songs can be deselected by just hitting the button deselect
+#def deselect():
+#     # make sure the selected songs can be deselected by just hitting the button deselect
 
 root = tk.Tk()
 root.title("SpotiDB")
@@ -380,7 +387,7 @@ button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 
-button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
+button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton", command=lambda: deleteSong(treeviewNumber))
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
 
