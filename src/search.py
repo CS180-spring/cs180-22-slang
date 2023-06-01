@@ -333,17 +333,21 @@ def advanced_search(library_df, library_loc):
 
     playlist_loc = "../output/searchResults.csv"
     results.to_csv(playlist_loc, index = False)
-    
-    extraEnter = True
-    while extraEnter:
+
+    validInput = True
+    while validInput:
         songToAdd = input('Enter the index of the song you would like to add: ')
         if songToAdd != '':
-            extraEnter = False
-    if int(songToAdd) in results.index:
-        return results.loc[[int(songToAdd)]]
-    else:
-        print("invalid song")
-        return pd.DataFrame()
+            validInput = False
+            
+            if int(songToAdd) in results.index:
+                return results.loc[[int(songToAdd)]]
+            else:
+                tryagain = input("Invalid song. Would you like to try again? Y/N: ")
+                if tryagain.lower() != 'y':
+                    return pd.DataFrame()
+                else:
+                    validInput = True
     
 
 def searchBySongTitle(library_df, songTitle):
