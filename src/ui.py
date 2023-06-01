@@ -230,38 +230,39 @@ def deleteSong():
     if selected_tab == 'Playlist 1':
         selected_items = treeview1.selection()
         for item in selected_items:
-            song_name = treeview1.item(item)['values'][0]
+            song_id = treeview1.item(item)['values'][3]
+            print(song_id)
             treeview1.delete(item)
-            remove_song_from_csv(song_name,'Playlist')
+            remove_song_from_csv(song_id,'Playlist')
     
     elif selected_tab == 'Playlist 2':
         selected_items = treeview2.selection()
         for item in selected_items:
-            song_name = treeview2.item(item)['values'][0]
+            song_id = treeview2.item(item)['values'][3]
             treeview2.delete(item)
-            remove_song_from_csv(song_name,'Playlist2')
+            remove_song_from_csv(song_id,'Playlist2')
     
     elif selected_tab == 'New Playlist':
         selected_items = treeview3.selection()
         for item in selected_items:
-            song_name = treeview3.item(item)['values'][0]
+            song_id = treeview3.item(item)['values'][3]
             treeview3.delete(item)
-            remove_song_from_csv(song_name,'MergedPlaylist')
+            remove_song_from_csv(song_id,'MergedPlaylist')
 
-def remove_song_from_csv(song_name, playlistName):
-    print(playlistName)
-    file_path = f'../output/{playlistName}.csv'
+def remove_song_from_csv(song_name, playlist_name):
+    file_path = f'../output/{playlist_name}.csv'
+    
+    rows_to_keep = []
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
-        rows = list(reader)
-    
-    for row in rows:
-        if row[0] == song_name:
-            rows.remove(row)
+        for row in reader:
+            if row[0] != song_name:
+                rows_to_keep.append(row)
     
     with open(file_path, 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerows(rows)
+        writer.writerows(rows_to_keep)
+
 
 #def addSong():
     # select one or more songs to add to new playlist   
