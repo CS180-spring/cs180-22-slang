@@ -474,9 +474,6 @@ button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton", command=d
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
 
-button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
-button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
-
 
 ##########################################################################################
 tab2 = ttk.Frame(windowFrameNotebook)
