@@ -224,44 +224,52 @@ def deletePlaylist():
     os.remove(file_path)
     searchTreeView4.delete(selected)
 
-# def treeViewSelection():
-#     global treeviewNumber
-
 def deleteSong():
-    # select one or more songs to delete from new playlist 
-    selected_items = treeview3.selection()
-    for item in selected_items:
-        song_name = treeview3.item(item)['values'][0]
-        
-        # Delete item from treeview
-        treeview3.delete(item)
-        # Remove song from CSV file
-        remove_song_from_csv(song_name)
+    selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
+    
+    if selected_tab == 'Playlist 1':
+        selected_items = treeview1.selection()
+        for item in selected_items:
+            song_name = treeview1.item(item)['values'][0]
+            treeview1.delete(item)
+            remove_song_from_csv(song_name)
+    
+    elif selected_tab == 'Playlist 2':
+        selected_items = treeview2.selection()
+        for item in selected_items:
+            song_name = treeview2.item(item)['values'][0]
+            treeview2.delete(item)
+            remove_song_from_csv(song_name)
+    
+    elif selected_tab == 'New Playlist':
+        selected_items = treeview3.selection()
+        for item in selected_items:
+            song_name = treeview3.item(item)['values'][0]
+            treeview3.delete(item)
+            remove_song_from_csv(song_name)
 
 def remove_song_from_csv(song_name):
-    # Remove the song from the CSV file
     file_path = '../output/MergedPlaylist.csv'
-    
-    # Open the CSV file and read its contents
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         rows = list(reader)
     
-    # Find the row containing the song and remove it
     for row in rows:
         if row[0] == song_name:
             rows.remove(row)
     
-    # Write the updated contents back to the CSV file
     with open(file_path, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(rows)
 
 #def addSong():
-    # select one or more songs to add to new playlist
+    # select one or more songs to add to new playlist   
+    # determine if you are in playlist 1 and playlist 2 
+
+
 
 #def deselect():
-#     # make sure the selected songs can be deselected by just hitting the button deselect
+    # make sure the selected songs can be deselected by just hitting the button deselect
 
 root = tk.Tk()
 root.title("SpotiDB")
