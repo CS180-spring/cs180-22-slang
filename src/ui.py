@@ -271,19 +271,34 @@ def addSong():
         selected_items = treeview1.selection()
         for item in selected_items:
             song_id = treeview1.item(item)['values'][3]
-            add_song_to_csv(song_id)
+            add_song_to_csv(song_id,'Playlist')
     
     elif selected_tab == 'Playlist 2':
         selected_items = treeview2.selection()
         for item in selected_items:
             song_id = treeview2.item(item)['values'][3]
-            add_song_to_csv(song_id)
+            add_song_to_csv(song_id,'Playlist2')
     
-def add_song_to_csv(song_id):
+    
+def add_song_to_csv(song_id, playlistPath):
+    print(song_id)
+    addFromPath = f'../output/{playlistPath}.csv'
     file_path = f'../output/MergedPlaylist.csv'
+
+    rows_to_add = []
+    with open(addFromPath, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            print(row[3])
+            if row[3] == song_id:
+                rows_to_add.append(row)
+    
+
     with open(file_path, 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([song_id])
+        writer.writerows(rows_to_add)
+
+    
 
 
 #def deselect():
