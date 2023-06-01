@@ -224,11 +224,109 @@ def deletePlaylist():
     os.remove(file_path)
     searchTreeView4.delete(selected)
 
+def deleteSong():
+    selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
+    
+    if selected_tab == 'Playlist 1':
+        selected_items = treeview1.selection()
+        for item in selected_items:
+            song_id = treeview1.item(item)['values'][3]
+            print(song_id)
+            treeview1.delete(item)
+            remove_song_from_csv(song_id,'Playlist')
+    
+    elif selected_tab == 'Playlist 2':
+        selected_items = treeview2.selection()
+        for item in selected_items:
+            song_id = treeview2.item(item)['values'][3]
+            treeview2.delete(item)
+            remove_song_from_csv(song_id,'Playlist2')
+    
+    elif selected_tab == 'New Playlist':
+        selected_items = treeview3.selection()
+        for item in selected_items:
+            song_id = treeview3.item(item)['values'][3]
+            treeview3.delete(item)
+            remove_song_from_csv(song_id,'MergedPlaylist')
+
+def remove_song_from_csv(song_id, playlist_name):
+    file_path = f'../output/{playlist_name}.csv'
+    
+    rows_to_keep = []
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[3] != song_id:
+                rows_to_keep.append(row)
+    print(rows_to_keep)
+    
+    with open(file_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows_to_keep)
+
+
+def addSong():
+    selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
+
+    if selected_tab == 'Playlist 1':
+        selected_items = treeview1.selection()
+        for item in selected_items:
+            song_id = treeview1.item(item)['values'][3]
+            add_song_to_csv(song_id,'Playlist')
+    
+    elif selected_tab == 'Playlist 2':
+        selected_items = treeview2.selection()
+        for item in selected_items:
+            song_id = treeview2.item(item)['values'][3]
+            add_song_to_csv(song_id,'Playlist2')
+        
+
+    load_updated_merged_playlist()
+    
+    
+    
+def add_song_to_csv(song_id, playlistPath):
+    addFromPath = f'../output/{playlistPath}.csv'
+    file_path = f'../output/MergedPlaylist.csv'
+
+    songsInPlaylist = set()
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            songsInPlaylist.add(row[3])
+
+        
+    rows_to_add = []
+    with open(addFromPath, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            print(row[3])
+            if row[3] == song_id and row [3] not in songsInPlaylist:
+                rows_to_add.append(row)
+    
+
+    with open(file_path, 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows_to_add)
+
+def load_updated_merged_playlist():
+    file_path3 = '../output/MergedPlaylist.csv'
+    treeview3.delete(*treeview3.get_children())
+    with open(file_path3, 'r') as f3:
+        reader3 = csv.reader(f3)
+        MergedPlaylist = list(reader3)
+
+        for row in MergedPlaylist[1:]:
+            treeview3.insert("", "end", values=row)
+    
+
+
+#def deselect():
+    # make sure the selected songs can be deselected by just hitting the button deselect
 
 root = tk.Tk()
 root.title("SpotiDB")
 root.resizable(width=False, height=False)
-
 
 style = ttk.Style(root)
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -302,7 +400,7 @@ mergeButton.grid(row=0, column=0, padx = (0,20),pady=(20,0))
 recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton", command=runRecommendUI)
 recommendButton.grid(row=0, column=1, padx=20,pady=(20,0))
 
-combo_list = ["Sort By", "Title", "Album", "Artist", "Genre", "Release Date"]
+combo_list = ["Sort By", "Title", "Album", "Artist", "Song ID"]
 combobox = ttk.Combobox(buttonsFrame, state="readonly", values=combo_list)
 combobox.current(0)
 combobox.grid(row=0, column=2, padx=20,pady=(20,0), sticky="ew")
@@ -368,16 +466,13 @@ NotebookPlaylist.add(treeview3, text="New Playlist")
 MiniFrame = ttk.Frame(rightFrame)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
-button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
+button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton", command=addSong)
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 
-button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
+button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton", command=deleteSong)
 button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
 
-
-button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
-button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
 
 ##########################################################################################
@@ -414,7 +509,7 @@ buttonsFrame2 = ttk.Frame(rightFrame2)
 buttonsFrame2.grid(row=0, column=0, sticky="nsew")
 
 
-combo_list2 = ["Sort By", "Title", "Album", "Artist", "Genre", "Release Date"]
+combo_list2 = ["Sort By", "Title", "Album", "Artist", "Songs ID"]
 combobox2 = ttk.Combobox(buttonsFrame2, state="readonly", values=combo_list2)
 combobox2.current(0)
 combobox2.grid(row=2, column=2, padx=20,pady=(20,0), sticky="ew")
