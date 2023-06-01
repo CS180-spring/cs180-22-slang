@@ -400,7 +400,7 @@ mergeButton.grid(row=0, column=0, padx = (0,20),pady=(20,0))
 recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton", command=runRecommendUI)
 recommendButton.grid(row=0, column=1, padx=20,pady=(20,0))
 
-combo_list = ["Sort By", "Title", "Album", "Artist", "Genre", "Release Date"]
+combo_list = ["Sort By", "Title", "Album", "Artist", "Song ID"]
 combobox = ttk.Combobox(buttonsFrame, state="readonly", values=combo_list)
 combobox.current(0)
 combobox.grid(row=0, column=2, padx=20,pady=(20,0), sticky="ew")
@@ -509,7 +509,7 @@ buttonsFrame2 = ttk.Frame(rightFrame2)
 buttonsFrame2.grid(row=0, column=0, sticky="nsew")
 
 
-combo_list2 = ["Sort By", "Title", "Album", "Artist", "Genre", "Release Date"]
+combo_list2 = ["Sort By", "Title", "Album", "Artist", "Songs ID"]
 combobox2 = ttk.Combobox(buttonsFrame2, state="readonly", values=combo_list2)
 combobox2.current(0)
 combobox2.grid(row=2, column=2, padx=20,pady=(20,0), sticky="ew")
