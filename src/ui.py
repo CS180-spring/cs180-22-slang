@@ -250,7 +250,7 @@ def deleteSong():
 
 def remove_song_from_csv(song_name, playlistName):
     print(playlistName)
-    file_path = '../output/{playlistName}.csv'
+    file_path = f'../output/{playlistName}.csv'
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         rows = list(reader)
