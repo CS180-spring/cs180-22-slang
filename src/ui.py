@@ -266,8 +266,6 @@ def remove_song_from_csv(song_id, playlist_name):
 
 def addSong():
     selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
-    mergedPlaylist = pd.read_csv('../output/MergedPlaylist.csv')
-
 
     if selected_tab == 'Playlist 1':
         selected_items = treeview1.selection()
@@ -281,7 +279,7 @@ def addSong():
             song_id = treeview2.item(item)['values'][3]
             add_song_to_csv(song_id,'Playlist2')
         
-        
+
     load_updated_merged_playlist()
     
     
