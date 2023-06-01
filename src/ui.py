@@ -266,7 +266,9 @@ def remove_song_from_csv(song_id, playlist_name):
 
 def addSong():
     selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
-    
+    mergedPlaylist = pd.read_csv('../output/MergedPlaylist.csv')
+
+
     if selected_tab == 'Playlist 1':
         selected_items = treeview1.selection()
         for item in selected_items:
@@ -278,6 +280,10 @@ def addSong():
         for item in selected_items:
             song_id = treeview2.item(item)['values'][3]
             add_song_to_csv(song_id,'Playlist2')
+        
+        
+    load_updated_merged_playlist()
+    
     
     
 def add_song_to_csv(song_id, playlistPath):
@@ -298,6 +304,15 @@ def add_song_to_csv(song_id, playlistPath):
         writer = csv.writer(file)
         writer.writerows(rows_to_add)
 
+def load_updated_merged_playlist():
+    file_path3 = '../output/MergedPlaylist.csv'
+    treeview3.delete(*treeview3.get_children())
+    with open(file_path3, 'r') as f3:
+        reader3 = csv.reader(f3)
+        MergedPlaylist = list(reader3)
+
+        for row in MergedPlaylist[1:]:
+            treeview3.insert("", "end", values=row)
     
 
 

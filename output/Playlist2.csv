@@ -1,36 +1,4 @@
 artist,album,track_name,track_id,danceability,energy,loudness,speechiness,instrumentalness,liveness
-The Weeknd,After Hours,Hardest To Love,6kWxIqQDsKFYCJGbU4AjCX,0.467,0.608,-7.847,0.0707,8.83e-05,0.125
-The Weeknd,After Hours,Blinding Lights,0VjIjW4GlUZAMYd2vXMi3b,0.514,0.73,-5.934,0.0598,9.54e-05,0.0897
-The Weeknd,After Hours,In Your Eyes,7szuecWAPwGoV1e5vGu8tl,0.667,0.719,-5.371,0.0346,8.1e-05,0.0736
-The Weeknd,Blinding Lights,Blinding Lights,0sf12qNH5qcw8qpgymFOqD,0.513,0.796,-4.075,0.0629,0.000209,0.0938
-The Weeknd,Dawn FM,Out of Time,2SLwbpExuoBDZBpjfefCtV,0.65,0.76,-4.422,0.0446,0.0,0.339
-The Weeknd,Dawn FM,Is There Someone Else?,0mL82sxCRjrs3br407IdJh,0.702,0.586,-7.83,0.0313,7.27e-05,0.156
-The Weeknd,Dawn FM,Starry Eyes,6zzdyvVWjGrQBraSvuqJPY,0.309,0.418,-8.622,0.031,7.58e-05,0.295
-The Weeknd,Dawn FM,Less Than Zero,2D4dV2KXDTszzJ3p3cFqhA,0.535,0.791,-5.55,0.0327,0.000155,0.0788
-The Weeknd,"Earned It (Fifty Shades Of Grey) [From The ""Fifty Shades Of Grey"" Soundtrack]","Earned It (Fifty Shades Of Grey) - From The ""Fifty Shades Of Grey"" Soundtrack",2PIvq1pGrUjY007X5y1UpM,0.659,0.381,-5.922,0.0304,0.0,0.0972
-The Weeknd,The Highlights,Blinding Lights,0djfvA3c8AxxlQolu6zn6K,0.513,0.726,-5.958,0.0597,0.000138,0.0884
-The Weeknd,The Highlights,Save Your Tears,06fglfpCAtDtmlyfJYgA01,0.685,0.816,-5.496,0.0308,2.05e-05,0.439
-The Weeknd,Heartless,Heartless,57vxBYXtHMk6H1aD29V7PU,0.531,0.75,-5.831,0.111,7.6e-05,0.117
-The Weeknd,The Highlights,In Your Eyes,1F65jvOrItxUyNK30z6Yht,0.667,0.721,-5.349,0.033,6.24e-05,0.0753
-The Weeknd,The Highlights,Can't Feel My Face,463Zbb2V5mG4mFflg2RS41,0.709,0.777,-5.526,0.0444,0.0,0.0883
-The Weeknd,The Highlights,I Feel It Coming,23Gv9vq4FurPK6np6xX0Bi,0.773,0.815,-5.933,0.128,0.0,0.087
-The Weeknd,The Highlights,Starboy,38JOdzBE9kPj5UhKtqIIqQ,0.676,0.588,-7.025,0.275,8.47e-06,0.137
-The Weeknd,The Highlights,Pray For Me,6huNf4dutXRjJyGn7f5BPS,0.732,0.678,-4.977,0.0886,2.41e-05,0.112
-The Weeknd,The Highlights,Heartless,7graOvVPwjmSFwJ3rHoPDt,0.538,0.751,-5.487,0.128,1.42e-06,0.145
-The Weeknd,The Highlights,Often,67HlBRWRSjAHY2ujn6eOan,0.57,0.624,-9.829,0.0462,0.0,0.125
-The Weeknd,The Highlights,The Hills,33kxP9sQOzB3fRL8zl17uK,0.583,0.565,-7.034,0.0475,0.0,0.132
-The Weeknd,The Highlights,Call Out My Name,11FvynPeozvRw769iN9kV7,0.471,0.581,-5.195,0.0345,0.0,0.309
-The Weeknd,The Highlights,Die For You,2bk3kDxxFLHafZDuw06Fxs,0.602,0.528,-7.152,0.0556,0.0,0.157
-The Weeknd,The Highlights,Earned It (Fifty Shades Of Grey),1cQ3LIkZE68pMSnPhZWXLu,0.658,0.282,-8.282,0.0353,0.0,0.0741
-The Weeknd,The Highlights,Acquainted,1m5kZFmm90hPXzXr1Hpsne,0.386,0.486,-9.845,0.051,0.0,0.0889
-The Weeknd,The Highlights,Wicked Games,2B88kyD8JVMOHXdja0mFvx,0.658,0.575,-6.062,0.0313,5.29e-06,0.191
-The Weeknd,The Highlights,The Morning,1FFShrKUIq1JiOLiZbg2JC,0.663,0.537,-8.287,0.0361,0.0,0.0823
-The Weeknd,The Highlights,After Hours,2xUuzDqjpXP0kwqZ5wGpVv,0.653,0.574,-6.104,0.0316,0.00661,0.122
-The Weeknd,"My Dear Melancholy,",Call Out My Name,1gm616Plq4ScqNi7TVkZ5N,0.489,0.598,-4.929,0.036,0.0,0.35
-The Weeknd,Pray For Me (with Kendrick Lamar),Pray For Me (with Kendrick Lamar),6ZNo7Vi0TE9ul1fhKd4S1M,0.734,0.667,-4.996,0.0871,2.12e-05,0.104
-The Weeknd,Save Your Tears (Remix),Save Your Tears (with Ariana Grande) (Remix),37BZB0z9T8Xu7U3e65qxFy,0.65,0.825,-4.645,0.0325,2.44e-05,0.0936
-The Weeknd,Starboy,Starboy,2IY7eOUDjw2ArKYxKa2jXc,0.682,0.592,-7.033,0.281,5.49e-06,0.136
-The Weeknd,Starboy,Party Monster,4F7A0DXBrmUAkp32uenhZt,0.573,0.63,-8.389,0.105,2.31e-05,0.259
-The Weeknd,Starboy,Die For You,2Ch7LmS7r2Gy2kc64wv3Bz,0.582,0.525,-7.163,0.0627,0.0,0.134
-The Weeknd,Starboy,I Feel It Coming,3dhjNA0jGA8vHBQ1VdD6vV,0.773,0.819,-5.946,0.118,0.0,0.0679
-The Weeknd,Take My Breath,Take My Breath - Single Version,6OGogr19zPTM4BALXuMQpF,0.748,0.74,-6.01,0.0484,2.18e-05,0.101
+Doja Cat,Planet Her,Woman,6Uj1ctrBOjOas8xZXGqKk4,0.824,0.764,-4.175,0.0854,0.00294,0.117
+Doja Cat,Planet Her,Need to Know,3Vi5XqYrmQgOYBajMWSvCi,0.664,0.609,-6.509,0.0707,0.0,0.0926
+Doja Cat,Vegas (From the Original Motion Picture Soundtrack ELVIS),Vegas (From the Original Motion Picture Soundtrack ELVIS),0hquQWY3xvYqN4qtiquniF,0.801,0.601,-7.574,0.255,3.23e-05,0.145
