@@ -308,8 +308,7 @@ def advanced_search(library_df, library_loc):
             # task = progress.add_task("[green]Saving as dataframe...", total=20)
             task = progress.add_task("[green]Saving as dataframe...", total=len(converted_dict))
 
-            # for index in itertools.islice(converted_dict, 20):
-            for index in converted_dict:
+            for index in itertools.islice(converted_dict, 20):
                 results = pd.concat([results, library_df.loc[[index]]], ignore_index=False)
                 progress.update(task, advance=1)
                 time.sleep(0.1)
@@ -335,10 +334,11 @@ def advanced_search(library_df, library_loc):
         playlist_loc = "../output/searchResults.csv"
         results.to_csv(playlist_loc, index = False)
 
+        # checks if valid song index was typed -- gives option to try again if invalid
         validInput = True
         while validInput:
             songToAdd = input('Enter the index of the song you would like to add: ')
-            if songToAdd != '':
+            if songToAdd != '': # makes sure extra enters are ignored
                 validInput = False
                 
                 if int(songToAdd) in results.index:
