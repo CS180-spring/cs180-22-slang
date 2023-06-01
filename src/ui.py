@@ -281,16 +281,9 @@ def addSong():
     
 def add_song_to_csv(song_id):
     file_path = f'../output/MergedPlaylist.csv'
-    rows_to_keep = []
-    with open(file_path, 'r') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            if row[3] != song_id:
-                rows_to_keep.append(row)
-    
-    with open(file_path, 'w', newline='') as file:
+    with open(file_path, 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerows(rows_to_keep)
+        writer.writerow([song_id])
 
 
 #def deselect():
@@ -438,7 +431,7 @@ NotebookPlaylist.add(treeview3, text="New Playlist")
 MiniFrame = ttk.Frame(rightFrame)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
-button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
+button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton", command=addSong)
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 
