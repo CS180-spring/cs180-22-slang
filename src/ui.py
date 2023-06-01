@@ -258,6 +258,7 @@ def remove_song_from_csv(song_id, playlist_name):
         for row in reader:
             if row[3] != song_id:
                 rows_to_keep.append(row)
+    print(rows_to_keep)
     
     with open(file_path, 'w', newline='') as file:
         writer = csv.writer(file)
@@ -285,16 +286,22 @@ def addSong():
     
     
 def add_song_to_csv(song_id, playlistPath):
-    print(song_id)
     addFromPath = f'../output/{playlistPath}.csv'
     file_path = f'../output/MergedPlaylist.csv'
 
+    songsInPlaylist = set()
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            songsInPlaylist.add(row[3])
+
+        
     rows_to_add = []
     with open(addFromPath, 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             print(row[3])
-            if row[3] == song_id:
+            if row[3] == song_id and row [3] not in songsInPlaylist:
                 rows_to_add.append(row)
     
 
