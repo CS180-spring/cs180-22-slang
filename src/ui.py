@@ -249,9 +249,8 @@ def deleteSong():
             remove_song_from_csv(song_name,'MergedPlaylist')
 
 def remove_song_from_csv(song_name, playlistName):
-    filename = playlistName
-    print(filename)
-    file_path = '../output/{filename}.csv'
+    print(playlistName)
+    file_path = '../output/{playlistName}.csv'
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         rows = list(reader)
