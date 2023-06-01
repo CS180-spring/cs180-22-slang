@@ -248,7 +248,8 @@ def deleteSong():
             treeview3.delete(item)
             remove_song_from_csv(song_name)
 
-def remove_song_from_csv(song_name):
+def remove_song_from_csv(song_name, playlistName):
+    filename = playlistName
     file_path = '../output/MergedPlaylist.csv'
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
