@@ -319,35 +319,38 @@ def advanced_search(library_df, library_loc):
                 # Simulate some delay
                 time.sleep(0.1)
 
-    # Initiate a Table instance to be modified
-    table = Table(show_header=True, header_style="green")
+    if not results.empty:
+        # Initiate a Table instance to be modified
+        table = Table(show_header=True, header_style="green")
 
-    # Modify the table instance to have the data from the DataFrame
-    table = df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
+        # Modify the table instance to have the data from the DataFrame
+        table = df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
 
-    # Update the style of the table
-    table.row_styles = ["none", "dim"]
-    table.box = box.SIMPLE_HEAD
+        # Update the style of the table
+        table.row_styles = ["none", "dim"]
+        table.box = box.SIMPLE_HEAD
 
-    console.print(table)
+        console.print(table)
 
-    playlist_loc = "../output/searchResults.csv"
-    results.to_csv(playlist_loc, index = False)
+        playlist_loc = "../output/searchResults.csv"
+        results.to_csv(playlist_loc, index = False)
 
-    validInput = True
-    while validInput:
-        songToAdd = input('Enter the index of the song you would like to add: ')
-        if songToAdd != '':
-            validInput = False
-            
-            if int(songToAdd) in results.index:
-                return results.loc[[int(songToAdd)]]
-            else:
-                tryagain = input("Invalid song. Would you like to try again? Y/N: ")
-                if tryagain.lower() != 'y':
-                    return pd.DataFrame()
+        validInput = True
+        while validInput:
+            songToAdd = input('Enter the index of the song you would like to add: ')
+            if songToAdd != '':
+                validInput = False
+                
+                if int(songToAdd) in results.index:
+                    return results.loc[[int(songToAdd)]]
                 else:
-                    validInput = True
+                    tryagain = input("Invalid song. Would you like to try again? Y/N: ")
+                    if tryagain.lower() != 'y':
+                        return pd.DataFrame()
+                    else:
+                        validInput = True
+    else:
+        print('No songs found.')
     
 
 def searchBySongTitle(library_df, songTitle):
