@@ -1,7 +1,6 @@
-import numpy
 import pandas as pd
 import SpotSearch
-import editDist
+import df_to_rich
 
 import itertools
 
@@ -9,6 +8,7 @@ from rich import box
 from rich.console import Console
 from rich.table import Table
 from rich.progress import Progress
+from rich.prompt import Prompt, Confirm
 from typing import Optional
 import time
 
@@ -127,7 +127,7 @@ def search(library_df):
 
 
 def advanced_search(library_df, library_loc):
-    print("Press 'Enter' to leave a field blank")
+    console.print("Press [bold]'Enter'[/bold] to leave a field blank")
     songTitle = input('Enter song title: ')
     artist = input('Enter artist name: ')
     album = input('Enter album name: ')
@@ -143,29 +143,23 @@ def advanced_search(library_df, library_loc):
     inputs = [songTitle, artist, album, songID, danceability, energy, loudness, speechiness, instrumentalness, liveness]
     if check_only_one_string(inputs):
         if songTitle:
+            spotifySongSearch = SpotSearch.get_song_attributes(songTitle)
+            library_df = pd.concat([library_df, spotifySongSearch], ignore_index = False)
+            library_df = library_df.drop_duplicates().reset_index(drop=True)
+            library_df.to_csv(library_loc, index = False)
             results = searchBySongTitle(library_df, songTitle)
-            if results.empty:
-                spotifySongSearch = SpotSearch.get_song_attributes(songTitle)
-                results = spotifySongSearch
-                library_df = pd.concat([library_df, spotifySongSearch], ignore_index = True)
-                library_df.to_csv(library_loc, index = False)
-                results = searchBySongTitle(library_df, songTitle)
         elif artist:
+            spotifyArtistSearch = SpotSearch.get_artist_attributes(artist)
+            library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = False)
+            library_df = library_df.drop_duplicates().reset_index(drop=True)
+            library_df.to_csv(library_loc, index = False)
             results = searchByArtist(library_df, artist)
-            if results.empty:
-                spotifyArtistSearch = SpotSearch.get_artist_attributes(artist)
-                results = spotifyArtistSearch
-                library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = True)
-                library_df.to_csv(library_loc, index = False)
-                results = searchByArtist(library_df, artist)
         elif album:
+            spotifyAlbumSearch = SpotSearch.get_album_attribtues(album)
+            library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = False)
+            library_df = library_df.drop_duplicates().reset_index(drop=True)
+            library_df.to_csv(library_loc, index = False)
             results = searchByAlbum(library_df, album)
-            if results.empty:
-                spotifyAlbumSearch = SpotSearch.get_album_attribtues(album)
-                results = spotifyAlbumSearch
-                library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = True)
-                library_df.to_csv(library_loc, index = False)
-                results = searchByAlbum(library_df, album)
         elif songID:
             results = searchBySongID(library_df, songID)
         elif danceability:
@@ -196,131 +190,166 @@ def advanced_search(library_df, library_loc):
         speechinessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
         instrumentalnessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
         livenessResult = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
+        
+        with Progress() as progress:
+            task = progress.add_task("[green]Searching...", total=11)
 
-        if songTitle != '':
-            songTitleResult = searchBySongTitle(library_df, songTitle)
-            if songTitleResult.empty:
+            if songTitle != '':
                 spotifySongSearch = SpotSearch.get_song_attributes(songTitle)
-                songTitleResult = spotifySongSearch
-                library_df = pd.concat([library_df, spotifySongSearch], ignore_index = True)
+                library_df = pd.concat([library_df, spotifySongSearch], ignore_index = False)
+                library_df = library_df.drop_duplicates().reset_index(drop=True)
                 library_df.to_csv(library_loc, index = False)
                 songTitleResult = searchBySongTitle(library_df, songTitle)
-        
-        if artist != '':
-            artistResult = searchByArtist(library_df, artist)
-            if artistResult.empty:
+            progress.update(task, advance=1)
+            time.sleep(0.1)
+            
+            if artist != '':
                 spotifyArtistSearch = SpotSearch.get_artist_attributes(artist)
-                artistResult = spotifyArtistSearch
-                library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = True)
+                library_df = pd.concat([library_df, spotifyArtistSearch], ignore_index = False)
+                library_df = library_df.drop_duplicates().reset_index(drop=True)
                 library_df.to_csv(library_loc, index = False)
                 artistResult = searchByArtist(library_df, artist)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if album != '':
-            albumResult = searchByAlbum(library_df, album)
-            if albumResult.empty:
+            if album != '':
                 spotifyAlbumSearch = SpotSearch.get_album_attribtues(album)
-                albumResult = spotifyAlbumSearch
-                library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = True)
+                library_df = pd.concat([library_df, spotifyAlbumSearch], ignore_index = False)
+                library_df = library_df.drop_duplicates().reset_index(drop=True)
                 library_df.to_csv(library_loc, index = False)
                 albumResult = searchByAlbum(library_df, album)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if songID != '':
-            songIDResult = searchBySongID(library_df, songID)
+            if songID != '':
+                songIDResult = searchBySongID(library_df, songID)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if danceability != '':
-            danceabilityResult = searchByDanceability(library_df, danceability)
-        
-        if energy != '':
-            energyResult = searchByEnergy(library_df, energy)
+            if danceability != '':
+                danceabilityResult = searchByDanceability(library_df, danceability)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
+            
+            if energy != '':
+                energyResult = searchByEnergy(library_df, energy)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if loudness != '':
-            loudnessResult = searchByLoudness(library_df, loudness)
+            if loudness != '':
+                loudnessResult = searchByLoudness(library_df, loudness)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if speechiness != '':
-            speechinessResult = searchBySpeechiness(library_df, speechiness)
+            if speechiness != '':
+                speechinessResult = searchBySpeechiness(library_df, speechiness)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if instrumentalness != '':
-            instrumentalnessResult = searchByInstrumentalness(library_df, instrumentalness)
+            if instrumentalness != '':
+                instrumentalnessResult = searchByInstrumentalness(library_df, instrumentalness)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        if liveness != '':
-            livenessResult = searchByLiveness(library_df, liveness)
+            if liveness != '':
+                livenessResult = searchByLiveness(library_df, liveness)
+            progress.update(task, advance=1)
+            time.sleep(0.1)
 
-        frames = [songTitleResult, artistResult, albumResult, songIDResult, danceabilityResult, energyResult, loudnessResult, speechinessResult, instrumentalnessResult, livenessResult]
-        combined = pd.concat(frames) # combined each search table
-        
-        with Progress() as progress:
-            task = progress.add_task("[green]Searching...", total=100)
+            frames = [songTitleResult, artistResult, albumResult, songIDResult, danceabilityResult, energyResult, loudnessResult, speechinessResult, instrumentalnessResult, livenessResult]
+            combined = pd.concat(frames) # combined each search table
+            progress.update(task, advance=1)
+            time.sleep(0.1)
+
             while not progress.finished:
                 progress.update(task, advance=1)
                 # Simulate some delay
                 time.sleep(0.1)
 
-        # count how many times a song appears in combined df
         output = {}
-        for song in combined.index:
-            if song not in output:
-                output[song] = 1
-            else:
-                output[song] += 1
-
-        for index in output:
-            if library_df.loc[index, "track_name"].lower() == songTitle.lower() :
-                output[index] += 1
-            if library_df.loc[index, "artist"].lower() == artist.lower():
-                output[index] += 1
-            if library_df.loc[index, "album"].lower() == album.lower():
-                output[index] += 1
-            # songResult = library_df.loc[index, "track_name"]
-            # output[index] -= editDist.editDistance(songTitle.lower(), songResult.lower(), len(songTitle), len(songResult))
-
-        # sort by value (number of times song shows up) in reverse
-        sorted_output = sorted(output.items(), key=lambda x:x[1], reverse=True)
-        converted_dict = dict(sorted_output)
-
         with Progress() as progress:
-            task = progress.add_task("[green]Sorting...", total=100)
+            task = progress.add_task("[green]Sorting...", total=len(combined) + len(combined.drop_duplicates()) + 2)
+            
+            # count how many times a song appears in combined df
+            for song in combined.index:
+                if song not in output:
+                    output[song] = 1
+                else:
+                    output[song] += 1
+                progress.update(task, advance=1)
+                time.sleep(0.001)
+            for index in output:
+                if library_df.loc[index, "track_name"].lower() == songTitle.lower():
+                    output[index] += 1
+                if library_df.loc[index, "artist"].lower() == artist.lower():
+                    output[index] += 1
+                if library_df.loc[index, "album"].lower() == album.lower():
+                    output[index] += 1
+                progress.update(task, advance=1)
+                time.sleep(0.001)
+            
+            # sort by value (number of times song shows up) in reverse
+            sorted_output = sorted(output.items(), key=lambda x:x[1], reverse=True)
+            progress.update(task, advance=1)
+            time.sleep(0.001)
+            converted_dict = dict(sorted_output)
+            progress.update(task, advance=1)
+            time.sleep(0.001)
+
             while not progress.finished:
                 progress.update(task, advance=1)
                 # Simulate some delay
                 time.sleep(0.1)
-
-        
+                
         results = pd.DataFrame(columns = ["artist","album","track_name",  "track_id","danceability","energy","loudness", "speechiness","instrumentalness","liveness"])
 
-        # store results in df
-        for index in itertools.islice(converted_dict, 20):
-            results = pd.concat([results, library_df.loc[[index]]], ignore_index=False)
-            # print(library_df.loc[[index]])
-
         with Progress() as progress:
-            task = progress.add_task("[green]Saving as dataframe...", total=100)
+            # task = progress.add_task("[green]Saving as dataframe...", total=20)
+            task = progress.add_task("[green]Saving as dataframe...", total=len(converted_dict))
+
+            for index in itertools.islice(converted_dict, 20):
+                results = pd.concat([results, library_df.loc[[index]]], ignore_index=False)
+                progress.update(task, advance=1)
+                time.sleep(0.1)
+
             while not progress.finished:
                 progress.update(task, advance=1)
                 # Simulate some delay
                 time.sleep(0.1)
 
-        # print(results[["track_name", "artist", "album"]].to_string())
+    if not results.empty:
+        # Initiate a Table instance to be modified
+        table = Table(show_header=True, header_style="green")
 
-    # Initiate a Table instance to be modified
-    table = Table(show_header=True, header_style="green")
+        # Modify the table instance to have the data from the DataFrame
+        table = df_to_rich.df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
 
-    # Modify the table instance to have the data from the DataFrame
-    table = df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
+        # Update the style of the table
+        table.row_styles = ["none", "dim"]
+        table.box = box.SIMPLE_HEAD
 
-    # Update the style of the table
-    table.row_styles = ["none", "dim"]
-    table.box = box.SIMPLE_HEAD
+        console.print(table)
 
-    console.print(table)
+        playlist_loc = "../output/searchResults.csv"
+        results.to_csv(playlist_loc, index = False)
 
-    playlist_loc = "../output/searchResults.csv"
-    results.to_csv(playlist_loc, index = False)
-
-    songToAdd = input('Enter the index of the song you would like to add: ')
-    if int(songToAdd) in results.index:
-        return results.loc[[int(songToAdd)]]
+        # checks if valid song index was typed -- gives option to try again if invalid
+        validInput = True
+        while validInput:
+            songToAdd = input('Enter the index of the song you would like to add: ')
+            if songToAdd != '': # makes sure extra enters are ignored
+                validInput = False
+                
+                if int(songToAdd) in results.index:
+                    return results.loc[[int(songToAdd)]]
+                else:
+                    tryagain = Confirm.ask("[red]Invalid song.[/red] Would you like to try again?")
+                    if not tryagain:
+                        return pd.DataFrame()
+                    else:
+                        validInput = True
     else:
-        print("invalid song")
+        console.print('[red]No songs found.')
         return pd.DataFrame()
     
 
@@ -386,27 +415,6 @@ def check_only_one_string(arr):
     else:
         return False
 
-def df_to_table(
-    pandas_dataframe: pd.DataFrame,
-    rich_table: Table,
-    show_index: bool = True,
-    index_name: Optional[str] = None,
-) -> Table:
-
-    if show_index:
-        index_name = str(index_name) if index_name else ""
-        rich_table.add_column(index_name)
-        rich_indexes = pandas_dataframe.index.to_list()
-
-    for column in pandas_dataframe.columns:
-        rich_table.add_column(str(column))
-
-    for index, value_list in enumerate(pandas_dataframe.values.tolist()):
-        row = [str(rich_indexes[index])] if show_index else []
-        row += [str(x) for x in value_list]
-        rich_table.add_row(*row)
-
-    return rich_table
 
 if __name__ == '__main__':
     library_loc = "../library/library.csv"
