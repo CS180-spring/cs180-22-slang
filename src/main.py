@@ -214,6 +214,8 @@ while inp1 != "7":
         playlistLink = input("Please enter link to playlist: ")
         id = extract_playlist_id_from_url(playlistLink)
         playlistName = input("Please name your imported playlist: ")
+        if " " in playlistName:
+            playlistName = playlistName.replace(" ", "_")
 
         df = make_playlist_df1("spotify", id)
         csvName = "../output/" + playlistName + ".csv"
