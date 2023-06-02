@@ -143,28 +143,64 @@ def on_tab_changed(event):
             searchTreeView4.insert('', 'end', values=(file, ' '))
 
 def combobox_callback1(event):
+    selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
     selected_option = combobox.get()
-
+    
     if selected_option == "Sort By":
         # If "Sort By" is selected, do nothing.
         pass
     else:
         # Get the data from the searchTreeView
-        data = []
-        for item in treeview1.get_children():
-            values = [treeview1.set(item, column) for column in treeview1["columns"]]
-            data.append(values)
+        if selected_tab == 'Playlist 1':
+            data = []
+            for item in treeview1.get_children():
+                values = [treeview1.set(item, column) for column in treeview1["columns"]]
+                data.append(values)
 
-        # Sort the data based on the selected column
-        column_index = treeview1["columns"].index(selected_option)
-        sorted_data = sorted(data, key=lambda x: x[column_index])
+            # Sort the data based on the selected column
+            column_index = treeview1["columns"].index(selected_option)
+            sorted_data = sorted(data, key=lambda x: x[column_index])
 
-        # Clear the existing rows in the searchTreeView
-        treeview1.delete(*treeview1.get_children())
+            # Clear the existing rows in the searchTreeView
+            treeview1.delete(*treeview1.get_children())
 
-        # Insert the sorted data into the searchTreeView
-        for values in sorted_data:
-            treeview1.insert("", tk.END, values = values)
+            # Insert the sorted data into the searchTreeView
+            for values in sorted_data:
+                treeview1.insert("", tk.END, values = values)
+        elif selected_tab == 'Playlist 2':
+            data = []
+            for item in treeview2.get_children():
+                values = [treeview2.set(item, column) for column in treeview2["columns"]]
+                data.append(values)
+            
+            # Sort the data based on the selected column
+            column_index = treeview2["columns"].index(selected_option)
+            sorted_data = sorted(data, key=lambda x: x[column_index])
+
+            # Clear the existing rows in the searchTreeView
+            treeview2.delete(*treeview2.get_children())
+
+            # Insert the sorted data into the searchTreeView
+            for values in sorted_data:
+                treeview2.insert("", tk.END, values = values)
+        elif selected_tab == 'New Playlist':
+            data = []
+            for item in treeview3.get_children():
+                values = [treeview3.set(item, column) for column in treeview3["columns"]]
+                data.append(values)
+            
+            # Sort the data based on the selected column
+            column_index = treeview3["columns"].index(selected_option)
+            sorted_data = sorted(data, key=lambda x: x[column_index])
+
+            # Clear the existing rows in the searchTreeView
+            treeview3.delete(*treeview3.get_children())
+
+            # Insert the sorted data into the searchTreeView
+            for values in sorted_data:
+                treeview3.insert("", tk.END, values = values)
+
+                
 
 
 def combobox_callback2(event):
@@ -355,6 +391,14 @@ def add_song_from_search():
         for item in selected_items:
             # song_id = searchTreeView.item(item)['values'][3]
             add_song_to_csv_from_search(searchTreeView.item(item)['values'],'Playlist2')
+    
+    elif selected_tab == 'New Playlist':
+        tree_view = treeview3
+        playlist_path = 'MergedPlaylist'
+        selected_items = searchTreeView.selection()
+        for item in selected_items:
+            # song_id = searchTreeView.item(item)['values'][3]
+            add_song_to_csv_from_search(searchTreeView.item(item)['values'],'MergedPlaylist')
 
     update_playlists(tree_view, f'../output/{playlist_path}.csv')
             
@@ -408,7 +452,8 @@ def update_playlists(tree_view, playlist_path):
     # Read the updated playlist CSV file
     with open(playlist_path, 'r') as file:
         reader = csv.reader(file)
-        for row in reader:
+        loadPlaylistList = list(reader)
+        for row in loadPlaylistList[1:]:
             # Insert the row values into the tree view
             tree_view.insert("", tk.END, values=row)
 
