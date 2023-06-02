@@ -1,7 +1,6 @@
-import numpy
 import pandas as pd
 import SpotSearch
-import editDist
+import df_to_rich
 
 import itertools
 
@@ -9,7 +8,7 @@ from rich import box
 from rich.console import Console
 from rich.table import Table
 from rich.progress import Progress
-from rich.prompt import Prompt
+from rich.prompt import Prompt, Confirm
 from typing import Optional
 import time
 
@@ -128,7 +127,7 @@ def search(library_df):
 
 
 def advanced_search(library_df, library_loc):
-    print("Press 'Enter' to leave a field blank")
+    console.print("Press [bold]'Enter'[/bold] to leave a field blank")
     songTitle = input('Enter song title: ')
     artist = input('Enter artist name: ')
     album = input('Enter album name: ')
@@ -323,7 +322,7 @@ def advanced_search(library_df, library_loc):
         table = Table(show_header=True, header_style="green")
 
         # Modify the table instance to have the data from the DataFrame
-        table = df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
+        table = df_to_rich.df_to_table(results[["track_name", "artist", "album"]], table, index_name='index')
 
         # Update the style of the table
         table.row_styles = ["none", "dim"]
@@ -344,13 +343,14 @@ def advanced_search(library_df, library_loc):
                 if int(songToAdd) in results.index:
                     return results.loc[[int(songToAdd)]]
                 else:
-                    tryagain = input("Invalid song. Would you like to try again? Y/N: ")
-                    if tryagain.lower() != 'y':
+                    tryagain = Confirm.ask("[red]Invalid song.[/red] Would you like to try again?")
+                    if not tryagain:
                         return pd.DataFrame()
                     else:
                         validInput = True
     else:
-        print('No songs found.')
+        console.print('[red]No songs found.')
+        return pd.DataFrame()
     
 
 def searchBySongTitle(library_df, songTitle):
@@ -415,27 +415,6 @@ def check_only_one_string(arr):
     else:
         return False
 
-def df_to_table(
-    pandas_dataframe: pd.DataFrame,
-    rich_table: Table,
-    show_index: bool = True,
-    index_name: Optional[str] = None,
-) -> Table:
-
-    if show_index:
-        index_name = str(index_name) if index_name else ""
-        rich_table.add_column(index_name)
-        rich_indexes = pandas_dataframe.index.to_list()
-
-    for column in pandas_dataframe.columns:
-        rich_table.add_column(str(column))
-
-    for index, value_list in enumerate(pandas_dataframe.values.tolist()):
-        row = [str(rich_indexes[index])] if show_index else []
-        row += [str(x) for x in value_list]
-        rich_table.add_row(*row)
-
-    return rich_table
 
 if __name__ == '__main__':
     library_loc = "../library/library.csv"
