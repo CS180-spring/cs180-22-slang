@@ -336,7 +336,28 @@ def addSong():
         
 
     load_updated_merged_playlist()
+
+def add_song_from_search():
+    selected_tab = NotebookPlaylist.tab(NotebookPlaylist.select(), "text")
     
+    if selected_tab == 'Playlist 1':
+        tree_view = treeview1
+        playlist_path = 'Playlist'
+        selected_items = searchTreeView.selection()
+        for item in selected_items:
+            # song_id = searchTreeView.item(item)['values'][3]
+            add_song_to_csv_from_search(searchTreeView.item(item)['values'],'Playlist')
+    
+    elif selected_tab == 'Playlist 2':
+        tree_view = treeview2
+        playlist_path = 'Playlist2'
+        selected_items = searchTreeView.selection()
+        for item in selected_items:
+            # song_id = searchTreeView.item(item)['values'][3]
+            add_song_to_csv_from_search(searchTreeView.item(item)['values'],'Playlist2')
+
+    update_playlists(tree_view, f'../output/{playlist_path}.csv')
+            
     
     
 def add_song_to_csv(song_id, playlistPath):
@@ -362,6 +383,34 @@ def add_song_to_csv(song_id, playlistPath):
     with open(file_path, 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(rows_to_add)
+
+
+def add_song_to_csv_from_search(song, playlistPath):
+    addFromPath = f'../output/{playlistPath}.csv'
+
+    songsInPlaylist = set()
+    with open(addFromPath, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            songsInPlaylist.add(row[3])
+            print(row[3])
+
+    if song[3] not in songsInPlaylist:
+        with open(addFromPath, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(song)
+
+
+def update_playlists(tree_view, playlist_path):
+    # Clear the existing rows in the tree view
+    tree_view.delete(*tree_view.get_children())
+
+    # Read the updated playlist CSV file
+    with open(playlist_path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            # Insert the row values into the tree view
+            tree_view.insert("", tk.END, values=row)
 
 def load_updated_merged_playlist():
     file_path3 = '../output/MergedPlaylist.csv'
@@ -595,7 +644,7 @@ scrollbarS.pack(side="right", fill="y")
 MiniFrame = ttk.Frame(rightFrame2)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
-button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton", command=addSong)
+button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton", command=add_song_from_search)
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
 
 ########################################
