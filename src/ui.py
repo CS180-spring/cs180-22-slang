@@ -116,6 +116,9 @@ def runRecommendUI():
         for row in MergedPlaylist[1:]:
             treeview3.insert("", "end", values=row)
 
+
+####################################### event handlers
+
 def on_focus_in(e, entry, default_text):
     if entry.get() == default_text:
         entry.delete('0', 'end')
@@ -139,6 +142,57 @@ def on_tab_changed(event):
         for file in csv_files:
             searchTreeView4.insert('', 'end', values=(file, ' '))
 
+def combobox_callback1(event):
+    selected_option = combobox.get()
+
+    if selected_option == "Sort By":
+        # If "Sort By" is selected, do nothing.
+        pass
+    else:
+        # Get the data from the searchTreeView
+        data = []
+        for item in treeview1.get_children():
+            values = [treeview1.set(item, column) for column in treeview1["columns"]]
+            data.append(values)
+
+        # Sort the data based on the selected column
+        column_index = treeview1["columns"].index(selected_option)
+        sorted_data = sorted(data, key=lambda x: x[column_index])
+
+        # Clear the existing rows in the searchTreeView
+        treeview1.delete(*treeview1.get_children())
+
+        # Insert the sorted data into the searchTreeView
+        for values in sorted_data:
+            treeview1.insert("", tk.END, values = values)
+
+
+def combobox_callback2(event):
+    selected_option = combobox2.get()
+
+    if selected_option == "Sort By":
+        # If "Sort By" is selected, do nothing.
+        pass
+    else:
+        # Get the data from the searchTreeView
+        data = []
+        for item in searchTreeView.get_children():
+            values = [searchTreeView.set(item, column) for column in searchTreeView["columns"]]
+            data.append(values)
+
+        # Sort the data based on the selected column
+        column_index = searchTreeView["columns"].index(selected_option)
+        sorted_data = sorted(data, key=lambda x: x[column_index])
+
+        # Clear the existing rows in the searchTreeView
+        searchTreeView.delete(*searchTreeView.get_children())
+
+        # Insert the sorted data into the searchTreeView
+        for values in sorted_data:
+            searchTreeView.insert("", tk.END, values = values)
+    
+
+####################################### end of event handlers
 
 
 def importLocalPlaylist1():
@@ -320,9 +374,7 @@ def load_updated_merged_playlist():
             treeview3.insert("", "end", values=row)
     
 
-
-#def deselect():
-    # make sure the selected songs can be deselected by just hitting the button deselect
+################################################################ start of window
 
 root = tk.Tk()
 root.title("SpotiDB")
@@ -400,10 +452,11 @@ mergeButton.grid(row=0, column=0, padx = (0,20),pady=(20,0))
 recommendButton = ttk.Button(buttonsFrame, text="Add Recommended", style="Accent.TButton", command=runRecommendUI)
 recommendButton.grid(row=0, column=1, padx=20,pady=(20,0))
 
-combo_list = ["Sort By", "Title", "Album", "Artist", "Song ID"]
+combo_list = ["Sort By", "Title", "Album", "Artist", "SongID"]
 combobox = ttk.Combobox(buttonsFrame, state="readonly", values=combo_list)
 combobox.current(0)
 combobox.grid(row=0, column=2, padx=20,pady=(20,0), sticky="ew")
+combobox.bind("<<ComboboxSelected>>", combobox_callback1)
 
 #############################
 
@@ -509,10 +562,11 @@ buttonsFrame2 = ttk.Frame(rightFrame2)
 buttonsFrame2.grid(row=0, column=0, sticky="nsew")
 
 
-combo_list2 = ["Sort By", "Title", "Album", "Artist", "Songs ID"]
+combo_list2 = ["Sort By", "Artist", "Album", "Title", "SongID"]
 combobox2 = ttk.Combobox(buttonsFrame2, state="readonly", values=combo_list2)
 combobox2.current(0)
 combobox2.grid(row=2, column=2, padx=20,pady=(20,0), sticky="ew")
+combobox2.bind("<<ComboboxSelected>>", combobox_callback2)
 
 #############################
 
@@ -541,14 +595,8 @@ scrollbarS.pack(side="right", fill="y")
 MiniFrame = ttk.Frame(rightFrame2)
 MiniFrame.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
-button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton")
+button1 = ttk.Button(MiniFrame, text="Add", style="Accent.TButton", command=addSong)
 button1.grid(row=0, column=0, padx = (40,0),pady=(0,0))
-
-button2 = ttk.Button(MiniFrame, text="Delete", style="Accent.TButton")
-button2.grid(row=0, column=1, padx = (40,0),pady=(0,0))
-
-button3 = ttk.Button(MiniFrame, text="Deselect", style="Accent.TButton")
-button3.grid(row=0, column=2, padx = (40,0),pady=(0,0))
 
 ########################################
 tab3 = ttk.Frame(windowFrameNotebook)
