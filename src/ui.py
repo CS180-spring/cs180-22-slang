@@ -425,6 +425,32 @@ def load_updated_merged_playlist():
 
 ################################################################ start of window
 
+def combobox_callback(event):
+    selected_option = combobox2.get()
+
+    if selected_option == "Sort By":
+        # If "Sort By" is selected, do nothing.
+        pass
+
+    else:
+        # Get the data from the searchTreeView
+        data = []
+        for item in searchTreeView.get_children():
+            values = [searchTreeView.set(item, column) for column in searchTreeView["columns"]]
+            data.append(values)
+
+        # Sort the data based on the selected column
+        column_index = searchTreeView["columns"].index(selected_option)
+        sorted_data = sorted(data, key=lambda x: x[column_index])
+
+        # Clear the existing rows in the searchTreeView
+        searchTreeView.delete(*searchTreeView.get_children())
+
+        # Insert the sorted data into the searchTreeView
+        for values in sorted_data:
+            searchTreeView.insert("", tk.END, values=values)
+
+
 root = tk.Tk()
 root.title("SpotiDB")
 root.resizable(width=False, height=False)
@@ -611,11 +637,13 @@ buttonsFrame2 = ttk.Frame(rightFrame2)
 buttonsFrame2.grid(row=0, column=0, sticky="nsew")
 
 
+
 combo_list2 = ["Sort By", "Artist", "Album", "Title", "SongID"]
 combobox2 = ttk.Combobox(buttonsFrame2, state="readonly", values=combo_list2)
 combobox2.current(0)
 combobox2.grid(row=2, column=2, padx=20,pady=(20,0), sticky="ew")
 combobox2.bind("<<ComboboxSelected>>", combobox_callback2)
+
 
 #############################
 
