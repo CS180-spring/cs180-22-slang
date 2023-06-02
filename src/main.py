@@ -148,7 +148,7 @@ while inp1 != "7":
         console.print("[bold]Add songs:")
         inp3 = True
         while inp3:
-            temp_song = search.advanced_search(library_df, library_loc)
+            temp_song, library_df = search.advanced_search(library_df, library_loc)
             if not temp_song.empty: 
                 if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
                     inp4 = Confirm.ask("[red]Song already in playlist.[/red] Would you still like to add?")
@@ -176,7 +176,7 @@ while inp1 != "7":
         if inp3 == "1":
             inp4 = True
             while inp4:
-                temp_song = search.advanced_search(library_df, library_loc)
+                temp_song, library_df = search.advanced_search(library_df, library_loc)
                 if not temp_song.empty:
                     if temp_song['track_id'].to_string(index=False) in playlist_df['track_id'].values:
                         inp5 = Confirm.ask("[red]Song already in playlist.[/red] Would you still like to add?")
@@ -214,6 +214,8 @@ while inp1 != "7":
         playlistLink = input("Please enter link to playlist: ")
         id = extract_playlist_id_from_url(playlistLink)
         playlistName = input("Please name your imported playlist: ")
+        if " " in playlistName:
+            playlistName = playlistName.replace(" ", "_")
 
         df = make_playlist_df1("spotify", id)
         csvName = "../output/" + playlistName + ".csv"

@@ -341,16 +341,16 @@ def advanced_search(library_df, library_loc):
                 validInput = False
                 
                 if int(songToAdd) in results.index:
-                    return results.loc[[int(songToAdd)]]
+                    return results.loc[[int(songToAdd)]], library_df
                 else:
                     tryagain = Confirm.ask("[red]Invalid song.[/red] Would you like to try again?")
                     if not tryagain:
-                        return pd.DataFrame()
+                        return pd.DataFrame(), library_df
                     else:
                         validInput = True
     else:
         console.print('[red]No songs found.')
-        return pd.DataFrame()
+        return pd.DataFrame(), library_df
     
 
 def searchBySongTitle(library_df, songTitle):
